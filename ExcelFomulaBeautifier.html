@@ -15,6 +15,14 @@
 		color: aliceblue;
 	}
 	
+	body h7{
+		font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif';
+	}
+	
+	body h4{
+		font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif';
+	}
+	
 	.Article h2{
 		font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif';
 		color:black;
@@ -39,10 +47,95 @@
 	
 	
 </style>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?27b93fb7616962bbedb71ae788c280b9";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 <script src="ExcelFomulaBeautifier.js"></script>
-</head>
 
-<body style="width: 100%;height: 100%;padding: 0%;margin: 0%;display:block;text-align: center;">
+<script>
+	var OKColor = 'lightgreen';
+	var ErrColor = 'lightcoral';
+	function beautify(){
+		var Str;
+		SetStatus(false,'',OKColor);
+		Str = document.getElementById('TextBox').value;
+		if(Str === ""){
+			return;
+		}
+		Str = ExcelFomulaBeautifier(Str);
+		if(Str.substr(0,4) ==="Err:"){
+			alert(Str);
+			return;
+		}
+		document.getElementById('TextBox').value = Str;
+	}
+	
+	function PasteFromclipboard(){
+		SetStatus(false,'',OKColor);
+		document.getElementById('TextBox').value = getClipboard();
+	}
+	
+	function SetStatus(Visible,Str,Color){
+		if(Visible){
+			document.getElementById('Status').setAttribute('display','block');
+		}
+		else{
+			document.getElementById('Status').setAttribute('display','none');
+		}
+		document.getElementById('Status').innerHTML = Str;
+		document.getElementById('Status').setAttribute('background-color',Color);
+		
+	}
+	
+	
+	function Clear(){
+		document.getElementById('TextBox').value = "";
+	}
+	
+	function getClipboard() {
+		if (window.clipboardData) {
+			return (window.clipboardData.getData('Text'));
+		}
+		else if (window.netscape) {
+			netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+			var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+			if (!clip) return;
+			var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+			if (!trans) return;
+			trans.addDataFlavor('text/unicode');
+			clip.getData(trans, clip.kGlobalClipboard);
+			var str = new Object();
+			var len = new Object();
+			try {
+				trans.getTransferData('text/unicode', str, len);
+			}
+			catch (error) {
+				return null;
+			}
+			if (str) {
+				if (Components.interfaces.nsISupportsWString) str = str.value.QueryInterface(Components.interfaces.nsISupportsWString);
+				else if (Components.interfaces.nsISupportsString) str = str.value.QueryInterface(Components.interfaces.nsISupportsString);
+				else str = null;
+			}
+			if (str) {
+				return (str.data.substring(0, len.value / 2));
+			}
+		}
+		SetStatus(true,'Your borwser dose not support this,please paste manully\n您的浏览器不支持访问粘贴板，请直接粘贴',ErrColor);
+		return null;
+	}
+	
+	
+</script>
+	
+</head>
+<body style="width: 100%;height: 100%;padding: 0px;margin: 0px;text-align: center;">
 	<div id="head" style="width: 100%;background-color: dodgerblue;height: 100px;margin-top: 0px;">
 		<div id="titlediv" style="text-align: left;width: 60%;max-width:1000px;margin-left: auto;margin-right: auto;">
 			<h1>Demo-ExcelFomulaBeautifier</h1>
@@ -51,42 +144,71 @@
 	
 	
 	</div>
-	
 	<div id="main" style="width: 60%;max-width:1000px;border: dodgerblue solid 1px;margin: auto;height:auto;min-height: 700px">
-		<div id="Buttons" style="width: 100%;margin-top: 10px;text-align: left;padding-left: 2%;">
-			<input type="button" style="font-size: 16px;margin: 0px;" title="PasteFrom" value="PasteFromClipboard  从粘贴板粘贴">
-			<input type="button" style="font-size: 16px;" title="PasteFrom" value="Beautify  格式化/美化">
-		
+		<div style="width: 100%;display: inline-block"> 
+			<div id="leftpan" style="width: 80%;float: left">
+
+
+				<div id="Buttons" style="width: 100%;margin-top: 10px;text-align: left;padding-left: 2%;">
+					<input onClick="PasteFromclipboard();" type="button" style="font-size: 16px;margin: 0px;" title="PasteFrom" value="PasteFromClipboard  从粘贴板粘贴">
+					<input onClick="beautify();" type="button" style="font-size: 16px;" title="PasteFrom" value="Beautify  格式化/美化">
+					<input onClick="Clear();" type="button" style="font-size: 16px;" title="PasteFrom" value="Clear  清空">
+					
+
+				</div>
+				<div style="width: 100%;text-align: center;margin-top: 5px;">
+					<textarea id="TextBox" style="width: 96%;text-align:left;height: auto;min-height: 300px;"></textarea>
+
+
+				</div>
+				<div id="Status" style="width: 96%;text-align: left;display: block;border: dodgerblue solid 2px;background-color:lightcoral;margin-left: 2%;margin-right: 2%;font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif';height: auto;max-height: 300px;">
+
+				
+				
+				</div>
+
+			</div>
+			<div id="rightpan" style="width: 20%;float: right;text-align: left;">
+				<h4 style="margin-top: 10px;margin-bottom: 12px;">Functions 使用的函数</h4>
+				<hr>
+					
+
+
+
+			</div>
 		</div>
-		<div style="width: 100%;text-align: center;margin-top: 5px;">
-			<textarea style="width: 96%;text-align:left;height: auto;min-height: 300px;"></textarea>
-		
-		
-		</div>
-		
-		<div id="Article" class="Article" style="text-align: left;margin: 10px;">
+		<div id="Article" class="Article" style="text-align: left;margin: 10px;margin-top: 100px;">
 			<h2>About ExcelFomulaBeautifier </h2>
-			<h3>关于本项目</h3>
-			<h4>GitHub地址：<a href="github.com/AntoniotheFuture/ExcelFomulaBeautifier">github.com/AntoniotheFuture/ExcelFomulaBeautifier</a></h4>
-			<h4>Developers/开发者:<a href="antoniothefuture@qq.com">antoniothefuture@qq.com</a></h4>
 			
 			<hr>
 			<h4>
-				Paste your Excel fomula into the textBox above,and click the <u> Beautify </u> button,we can make the fomula more easy to read and understand!
+				Paste your Excel fomulas into the textBox above, and click the <u> Beautify </u> button, we can make your fomulas more easy to be read and understood!
 			</h4>
-			
+
 			<h4>
 				将您的Excel公式复制到上方的文本框中，点击 <u>格式化/美化</u> 按钮来将他变得更容易理解！
 			</h4>
-		
-		
+			<hr>
+			<h3>关于本项目</h3>
+			<h4>GitHub地址：<a href="github.com/AntoniotheFuture/ExcelFomulaBeautifier">github.com/AntoniotheFuture/ExcelFomulaBeautifier</a></h4>
+			<h4>Developers/开发者:<a href="antoniothefuture@qq.com">antoniothefuture@qq.com</a></h4>
+			<h7>This is a demo version, in other words, you may found a later version in github. </h7>
+			<h7>请留意我的项目地址来获得最新的版本。</h7>
+			<br>
+			<br>
+			<h7>If you like this,how about share this to your friends or give me a star? Thank you!</h7>
+			<h7>你们的支持是我最大的动力，如果你觉得这个工具有用，不妨分享出去让更多人知道，在我的项目中点一颗星那就更好了！</h7>
+
+			
+
+
 		</div>
-	
-		
-	
-	
+
+
+
+
 	</div>
-	
+
 	<hr style="margin-top: 100px;">
 	<div id="Bottom">
 		<div style="text-align: left;width: 60%;max-width:1000px;margin-left: auto;margin-right: auto;">

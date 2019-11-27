@@ -70,7 +70,7 @@
 		}
 		Str = ExcelFomulaBeautifier(Str);
 		if(Str.substr(0,4) ==="Err:"){
-			alert(Str);
+			SetStatus(true,Str,ErrColor);
 			return;
 		}
 		document.getElementById('TextBox').value = Str;

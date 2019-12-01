@@ -57,13 +57,15 @@
 	})();
 </script>
 <script src="ExcelFormulaBeautifier.js"></script>
-
+<script type="text/javascript" src="ExFunctions.js"></script>
+	
 <script>
 	var OKColor = 'lightgreen';
 	var ErrColor = 'lightcoral';
 	var ShowFunctionInfoHint = "FunctionInfo  显示函数信息";
 	var NotShowFunctionInfoHint = "NoFunctionInfo  不显示函数信息";
 	var ShowFunctionInfo = true;
+
 	function beautify(){
 		var Str;
 		SetStatus(false,'',OKColor);
@@ -71,14 +73,20 @@
 		if(Str === ""){
 			return;
 		}
-		Str = ExcelFormulaBeautifier(Str);
-		if(Str.substr(0,4) ==="Err:"){
-			SetStatus(true,Str,ErrColor);
+		ExcelFormulaBeautifier2(Str);
+		if(Errors.length !== 0){
+			SetStatus(true,GetErrors(),ErrColor);
 			return;
 		}
+		//Str = ExcelFormulaBeautifier(Str);
+		//if(Str.substr(0,4) ==="Err:"){
+		//	SetStatus(true,Str,ErrColor);
+		//	return;
+		//}
 		//alert(Str);
-		document.getElementById('TextBox').value = Str;
-		document.getElementById('TextBoxB').value = FunctionInfos;
+		document.getElementById('TextBox').value = GetResult();
+		//document.getElementById('TextBox').value = Str;
+		document.getElementById('TextBoxB').value = GetDes();
 	}
 	
 	function PasteFromclipboard(){
@@ -102,9 +110,11 @@
 		ShowFunctionInfo = !ShowFunctionInfo;
 		if(ShowFunctionInfo){
 			document.getElementById("ShowFI").value = ShowFunctionInfoHint;
+			//document.getElementById("TextBoxB").style.visibility = "visible";
 		}
 		else{
 			document.getElementById("ShowFI").value = NotShowFunctionInfoHint;
+			//document.getElementById("TextBoxB").style.visibility = "hidden";
 		}
 		
 		//添加显示/隐藏附加层？
@@ -171,13 +181,13 @@
 					<input onClick="PasteFromclipboard();" type="button" style="font-size: 16px;margin: 0px;" title="PasteFrom" value="PasteFromClipboard  从粘贴板粘贴">
 					<input onClick="beautify();" type="button" style="font-size: 16px;" title="PasteFrom" value="Beautify  格式化/美化">
 					<input onClick="Clear();" type="button" style="font-size: 16px;" title="PasteFrom" value="Clear  清空">
-					<input onClick="ChangeShowFI();" id="ShowFI" type="button" style="font-size: 16px;" title="PasteFrom" value="FunctionInfo  显示函数信息">
+					<input onClick="ChangeShowFI();" id="ShowFI" type="button" style="font-size: 16px;visibility: hidden" title="PasteFrom" value="FunctionInfo  显示函数信息">
 					
 
 				</div>
 				<div style="width: 100%;text-align: center;margin-top: 5px;position:relative">
 					<textarea id="TextBox" style="width: 96%;text-align:left;height: auto;min-height: 300px;background-color:transparent;top: 0px;position:absolute;left: 12px;"></textarea>
-					<textarea id="TextBoxB" style="width: 96%;margin-left: 0px; text-align:left;height: auto;min-height: 300px;background-color: transparent;color: gray;border: none"></textarea>
+					<textarea id="TextBoxB" style="width: 96%;margin-left: 0px; text-align:left;height: auto;min-height: 300px;background-color: transparent;color: gray;border: none;visibility: hidden"></textarea>
 					
 					
 

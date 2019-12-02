@@ -86,7 +86,9 @@
 		//alert(Str);
 		document.getElementById('TextBox').value = GetResult();
 		//document.getElementById('TextBox').value = Str;
-		document.getElementById('TextBoxB').value = GetDes();
+		if(ShowFunctionInfo){
+			document.getElementById('TextBoxB').value = GetDes();
+		}
 	}
 	
 	function PasteFromclipboard(){
@@ -121,9 +123,16 @@
 		
 	}
 	
+	//function TextBoxChange(){
+	//	if(document.getElementById('TextBox').value = ""){
+	//		document.getElementById('TextBoxB').value = "";
+	//	}
+		
+	//}
 	
 	function Clear(){
 		document.getElementById('TextBox').value = "";
+		document.getElementById('TextBoxB').value = "";
 	}
 	
 	function getClipboard() {
@@ -181,13 +190,13 @@
 					<input onClick="PasteFromclipboard();" type="button" style="font-size: 16px;margin: 0px;" title="PasteFrom" value="PasteFromClipboard  从粘贴板粘贴">
 					<input onClick="beautify();" type="button" style="font-size: 16px;" title="PasteFrom" value="Beautify  格式化/美化">
 					<input onClick="Clear();" type="button" style="font-size: 16px;" title="PasteFrom" value="Clear  清空">
-					<input onClick="ChangeShowFI();" id="ShowFI" type="button" style="font-size: 16px;visibility: hidden" title="PasteFrom" value="FunctionInfo  显示函数信息">
+					<input onClick="ChangeShowFI();" id="ShowFI" type="button" style="font-size: 16px;visibility:visible" title="PasteFrom" value="FunctionInfo  显示函数信息">
 					
 
 				</div>
 				<div style="width: 100%;text-align: center;margin-top: 5px;position:relative">
-					<textarea id="TextBox" style="width: 96%;text-align:left;height: auto;min-height: 300px;background-color:transparent;top: 0px;position:absolute;left: 12px;"></textarea>
-					<textarea id="TextBoxB" style="width: 96%;margin-left: 0px; text-align:left;height: auto;min-height: 300px;background-color: transparent;color: gray;border: none;visibility: hidden"></textarea>
+					<textarea id="TextBox" style="width: 96%;text-align:left;height: auto;min-height: 300px;background-color:transparent;top: 0px;position:absolute;left: 12px;" ></textarea>
+					<textarea id="TextBoxB" style="width:auto;min-width: 96%; overflow-x: auto; margin-left: 0px; text-align:left;height: auto;min-height: 300px;background-color: transparent;color:darkcyan;border: none;visibility:visible"></textarea>
 					
 					
 

@@ -6,6 +6,203 @@ var ExFunction = [{
 			"number"
 		]
 	},
+	//we need to put this in here
+	{
+		"Fname": "COUNTIF",
+		"NewLine": "Yes",
+		"Des": "returns the number of blank cells in a supplied range.",
+		"Args": [
+			"range", "criteria"
+		]
+	},
+	{
+		"Fname": "COUNTIFS",
+		"NewLine": "Yes",
+		"Des": "returns the number of cells within a supplied range, that satisfy a given criteria.",
+		"Args": [
+			"criteria_range1", "criteria1", "[criteria_range2", "criteria2]"
+		]
+	},
+
+	{
+		"Fname": "SUMIF",
+		"NewLine": "Yes",
+		"Des": "finds the values in a supplied array, that satisfy a given criteria, and returns the sum of the corresponding values in a second supplied array.",
+		"Args": [
+			"range", "criteria", "[sum_range]"
+		]
+	},
+	{
+		"Fname": "SUMIFS",
+		"NewLine": "Yes",
+		"Des": "finds values in one or more supplied arrays, that satisfy a set of criteria, and returns the sum of the corresponding values in a further supplied array.",
+		"Args": [
+			"sum_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]"
+		]
+	},
+	{
+		"Fname": "EDATE",
+		"NewLine": "Yes",
+		"Des": "calculates the variance (for an entire population), of the values in a field (column) in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
+		"Args": [
+			"start_date", "months"
+		]
+	},
+	{
+		"Fname": "NETWORKDAYS",
+		"NewLine": "Yes",
+		"Des": "calculates the number of work days between two supplied dates (including the start and end date). The calculation includes all weekdays (Mon - Fri), excluding a supplied list of holidays.",
+		"Args": [
+			"start_date", "end_date", "[holidays]"
+		]
+	},
+	{
+		"Fname": "TODAY",
+		"NewLine": "No",
+		"Des": "returns the current date. The function has no arguments and therefore, the syntax of the function is simply:",
+		"Args": [
+
+		]
+	},
+	{
+		"Fname": "WORKDAY",
+		"NewLine": "Yes",
+		"Des": "returns a date that is a supplied number of working days (excluding weekends and holidays) ahead of a given start date.",
+		"Args": [
+			"start_date", "days", "[holidays]"
+		]
+	},
+	{
+		"Fname": "WEEKDAY",
+		"NewLine": "Yes",
+		"Des": "returns an integer representing the day of the week for a supplied date.",
+		"Args": [
+			"serial_number", "[return_type]"
+		]
+	},
+	{
+		"Fname": "COUPDAYS",
+		"NewLine": "Yes",
+		"Des": "calculates the number of days from the beginning of a coupon‘s period to the settlement date.",
+		"Args": [
+			"settlement", "maturity", "frequency", "[basis]"
+		]
+	},
+	{
+		"Fname": "UNICHAR",
+		"NewLine": "No",
+		"Des": "returns the Unicode character relating to a supplied number.",
+		"Args": [
+			"number"
+		]
+	},
+	{
+		"Fname": "AVERAGEIF",
+		"NewLine": "Yes",
+		"Des": "returns the arithmetic mean of a list of supplied numbers.",
+		"Args": [
+			"range", "criteria", "[average_range]"
+		]
+	},
+	{
+		"Fname": "AVERAGEIFS",
+		"NewLine": "Yes",
+		"Des": "finds the values in a supplied array that satisfy a specified criteria, and returns the average (i.e. the statistical mean) of the corresponding values in a second supplied array.",
+		"Args": [
+			"average_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]"
+		]
+	},
+	{
+		"Fname": "DATEVALUE",
+		"NewLine": "No",
+		"Des": "converts a supplied year, month and day into an Excel date.",
+		"Args": [
+			"date_text"
+		]
+	},
+	{
+		"Fname": "NUMBERVALUE",
+		"NewLine": "Yes",
+		"Des": "converts a text string into a number, in a locale-independant way.",
+		"Args": [
+			"text", "[decimal_separator]", "[group_separator]"
+		]
+	},
+	{
+		"Fname": "TIMEVALUE",
+		"NewLine": "No",
+		"Des": "converts a text representation of a time, into an Excel time.",
+		"Args": [
+			"time_text"
+		]
+	},
+	{
+		"Fname": "EOMONTH",
+		"NewLine": "Yes",
+		"Des": "returns the effective annual interest rate for a given nominal interest rate and number of compounding periods per year.",
+		"Args": [
+			"start_date", "months"
+		]
+	},
+	{
+		"Fname": "HLOOKUP",
+		"NewLine": "Yes",
+		"Des": "converts a Hexadecimal (Base 16) number into an Octal (Base 8) number.",
+		"Args": [
+			"lookup_value", "table_array", "row_index_num", "[range_lookup]"
+		]
+	},
+	{
+		"Fname": "VLOOKUP",
+		"NewLine": "Yes",
+		"Des": "looks up a given value in the left-hand column of a data array (or table), and returns the corresponding value from another column of the array.",
+		"Args": [
+			"lookup_value", "table_array", "col_index_num", "[range_lookup]"
+		]
+	},
+	{
+		"Fname": "MAXA",
+		"NewLine": "Yes",
+		"Des": "returns the largest value from a supplied set of numeric values, while counting text and the logical value FALSE as the value 0 and counting the logical value TRUE as the value 1.",
+		"Args": [
+			"number1", "[number2]"
+		]
+	},
+	{
+		"Fname": "MAXIFS",
+		"NewLine": "Yes",
+		"Des": "returns the maximum value from a subset of values that are specified according to one or more criteria.",
+		"Args": [
+			"max_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]"
+		]
+	},
+	{
+		"Fname": "DMAX",
+		"NewLine": "Yes",
+		"Des": "calculates the Discount Rate for a security.",
+		"Args": [
+			"database", "field", "criteria"
+		]
+	},
+	{
+		"Fname": "MINIFS",
+		"NewLine": "Yes",
+		"Des": "returns the minimum value from a subset of values that are specified according to one or more criteria.",
+		"Args": [
+			"min_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]"
+		]
+	},
+
+	{
+		"Fname": "DMIN",
+		"NewLine": "Yes",
+		"Des": "finds the maximum value in a field (column) in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
+		"Args": [
+			"database", "field", "criteria"
+		]
+	},  
+				  
+				  
 	{
 		"Fname": "ACCRINT",
 		"NewLine": "Yes",
@@ -83,7 +280,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "is provided for users of the French accounting system. The function calculates the prorated linear depreciation of an asset for a specified accounting period.",
 		"Args": [
-			"logical_test1", "[logical_test2]", "..."
+			"logical_test1", "[logical_test2]"
 		]
 	},
 	{
@@ -147,7 +344,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the inverse hyperbolic tangent of a supplied number.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -155,7 +352,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the average deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -163,25 +360,10 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the arithmetic mean of a list of supplied numbers.",
 		"Args": [
-			"value1", "[value2]", "..."
+			"value1", "[value2]"
 		]
 	},
-	{
-		"Fname": "AVERAGEIF",
-		"NewLine": "Yes",
-		"Des": "returns the arithmetic mean of a list of supplied numbers.",
-		"Args": [
-			"range", "criteria", "[average_range]"
-		]
-	},
-	{
-		"Fname": "AVERAGEIFS",
-		"NewLine": "Yes",
-		"Des": "finds the values in a supplied array that satisfy a specified criteria, and returns the average (i.e. the statistical mean) of the corresponding values in a second supplied array.",
-		"Args": [
-			"average_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]", "..."
-		]
-	},
+
 	{
 		"Fname": "BAHTTEXT",
 		"NewLine": "No",
@@ -467,7 +649,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "uses the chi-square test to calculate the probability that the differences between two supplied data sets (of observed and expected frequencies), are likely to be simply due to sampling error, or if they are likely to be real.",
 		"Args": [
-			"index_num", "value1", "[value2]", "..."
+			"index_num", "value1", "[value2]"
 		]
 	},
 	{
@@ -523,7 +705,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "takes two arguments, representing the real and the imaginary coefficients of a complex number, and from these, creates a complex number.",
 		"Args": [
-			"text1", "[text2]", "..."
+			"text1", "[text2]"
 		]
 	},
 	{
@@ -531,7 +713,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "joins together a series of supplied text strings into one combined text string.",
 		"Args": [
-			"text1", "[text2]", "..."
+			"text1", "[text2]"
 		]
 	},
 	{
@@ -611,7 +793,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the hyperbolic cotangent (coth) of a supplied angle.",
 		"Args": [
-			"value1", "[value2]", "..."
+			"value1", "[value2]"
 		]
 	},
 	{
@@ -619,7 +801,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the count of numeric values in a supplied set of cells or values. This count includes both numbers and dates.",
 		"Args": [
-			"value1", "[value2]", "..."
+			"value1", "[value2]"
 		]
 	},
 	{
@@ -631,22 +813,6 @@ var ExFunction = [{
 		]
 	},
 	{
-		"Fname": "COUNTIF",
-		"NewLine": "Yes",
-		"Des": "returns the number of blank cells in a supplied range.",
-		"Args": [
-			"range", "criteria"
-		]
-	},
-	{
-		"Fname": "COUNTIFS",
-		"NewLine": "Yes",
-		"Des": "returns the number of cells within a supplied range, that satisfy a given criteria.",
-		"Args": [
-			"criteria_range1", "criteria1", "[criteria_range2", "criteria2]", "..."
-		]
-	},
-	{
 		"Fname": "COUPDAYBS",
 		"NewLine": "Yes",
 		"Des": "returns the number of rows within a table, that satisfy a set of given criteria.",
@@ -654,14 +820,7 @@ var ExFunction = [{
 			"settlement", "maturity", "frequency", "[basis]"
 		]
 	},
-	{
-		"Fname": "COUPDAYS",
-		"NewLine": "Yes",
-		"Des": "calculates the number of days from the beginning of a coupon‘s period to the settlement date.",
-		"Args": [
-			"settlement", "maturity", "frequency", "[basis]"
-		]
-	},
+
 	{
 		"Fname": "COUPDAYSNC",
 		"NewLine": "Yes",
@@ -766,14 +925,7 @@ var ExFunction = [{
 			"year", "month", "day"
 		]
 	},
-	{
-		"Fname": "DATEVALUE",
-		"NewLine": "No",
-		"Des": "converts a supplied year, month and day into an Excel date.",
-		"Args": [
-			"date_text"
-		]
-	},
+
 	{
 		"Fname": "DAVERAGE",
 		"NewLine": "Yes",
@@ -891,7 +1043,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "tests two numbers for equality and returns the Kronecker Delta. i.e. the function returns 1 if the two supplied numbers are equal and 0 otherwise.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -910,22 +1062,7 @@ var ExFunction = [{
 			"settlement", "maturity", "pr", "redemption", "[basis]"
 		]
 	},
-	{
-		"Fname": "DMAX",
-		"NewLine": "Yes",
-		"Des": "calculates the Discount Rate for a security.",
-		"Args": [
-			"database", "field", "criteria"
-		]
-	},
-	{
-		"Fname": "DMIN",
-		"NewLine": "Yes",
-		"Des": "finds the maximum value in a field (column) in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"database", "field", "criteria"
-		]
-	},
+
 	{
 		"Fname": "DOLLAR",
 		"NewLine": "Yes",
@@ -1007,14 +1144,6 @@ var ExFunction = [{
 		]
 	},
 	{
-		"Fname": "EDATE",
-		"NewLine": "Yes",
-		"Des": "calculates the variance (for an entire population), of the values in a field (column) in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"start_date", "months"
-		]
-	},
-	{
 		"Fname": "EFFECT",
 		"NewLine": "Yes",
 		"Des": "returns a date that is a specified number of months before or after a supplied start date.",
@@ -1022,14 +1151,7 @@ var ExFunction = [{
 			"nominal_rate", "npery"
 		]
 	},
-	{
-		"Fname": "EOMONTH",
-		"NewLine": "Yes",
-		"Des": "returns the effective annual interest rate for a given nominal interest rate and number of compounding periods per year.",
-		"Args": [
-			"start_date", "months"
-		]
-	},
+
 	{
 		"Fname": "ERF",
 		"NewLine": "Yes",
@@ -1395,7 +1517,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the natural logarithm of the Gamma Function, Γ(n).",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -1403,7 +1525,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the greatest common divisor of two or more supplied integers.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -1419,7 +1541,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "tests whether a supplied number is greater than a supplied step size and returns:",
 		"Args": [
-			"data_field", "pivot_table", "[field1]", "[item1]", "[field2]", "[item2]", "..."
+			"data_field", "pivot_table", "[field1]", "[item1]", "[field2]", "[item2]"
 		]
 	},
 	{
@@ -1435,7 +1557,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the exponential growth curve through a given set of y-values and (optionally), one or more sets of x-values. The function then extends the curve to calculate additional y-values for a further supplied set of new x-values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -1462,14 +1584,7 @@ var ExFunction = [{
 			"number", "[places]"
 		]
 	},
-	{
-		"Fname": "HLOOKUP",
-		"NewLine": "Yes",
-		"Des": "converts a Hexadecimal (Base 16) number into an Octal (Base 8) number.",
-		"Args": [
-			"lookup_value", "table_array", "row_index_num", "[range_lookup]"
-		]
-	},
+
 	{
 		"Fname": "HOUR",
 		"NewLine": "No",
@@ -1531,7 +1646,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "tests if an initial supplied value (or expression) evaluates to the Excel #N/A error. If so, the function returns a second supplied value; Otherwise the function returns the first supplied value.",
 		"Args": [
-			"logical_test1", " value_if_true1", " [logical_test2", " value_if_true2]", " [logical_test3", " value_if_true3]", "..."
+			"logical_test1", " value_if_true1", " [logical_test2", " value_if_true2]", " [logical_test3", " value_if_true3]"
 		]
 	},
 	{
@@ -1651,7 +1766,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns a supplied complex number, raised to a given power.",
 		"Args": [
-			"inumber1", "inumber2", "..."
+			"inumber1", "inumber2"
 		]
 	},
 	{
@@ -1715,7 +1830,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sum of two or more complex numbers.",
 		"Args": [
-			"inumber1", "inumber2", "..."
+			"inumber1", "inumber2"
 		]
 	},
 	{
@@ -1907,7 +2022,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "tests if a supplied value is text, and if so, returns TRUE; Otherwise, the function returns FALSE.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -1923,7 +2038,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the kurtosis of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2043,25 +2158,10 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the largest value from a supplied set of numeric values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
-	{
-		"Fname": "MAXA",
-		"NewLine": "Yes",
-		"Des": "returns the largest value from a supplied set of numeric values, while counting text and the logical value FALSE as the value 0 and counting the logical value TRUE as the value 1.",
-		"Args": [
-			"number1", "[number2]", "..."
-		]
-	},
-	{
-		"Fname": "MAXIFS",
-		"NewLine": "Yes",
-		"Des": "returns the maximum value from a subset of values that are specified according to one or more criteria.",
-		"Args": [
-			"max_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]", "..."
-		]
-	},
+
 	{
 		"Fname": "MDETERM",
 		"NewLine": "No",
@@ -2083,7 +2183,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the statistical median (the middle value) of a list of supplied numbers.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2099,7 +2199,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the smallest value from a supplied set of numeric values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2107,17 +2207,10 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the smallest value from a supplied set of numeric values, while counting text and the logical value FALSE as the value 0 and counting the logical value TRUE as the value 1.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
-	{
-		"Fname": "MINIFS",
-		"NewLine": "Yes",
-		"Des": "returns the minimum value from a subset of values that are specified according to one or more criteria.",
-		"Args": [
-			"min_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]", "..."
-		]
-	},
+
 	{
 		"Fname": "MINUTE",
 		"NewLine": "No",
@@ -2163,7 +2256,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the statistical mode (the most frequently occurring value) of a list of supplied numbers. If there are 2 or more most frequently occurring values in the supplied data, the function returns the lowest of these values",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2171,7 +2264,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns a vertical array of the statistical modes (the most frequently occurring values) within a list of supplied numbers.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2179,7 +2272,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the statistical mode (the most frequently occurring value) within a list of supplied numbers. If there are 2 or more most frequently occurring values in the supplied data, the function returns the lowest of these values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2236,14 +2329,6 @@ var ExFunction = [{
 		"Des": "Given the probability of a success from a single event, the Excel NEGBINOMDIST function calculates the Negative Binomial Distribution for a given set of parameters.",
 		"Args": [
 			"number_f", "number_s", "probability_s"
-		]
-	},
-	{
-		"Fname": "NETWORKDAYS",
-		"NewLine": "Yes",
-		"Des": "calculates the number of work days between two supplied dates (including the start and end date). The calculation includes all weekdays (Mon - Fri), excluding a supplied list of holidays.",
-		"Args": [
-			"start_date", "end_date", "[holidays]"
 		]
 	},
 	{
@@ -2355,17 +2440,10 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the Net Present Value of an investment, based on a supplied discount rate, and a series of future payments and income.",
 		"Args": [
-			"rate", "value1", "[value2]", "[value3]", "..."
+			"rate", "value1", "[value2]", "[value3]"
 		]
 	},
-	{
-		"Fname": "NUMBERVALUE",
-		"NewLine": "Yes",
-		"Des": "converts a text string into a number, in a locale-independant way.",
-		"Args": [
-			"text", "[decimal_separator]", "[group_separator]"
-		]
-	},
+
 	{
 		"Fname": "OCT2BIN",
 		"NewLine": "Yes",
@@ -2443,7 +2521,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "tests a number of supplied conditions and returns either:",
 		"Args": [
-			"logical_test1", "[logical_test2]", "..."
+			"logical_test1", "[logical_test2]"
 		]
 	},
 	{
@@ -2619,7 +2697,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the product (multiplication) of a supplied set of numerical values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2900,7 +2978,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the skewness of the distribution of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2908,7 +2986,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the skewness of the distribution of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2964,7 +3042,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sample standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2972,7 +3050,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2980,7 +3058,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sample standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2988,7 +3066,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sample standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -2996,7 +3074,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3004,7 +3082,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the standard deviation of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3028,7 +3106,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "performs a specified calculation (e.g. the sum, product, average, etc.) for a supplied set of values.",
 		"Args": [
-			"function_num", "ref1", "[ref2]", "..."
+			"function_num", "ref1", "[ref2]"
 		]
 	},
 	{
@@ -3036,23 +3114,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "adds together a supplied set of numbers and returns the sum of these values.",
 		"Args": [
-			"number1", "[number2]", "..."
-		]
-	},
-	{
-		"Fname": "SUMIF",
-		"NewLine": "Yes",
-		"Des": "finds the values in a supplied array, that satisfy a given criteria, and returns the sum of the corresponding values in a second supplied array.",
-		"Args": [
-			"range", "criteria", "[sum_range]"
-		]
-	},
-	{
-		"Fname": "SUMIFS",
-		"NewLine": "Yes",
-		"Des": "finds values in one or more supplied arrays, that satisfy a set of criteria, and returns the sum of the corresponding values in a further supplied array.",
-		"Args": [
-			"sum_range", "criteria_range1", "criteria1", "[criteria_range2", "criteria2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3060,7 +3122,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the sum of the products of the corresponding values in a set of supplied arrays.",
 		"Args": [
-			"array1", "[array2]", "[array3]", "..."
+			"array1", "[array2]", "[array3]"
 		]
 	},
 	{
@@ -3068,7 +3130,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the sum of squares of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3076,7 +3138,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "compares a number of supplied values to a supplied test expression and returns a result corresponding to the first value that matches the test expression. A default value can be supplied, to be returned if none of the supplied values match the test expression.",
 		"Args": [
-			"expression", " value1", " result1", " [value2", " result2]", " [value3", " result3]", "...", " [default] )"
+			"expression", " value1", " result1", " [value2", " result2]", " [value3", " result3]", " [default] )"
 		]
 	},
 	{
@@ -3204,7 +3266,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "joins together a series of supplied text strings into one combined text string. The user can specify a delimiter to add between the individual text items, if required.",
 		"Args": [
-			"[delimiter]", "[ignore_empty]", "text1", "[text2]", "..."
+			"[delimiter]", "[ignore_empty]", "text1", "[text2]"
 		]
 	},
 	{
@@ -3215,28 +3277,13 @@ var ExFunction = [{
 			"hour", "minute", "second"
 		]
 	},
-	{
-		"Fname": "TIMEVALUE",
-		"NewLine": "No",
-		"Des": "converts a text representation of a time, into an Excel time.",
-		"Args": [
-			"time_text"
-		]
-	},
+
 	{
 		"Fname": "TINV",
 		"NewLine": "Yes",
 		"Des": "calculates the inverse of the two-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
 		"Args": [
 			"probability", "degrees_freedom"
-		]
-	},
-	{
-		"Fname": "TODAY",
-		"NewLine": "No",
-		"Des": "returns the current date. The function has no arguments and therefore, the syntax of the function is simply:",
-		"Args": [
-
 		]
 	},
 	{
@@ -3295,14 +3342,7 @@ var ExFunction = [{
 			"value"
 		]
 	},
-	{
-		"Fname": "UNICHAR",
-		"NewLine": "No",
-		"Des": "returns the Unicode character relating to a supplied number.",
-		"Args": [
-			"number"
-		]
-	},
+
 	{
 		"Fname": "UNICODE",
 		"NewLine": "No",
@@ -3332,7 +3372,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the sample variance of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3340,7 +3380,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the Variance of a given set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3348,7 +3388,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sample variance of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3356,7 +3396,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "calculates the sample variance of a supplied set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3364,7 +3404,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the Variance of a given set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3372,7 +3412,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the Variance of a given set of values.",
 		"Args": [
-			"number1", "[number2]", "..."
+			"number1", "[number2]"
 		]
 	},
 	{
@@ -3383,22 +3423,8 @@ var ExFunction = [{
 			"cost", "salvage", "life", "start_period", "end_period", "[factor]", "[no_switch]"
 		]
 	},
-	{
-		"Fname": "VLOOKUP",
-		"NewLine": "Yes",
-		"Des": "looks up a given value in the left-hand column of a data array (or table), and returns the corresponding value from another column of the array.",
-		"Args": [
-			"lookup_value", "table_array", "col_index_num", "[range_lookup]"
-		]
-	},
-	{
-		"Fname": "WEEKDAY",
-		"NewLine": "Yes",
-		"Des": "returns an integer representing the day of the week for a supplied date.",
-		"Args": [
-			"serial_number", "[return_type]"
-		]
-	},
+
+
 	{
 		"Fname": "WEEKNUM",
 		"NewLine": "Yes",
@@ -3423,14 +3449,7 @@ var ExFunction = [{
 			"x", "alpha", "beta", "cumulative"
 		]
 	},
-	{
-		"Fname": "WORKDAY",
-		"NewLine": "Yes",
-		"Des": "returns a date that is a supplied number of working days (excluding weekends and holidays) ahead of a given start date.",
-		"Args": [
-			"start_date", "days", "[holidays]"
-		]
-	},
+
 	{
 		"Fname": "WORKDAY.INTL",
 		"NewLine": "Yes",
@@ -3460,7 +3479,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "returns the Exclusive Or logical operation for one or more supplied conditions.",
 		"Args": [
-			"logical_test1", "[logical_test2]", "..."
+			"logical_test1", "[logical_test2]"
 		]
 	},
 	{

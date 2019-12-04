@@ -56,9 +56,10 @@
 	  s.parentNode.insertBefore(hm, s);
 	})();
 </script>
+
+
+
 <script src="ExcelFormulaBeautifier.js"></script>
-<script type="text/javascript" src="ExFunctions.js"></script>
-	
 <script>
 	var OKColor = 'lightgreen';
 	var ErrColor = 'lightcoral';
@@ -66,6 +67,34 @@
 	var NotShowFunctionInfoHint = "NoFunctionInfo  不显示函数信息";
 	var ShowFunctionInfo = true;
 
+	function LoadJss(){
+		var type=navigator.appName;
+		if (type==="Netscape"){
+			var lang = navigator.language;
+		}
+		else{  
+			var lang = navigator.userLanguage;
+		}
+		//取得国家代码的前两个字母  
+		var lang = lang.substr(0,2);
+		if(lang ==="zh"){
+			loadJs("ExFunctions-zh-CN.js");
+
+		}
+		else{
+			loadJs("ExFunctions.js");
+		}
+	}
+
+	
+	function loadJs(url,callback){
+		var script=document.createElement('script');
+		script.type="text/javascript";
+		script.src=url;
+		document.body.appendChild(script);
+	}
+	
+	
 	function beautify(){
 		var Str;
 		SetStatus(false,'',OKColor);
@@ -172,7 +201,7 @@
 </script>
 	
 </head>
-<body style="width: 100%;height: 100%;padding: 0px;margin: 0px;text-align: center;">
+<body onLoad="LoadJss()" style="width: 100%;height: 100%;padding: 0px;margin: 0px;text-align: center;">
 	<div id="head" style="width: 100%;background-color: dodgerblue;height: 100px;margin-top: 0px;">
 		<div id="titlediv" style="text-align: left;width: 60%;max-width:1000px;margin-left: auto;margin-right: auto;">
 			<h1 style="margin-top: 0px;">Demo-ExcelFormulaBeautifier</h1>

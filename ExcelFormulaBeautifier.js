@@ -250,6 +250,7 @@ function GetDes(){
 	var UpLvArg = "";
 	var ArgLast;
 	var Hit;
+	var Pushed = false;//上一层是否已经push
 	DesAllRow = new Array();
 	for(i=0;i<AllRows.length;i++){
 		UpLvArg = "";
@@ -266,10 +267,12 @@ function GetDes(){
 						AgrsArr[AgrsArr.length-1].push(ExFunction[ii].Fname + ":" + ExFunction[ii].Args[iii-1]);
 					}
 					//AgrsArr.push(ExFunction[ii].Args.reverse());
-					DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg + "|" ,AllRows[i][2],AllRows[i][3])); //+ ExFunction[ii].Des
-					if(UpLvArg!==""){
-						AgrsArr[ArgLast].pop();
-					}
+						//DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg + "|" ,AllRows[i][2],AllRows[i][3])); //+ ExFunction[ii].Des
+					//}
+					//if(UpLvArg!==""){
+					//	AgrsArr[ArgLast].pop();
+					//}
+					DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
 					Hit = true;
 					break;
 				}
@@ -278,40 +281,69 @@ function GetDes(){
 				DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
 			}
 		}
-		else if(AllRows[i][1].endsWith(")")){
-			if(AllRows[i][2] === 1){
-				DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-				if(AgrsArr.length >0){
-					AgrsArr[ArgLast].pop();
-					if(AgrsArr[ArgLast].length===0){
-						AgrsArr.pop();
-					}
-				}
-			}else{
-				DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-				
-			}
-		}
-		else if(AllRows[i][1].endsWith(",")){
-			//作为函数结尾
-			if(AllRows[i][1].startsWith(")")){
-				DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-			}
-			if(AllRows[i][1].endsWith("),")){
-				DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-				AgrsArr.pop();
+		else if(AllRows[i][1].startsWith(")")){
+			//AgrsArr.pop();	
+			DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
+			if(AllRows[i][1].endsWith(",")){
 				if(AgrsArr.length>0){
 					ArgLast = AgrsArr.length-1;
 					UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
-					DesAllRow[DesAllRow.length-1][2] = UpLvArg + "|" + DesAllRow[DesAllRow.length-1][2];
+					DesAllRow[DesAllRow.length -1][2] = UpLvArg;
+					DesAllRow[DesAllRow.length -1][0] = AllRows[i][0];
+					DesAllRow[DesAllRow.length -1][1] = AllRows[i][1].length
+					if(AgrsArr[ArgLast].length>0){
+						if(!UpLvArg.endsWith("]")){
+							AgrsArr[ArgLast].pop();
+							if(AgrsArr[ArgLast].length===0){
+								AgrsArr.pop();
+							}
+						}
+					}
+					else{
+						Errors.push("105:Too much args,函数参数太多");
+					}
 				}
-			}else{
-				DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-				
 			}
+		}
+		//else if(AllRows[i][1].endsWith(")")){
+		//	if(AllRows[i][2] === 1){
+		//		DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+		//		if(AgrsArr.length >0){
+		//			AgrsArr[ArgLast].pop();
+		//			if(AgrsArr[ArgLast].length===0){
+		//				AgrsArr.pop();
+		//			}
+		//		}
+		//	}else{
+		//		DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
+		//		
+		//	}
+		//}
+		else if(AllRows[i][1].endsWith(",")){
+			DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+			
+			
+			
+			//作为函数结尾
+			//if(AllRows[i][1].startsWith(")")){
+			//	DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
+			//}
+			//if(AllRows[i][1].endsWith("),")){
+			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+			//	AgrsArr.pop();
+			//	if(AgrsArr.length>0){
+			//		ArgLast = AgrsArr.length-1;
+			//		UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
+			//		DesAllRow[DesAllRow.length-1][2] = UpLvArg + "|" + DesAllRow[DesAllRow.length-1][2];
+			//	}
+			//}else{
+			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+			//	Pushed = true;
+				
+			//}
 			if(UpLvArg!==""){
 				if(AgrsArr[ArgLast].length>0){
-					if(!AgrsArr[ArgLast][AgrsArr[ArgLast].length -1].endsWith("]")){
+					if(!UpLvArg.endsWith("]")){
 						AgrsArr[ArgLast].pop();
 						if(AgrsArr[ArgLast].length===0){
 							AgrsArr.pop();
@@ -325,16 +357,20 @@ function GetDes(){
 			
 		}
 		else{
-			if(AllRows[i][2] === 1){
-				DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-				if(AgrsArr.length >0){
-					AgrsArr[ArgLast].pop();
-				
-					if(AgrsArr[ArgLast].length===0){
-						AgrsArr.pop();
-					}
-				}
+			DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+			if(AgrsArr.length>0){
+				AgrsArr.pop();
 			}
+			//if(AllRows[i][2] === 1){
+			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
+			//	if(AgrsArr.length >0){
+			//		AgrsArr[ArgLast].pop();
+			//	
+			//		if(AgrsArr[ArgLast].length===0){
+			//			AgrsArr.pop();
+			//		}
+			//	}
+			//}
 			
 			//DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
 		}

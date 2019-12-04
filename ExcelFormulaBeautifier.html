@@ -88,6 +88,7 @@
 
 	
 	function loadJs(url,callback){
+		document.getElementById('Res-notice').style.display = 'block';
 		var script=document.createElement('script');
 		script.type="text/javascript";
 		script.src=url;
@@ -114,6 +115,7 @@
 		//}
 		//alert(Str);
 		document.getElementById('TextBox').value = GetResult();
+		document.getElementById('Res-notice').style.display = 'none';
 		//document.getElementById('TextBox').value = Str;
 		if(ShowFunctionInfo){
 			document.getElementById('TextBoxB').value = GetDes();
@@ -222,6 +224,9 @@
 					<input onClick="ChangeShowFI();" id="ShowFI" type="button" style="font-size: 16px;visibility:visible" title="PasteFrom" value="FunctionInfo  显示函数信息">
 					
 
+				</div>
+				<div id="Res-notice" style="display: none;">
+					<h4 style="margin-top: 5px;margin-bottom: 5px;color: gray">Resource loading speed is affected by your location. If there is no action, please wait for about 15 seconds and try again.</h4>
 				</div>
 				<div style="width: 100%;text-align: center;margin-top: 5px;position:relative">
 					<textarea id="TextBox" style="width: 96%;text-align:left;height: auto;min-height: 300px;background-color:transparent;top: 0px;position:absolute;left: 12px;" ></textarea>

@@ -222,16 +222,16 @@ function ExcelFormulaBeautifier2(InputStr){
 	
 }
 	
-function GetResult(){
+function GetResult(NewLineString,SpaceString){
 	var Result = "";
 	var i;
 	for(i =0;i < AllRows.length;i++){
 		if(AllRows[i][0]>0){
-			Result = Result + Tabs.repeat(AllRows[i][0]);
+			Result = Result + SpaceString.repeat(AllRows[i][0]);
 		}
 		Result = Result + AllRows[i][1];
 		if(AllRows[i][2]===1){
-			Result = Result + "\r\n";
+			Result = Result + NewLineString;// "\r\n";
 		}
 	}
 	for(i = 0;i<Strings.length;i++){
@@ -241,7 +241,7 @@ function GetResult(){
 
 }
 	
-function GetDes(){
+function GetDes(NewLineString,TabString,SpaceString){
 	var Result = "";
 	var i;
 	var ii;
@@ -383,12 +383,12 @@ function GetDes(){
 		if(DesAllRow[i][2]!==""){
 			
 		
-			Result = Result + Tabs.repeat(DesAllRow[i][0]) + Space.repeat(DesAllRow[i][1]+2) + "--";
+			Result = Result + TabString.repeat(DesAllRow[i][0]) + SpaceString.repeat(DesAllRow[i][1]+2) + "--";
 		//}
 			Result = Result + DesAllRow[i][2];
 		}
 		if(DesAllRow[i][3]===1){
-			Result = Result + "\r\n";
+			Result = Result + NewLineString; //"\r\n";
 		}
 	}
 	return Result;

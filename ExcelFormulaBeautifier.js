@@ -87,7 +87,7 @@ function ExcelFormulaBeautifier2(InputStr){
 			else{
 				if(Strs[i] === ""){
 					//E = true;
-					TempStr = TempStr + '"“';
+					TempStr = TempStr + '""';
 					E = !E;
 				}
 				else{
@@ -162,7 +162,7 @@ function ExcelFormulaBeautifier2(InputStr){
 						}
 						else{
 							
-							AllRows[AllRows.length - 1] = AllRows[AllRows.length - 1] + Word;
+							AllRows[AllRows.length - 1][1] = AllRows[AllRows.length - 1][1] + Word;
 
 						}
 					}
@@ -192,7 +192,7 @@ function ExcelFormulaBeautifier2(InputStr){
 			}
 			else if(Word.endsWith(",")){
 				if(LeftBKArr[LeftBKArr.length-1]===0){
-					Errors.push("103:Invalid comma,无效的逗号");
+					Errors.push("103:Invalid comma,无效的逗号:" + Word);
 					break;
 				}
 				if(AllRows.length>0){

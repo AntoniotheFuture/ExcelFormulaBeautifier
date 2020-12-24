@@ -3537,7 +3537,16 @@ var ExFunction = [{
 		"Args": [
 			"array", "x", "[sigma]"
 		]
+	},
+	{
+		"Fname": "RMB",
+		"NewLine": "Yes",
+		"Des": "Convert value to Chinese yuan",
+		"Args": [
+			"value", "[小数位数]"
+		]
 	}
+
 
 
 ];

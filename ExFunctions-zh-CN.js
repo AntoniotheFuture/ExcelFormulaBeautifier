@@ -3246,7 +3246,7 @@ var ExFunction = [{
 		"NewLine": "Yes",
 		"Des": "converts a supplied numeric value into text, in a user-specified format.",
 		"Args": [
-			"价值", "设置文本格式"
+			"数值", "设置文本格式"
 		]
 	},
 	{
@@ -3525,6 +3525,14 @@ var ExFunction = [{
 		"Des": "For a supplied hypothesized sample mean and a supplied set of values, the Excel Ztest function calculates the one-tailed probability value of the Z-Test.",
 		"Args": [
 			"阵列", "x", "[σ]"
+		]
+	},
+	{
+		"Fname": "RMB",
+		"NewLine": "Yes",
+		"Des": "Convert value to Chinese yuan",
+		"Args": [
+			"数值", "[小数位数]"
 		]
 	}
 ];

@@ -14,7 +14,7 @@ When we are writing a complex formula in an Excel Cell we have to face a difficu
 
 [https://t.nonemin.com/excelformula](https://t.nonemin.com/excelformula)
 
-
+ 
 
 ## Usage 使用
 
@@ -22,11 +22,27 @@ The web page can be deployed to your local area network and access via shared fo
 
 本工具可以部署到您的内网中使用：下载html和js文件到内网中的共享文件夹，然后用浏览器打开html文件。
 
+### 调用方式:JS
+1. 新建一个ExcelFormulaBeautifier 对象
+2. 赋值参数：deep:0, //最深展开层次
+3. 调用其format 函数，
+4. 调用getResultString 或 getResultArray 获取分行结果
+5. 调用 explain 函数进行解释。
+6. 调用 getExplainsString 或 getExplainsArr 获取解释结果
+
 ## Notice 说明
 
 The complete runnable project has been released as a [release](https://github.com/AntoniotheFuture/ExcelFormulaBeautifier/releases)
 
 可运行的完整项目已经发布为 [Release](https://github.com/AntoniotheFuture/ExcelFormulaBeautifier/releases) 
+
+## 版本
+- 1.0：初始版本
+- 1.1：
+  - 重构成JS对象
+  - 优化JS写法
+  - 添加函数使用说明
+  - 示例页面使用Bootstrap V3构造
 
 ## LICENSE
 

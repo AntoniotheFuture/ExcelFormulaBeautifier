@@ -1,23 +1,11 @@
 // ExcelFormulaBeautifier
 //Code By AntoniotheFuture
 //Start: 2019-11-26
-//ver 1.0
+//ver 1.1
+//Edit：2022-4-9
 
-
-//Newline Operators,not use now 需要换行的运算符,暂未使用
-var Operators = new Array("+","-","*","/","&");
-
-var Tabs = "  ";
-var StringVarName = "_String_";
-var Errors = new Array();
-
-var FunctionInfos = "";
-var AllRows = new Array();   //Lv,Content,NewLine,NewLv
-var DesAllRow = new Array(); //Lv,SpaceC,Function:Arg|FunctionName,NewLine,NewLv Function:Arg = ""
-var Strings = new Array(); //save the temp strings
 
 //I hate IE
-
 if(typeof String.prototype.startsWith !== 'function'){
 	String.prototype.startsWith = function(prefix){
 		return this.slice(0,prefix.length) === prefix;
@@ -27,7 +15,6 @@ if(typeof String.prototype.startsWith !== 'function'){
 if(typeof String.prototype.endsWith !== 'function'){
 	String.prototype.endsWith = function(suffix){
 		return this.indexOf(suffix,this.length - suffix.length) !== -1;
-		
 	};
 }
 
@@ -39,369 +26,400 @@ if(typeof String.prototype.repeat !== 'function'){
 		}
 		return Result;
 	};
-	
 }
 
-function ExcelFormulaBeautifier2(InputStr){
-	var i;
-	var ii;
-	var Strs;
-	var NewLinereg=new RegExp("\r\n","g");
-	var TabReg =new RegExp(Tabs,"g");
-	var SpaceReg = new RegExp("\\s","g");
-	var LeftBKReg = new RegExp("\\(","g");
-	var RightBKReg = new RegExp("\\)","g");
-	var CommaReg = new RegExp(",","g");
-	var E = true;
-	var TempStr;//true pick 奇数偶数 true时，加入tempstr，同时反转，否则加入字符串数组
-	var AllWordArr = new Array();
-	var AllArgs = new Array();
-	var ArgCounts = new Array();
-	var LeftBKC;
-	var Word;
-	var Lv = 0;
-	var Hit;
-	var LeftBKArr = new Array();
-	
-	Errors = new Array();
-	AllRows = new Array();
-	Strings = new Array();
-	if(((InputStr.split('"')).length - 1) % 2 === 0){
-		Strs = InputStr.split('"');
-		TempStr = "";
-		LeftBKC = 0;
-		for(i = 0;i<Strs.length;i++){
+let ExcelFormulaBeautifier = {
+	operators:['+','-','*','/','&'], //Newline Operators,not use now 需要换行的运算符,暂未使用
+	tabs: '  ', //分隔符
+	stringVarName: '_String_',
+	lineBreaker: '<br>',   //设置输出换行符
+	space:' ',      //设置输出空格
+	descriptionSpace:' ', //设置描述的输出空格
+	tabString:'   ',   //设置解释的分隔符
+	deep:0, //最深展开层次
+	errors: [],  //错误信息
+	errorStr:{
+		100:'ExFunctions Not found,ExFunction 未找到或不完整',
+		101:'Not match double quotes,双引号数量应为偶数',
+		102:'Not match brackets,左右括号数量应相等',
+		103:'Invalid comma,无效的逗号:',
+		104:'',
+		105:'Too much args,函数参数太多'
+	},
+	results:[],	//结果数组,内容为{level:x,word:s,newLine:b,nextLevel:x} 的obj
+	descriptions:[], //解释数组
+	pureStrings:[], // 纯字符串
+	newLineReg: new RegExp('\r\n','g'),
+	tabReg: new RegExp(this.tabs,'g'),
+	spaceReg: new RegExp('\\s','g'),
+	leftBKReg: new RegExp('\\(','g'),
+	rightBKReg: new RegExp('\\)','g'),
+	commaReg:  new RegExp(',','g'),
+	usedFunction:[], //使用到的函数列表，内容为 {index:x,function:ExFunction,row:x} 的obj
+	format:function(formula){
+		let functionIndex = 0;
+		let strs,tempStr;
+		let E = true; //true pick 奇数偶数 true时，加入tempstr，同时反转，否则加入字符串数组
+		let words = [];
+		let args = [];
+		let argCounts = [];
+		let lv = 0;
+		let leftBKs = [];
+		let leftBKCount = 0; //左括号计数
+		
+		this.errors = [];   
+		this.results = [];
+		this.pureStrings = [];
+
+		//引用检查
+		if(typeof(ExFunction) === 'undefined' || ExFunction == null || ExFunction.length === 0){
+			this.errors.push(100);
+			return;
+		}
+
+		if(typeof(this.deep) != 'number' || this.deep < 1){
+			this.deep = 9999;
+		}
+
+		//Double quotes check ,双引号检查
+		if(((formula.split('"')).length - 1) % 2 != 0){
+			this.errors.push(101);
+			return;
+		}
+
+		//Split by double quotes 按双引号分解输入，解析是否为字符串
+		strs = formula.split('"');
+		tempStr = '';
+		leftBKCount = 0;
+		this.usedFunction = [];
+		for(let i = 0; i<strs.length; i++){
 			if(E){
 				//判断是否空，是则表明在字符串内,不处理
-				if(Strs[i] === ""){
-					//E = true;
-					TempStr = TempStr + '"';
+				if(strs[i] === ''){
+					tempStr = tempStr + '"';
 				}
 				else{
 					E = !E;
-					TempStr = TempStr + Strs[i];
-					//FormulaStr = Strs[i];
-					//
+					tempStr = tempStr + strs[i];
 				}
-			}
-			else{
-				if(Strs[i] === ""){
-					//E = true;
-					TempStr = TempStr + '""';
+			}else{
+				if(strs[i] === ''){
+					tempStr = tempStr + '""';
 					E = !E;
-				}
-				else{
+				}else{
 					E = !E;
-					
-					TempStr = TempStr + '"' + StringVarName + Strings.length + '"';
-					Strings.push(Strs[i]);
+					tempStr = tempStr + '"' + this.stringVarName + this.pureStrings.length + '"';
+					this.pureStrings.push(strs[i]);    //save strings as array 将纯字符串保存为数组
 				}			
 			}
 		}
-		//remove newline and tab 去掉换行符、tab
-		TempStr = TempStr.replace(NewLinereg,"");
-		TempStr = TempStr.replace(TabReg,"");
-		//remove all spaces
-		TempStr = TempStr.replace(SpaceReg,"");
-		//replace comma with space
-		TempStr = TempStr.replace(LeftBKReg,"( ");
-		TempStr = TempStr.replace(RightBKReg,") ");
-		TempStr = TempStr.replace(CommaReg,", ");
+		//Remove newline and tab 去掉换行符、tab
+		tempStr = tempStr.replace(this.newLinereg,'');
+		tempStr = tempStr.replace(this.tabReg,'');
+		//Remove all spaces 去掉空格
+		tempStr = tempStr.replace(this.spaceReg,'');
+		//Replace comma with space 去掉带空格的逗号
+		tempStr = tempStr.replace(this.leftBKReg,'( ');
+		tempStr = tempStr.replace(this.rightBKReg,') ');
+		tempStr = tempStr.replace(this.commaReg,', ');
 		
-		AllWordArr = TempStr.split(" ");
-		
-		if(TempStr.split("(").length !== TempStr.split(")").length){
-			Errors.push("102:Not match brackets,左右括号数量应相等");
+		if(tempStr.split('(').length !== tempStr.split(')').length){
+			this.errors.push(102);
 			return;
 		}
-		
-		for(i = 0;i < AllWordArr.length;i++){
-			Word = AllWordArr[i];
-			if(Word.endsWith("(")){
-				Hit = false;
-				LeftBKC++;
-				for(ii = 0;ii < ExFunction.length;ii++){
-					if(Word.endsWith(ExFunction[ii].Fname + "(")){ 
-						Hit = true;
+
+		words = tempStr.split(' ');
+		for(let i = 0; i < words.length;i++){
+			let word = words[i];
+			let hit;  //check if a function ,检查是否Excel函数
+			//check if a function ,检查是否Excel函数
+			let functionIndex;
+			if(word.endsWith('(')){
+				if(lv < 0){lv = 0;}
+				hit = false;
+				leftBKCount ++;
+				for(functionIndex = 0;functionIndex < ExFunction.length;functionIndex++){
+					if(word.endsWith(ExFunction[functionIndex].Fname + '(')){ 
+						hit = true;
 						break;
 					}
 				}
-				
-				if(Lv<0){Lv=0;}
-				//if function
-				if(Hit){
-					//ii --;
-					if(AllRows.length>0){
-						AllRows[AllRows.length-1][2] = 1;
-						LeftBKArr[LeftBKArr.length-1] = 1;
+				if(hit){           //if function
+					//添加到使用的函数列表
+					this.usedFunction.push({
+						index:functionIndex,
+						function:ExFunction[functionIndex],
+						row:this.results.length
+					});
+					if(this.results.length>0){
+						this.results[this.results.length - 1].newLine = lv < this.deep;
+						leftBKs[leftBKs.length-1] = 1;
 					}
-					if(ExFunction[ii].NewLine === "Yes"){
-						AllRows.push(new Array(Lv,Word,1,Lv+1));
-						LeftBKArr.push(1);
+					if(ExFunction[functionIndex].NewLine === 'Yes'){
+						this.results.push({level:lv,word:word,newLine:lv < this.deep,nextLevel:lv + 1});
+						leftBKs.push(1);
+					}else{
+						this.results.push({level:lv,word:word,newLine:false,nextLevel:lv});
+						leftBKs.push(0);
 					}
-					else{
-						AllRows.push(new Array(Lv,Word,0,Lv));
-						LeftBKArr.push(0);
-					}
-					Lv ++;
-					ArgCounts[ArgCounts.length-1] = ArgCounts[ArgCounts.length-1] + 1;
-					AllArgs.push(ExFunction[ii].Args);
-					ArgCounts.push(0);
-				}
-				
-				//if not function
-				else{
-					LeftBKArr.push(0);
-					if(AllRows.length>0){
-						
-					
-						if(AllRows[AllRows.length-1][2] ===1){
-							Lv = AllRows[AllRows.length-1][3];
-							AllRows.push(new Array(Lv,Word,0,Lv));
-
+					lv += lv < this.deep ? 1 : 0;
+					argCounts[argCounts.length-1] = argCounts[argCounts.length-1] + 1;
+					args.push(ExFunction[functionIndex].Args);
+					argCounts.push(0);
+				}else{    //if not function
+					leftBKs.push(0);
+					if(this.results.length > 0){
+						if(this.results[this.results.length-1].newLine){
+							lv = this.results[this.results.length -1 ].nextLevel;
+							this.results.push({level:lv,word:word,newLine:false,nextLevel:lv});
+						}else{
+							this.results[this.results.length - 1 ].word += word;
 						}
-						else{
-							
-							AllRows[AllRows.length - 1][1] = AllRows[AllRows.length - 1][1] + Word;
-
-						}
+					}else{
+						this.results.push({level:0,word:word,newLine:false,nextLevel:0});
 					}
-					else{
-						AllRows.push(new Array(0,Word,0,0));
+				}
+			}else if(word.endsWith(')')){
+				if(leftBKs[ leftBKs.length-1 ] === 1){
+					this.results.push({level:lv,word:word.substr(0,word.length-1),newLine:lv < this.deep,nextLevel:lv});
+					lv--;
+					if(args.length > 0 && argCounts.length >0){
+						argCounts[argCounts.length-1] += 1;
 					}
-					//AllRows[AllRows.length - 1] = AllRows[AllRows.length - 1] + Word;
+					this.results.push({level:lv,word:')',newLine:false,nextLevel:lv});
+				}else{
+					this.results[this.results.length-1].word += word;
+					this.results[this.results.length-1].newLine = false;
 				}
-				
-				
-			}
-			else if(Word.endsWith(")")){
-				if(LeftBKArr[LeftBKArr.length-1] === 1){
-					
-					AllRows.push(new Array(Lv,Word.substr(0,Word.length-1),1,Lv));
-					Lv--;
-					if(AllArgs.length > 0 && ArgCounts.length >0){
-						ArgCounts[ArgCounts.length-1] = ArgCounts[ArgCounts.length-1] + 1;
-					}
-					AllRows.push(new Array(Lv,")",0,Lv));
-				}
-				else{
-					AllRows[AllRows.length-1][1] = AllRows[AllRows.length-1][1] + Word;
-					AllRows[AllRows.length-1][2] = 0;
-				}
-				LeftBKArr.pop();
-			}
-			else if(Word.endsWith(",")){
-				if(LeftBKArr[LeftBKArr.length-1]===0){
-					Errors.push("103:Invalid comma,无效的逗号:" + Word);
+				leftBKs.pop();
+			}else if(word.endsWith(',')){
+				if(leftBKs[leftBKs.length - 1] === 0){
+					this.errors.push('103:' + word);
 					break;
 				}
-				if(AllRows.length>0){
-					Lv = AllRows[AllRows.length-1][3];
+				if(this.results.length > 0){
+					lv = this.results[this.results.length-1].nextLevel;
 				}
-				if(AllRows[AllRows.length-1][2]===1){
-					AllRows.push(new Array(Lv,Word,1,Lv));
+				if(this.results[this.results.length-1].newLine){
+					this.results.push({level:lv,word:word,newLine:lv < this.deep,nextLevel:lv});
+				}else{
+					this.results[this.results.length-1].word +=  word;
+					this.results[this.results.length-1].newLine = lv < this.deep;
 				}
-				else{
-					AllRows[AllRows.length-1][1] = AllRows[AllRows.length-1][1] + Word;
-					AllRows[AllRows.length-1][2] = 1;
+				if(args.length > 0 && argCounts.length >0){
+					argCounts[argCounts.length-1] += 1;
 				}
-				if(AllArgs.length > 0 && ArgCounts.length >0){
-					ArgCounts[ArgCounts.length-1] = ArgCounts[ArgCounts.length-1] + 1;
-				}
-			}
-			else{
+			}else{
 				//AllRows.push(Lv,Word,0,Lv);
 				//AllRows[AllRows.length-1][1] = AllRows[AllRows.length-1][1] + Word;
 				//Errors.push("103:error,错误");
 			}
 		}
-	}
-	else{
-		Errors.push("101:Not match double quotes,双引号数量应为偶数");
-	}
-	
-}
-	
-function GetResult(NewLineString,SpaceString){
-	var Result = "";
-	var i;
-	for(i =0;i < AllRows.length;i++){
-		if(AllRows[i][0]>0){
-			Result = Result + SpaceString.repeat(AllRows[i][0]);
+		for (let i = 0; i < this.results.length; i++) {
+			const result = this.results[i];
+			if(result.word === ''){
+				this.results.splice(i,1);
+			}
 		}
-		Result = Result + AllRows[i][1];
-		if(AllRows[i][2]===1){
-			Result = Result + NewLineString;// "\r\n";
+	},
+	getResultString:function(){  //show Result as string ，将结果以字符串展示
+		let output = '';
+		for(let i =0;i < this.results.length;i++){
+			if(this.results[i].level > 0){
+				output = output + this.space.repeat(this.results[i].level);
+			}
+			output = output + this.results[i].word;
+			if(this.results[i].newLine){
+				output = output + this.lineBreaker;
+			}
 		}
-	}
-	for(i = 0;i<Strings.length;i++){
-		Result = Result.replace(StringVarName + i,Strings[i]);		
-	}
-	return Result;
-
-}
-	
-function GetDes(NewLineString,TabString,SpaceString){
-	var Result = "";
-	var i;
-	var ii;
-	var Space = " ";
-	var AgrsArr = new Array;
-	var UpLvArg = "";
-	var ArgLast;
-	var Hit;
-	var Pushed = false;//上一层是否已经push
-	DesAllRow = new Array();
-	for(i=0;i<AllRows.length;i++){
-		UpLvArg = "";
-		if(AgrsArr.length>0){
-			ArgLast = AgrsArr.length-1;
-			UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
+		for(let i = 0;i < this.pureStrings.length; i++){
+			output = output.replace(this.stringVarName + i,this.pureStrings[i]);		
 		}
-		Hit = false;
-		if(AllRows[i][1].endsWith("(")){
-			for(ii=0;ii<ExFunction.length;ii++){
-				if(AllRows[i][1].endsWith(ExFunction[ii].Fname+"(")){
-					AgrsArr.push(new Array());
-					for(var iii=ExFunction[ii].Args.length;iii>0;iii--){
-						AgrsArr[AgrsArr.length-1].push(ExFunction[ii].Fname + ":" + ExFunction[ii].Args[iii-1]);
+		return output;
+	},
+	getResultArray:function(){  //show Result as string ，将结果以数组展示
+		let output = [];
+		let row = '';
+		for(let i =0 ; i < this.results.length;i++){
+			row = '';
+			if(this.results[i].level > 0){
+				row = row + this.space.repeat(this.results[i].level);
+			}
+			row = row + this.results[i].word;
+			for(let i = 0;i < this.pureStrings.length; i++){
+				row = row.replace(this.stringVarName + i,this.pureStrings[i]);		
+			}
+			output.push(row);
+		}
+		return output;
+	},
+	explain:function(){    //解释结果
+		let AgrsArr = [];
+		let UpLvArg = '';
+		let ArgLast;
+		let hit;
+		this.descriptions = [];
+		for(let i=0;i< this.results.length;i++){
+			UpLvArg = '';
+			if(AgrsArr.length>0){
+				ArgLast = AgrsArr.length-1;
+				UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
+			}
+			hit = false;
+			if(this.results[i].word.endsWith('(')){
+				for(let functionIndex=0;functionIndex < ExFunction.length;functionIndex++){
+					if(this.results[i].word.endsWith(ExFunction[functionIndex].Fname+'(')){
+						AgrsArr.push(new Array());
+						for(let iii = ExFunction[functionIndex].Args.length;iii>0;iii--){
+							AgrsArr[AgrsArr.length-1].push(ExFunction[functionIndex].Fname + ':' + ExFunction[functionIndex].Args[iii-1]);
+						}
+						this.descriptions.push({
+							level:0,
+							wordLength:0,
+							upLvArg:'',
+							newLine:this.results[i].newLine,
+							nextLevel:this.results[i].nextLevel
+						});
+						hit = true;
+						break;
 					}
-					//AgrsArr.push(ExFunction[ii].Args.reverse());
-						//DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg + "|" ,AllRows[i][2],AllRows[i][3])); //+ ExFunction[ii].Des
-					//}
-					//if(UpLvArg!==""){
-					//	AgrsArr[ArgLast].pop();
-					//}
-					DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-					Hit = true;
-					break;
 				}
-			}
-			if(!Hit){
-				DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-			}
-		}
-		else if(AllRows[i][1].startsWith(")")){
-			//AgrsArr.pop();	
-			DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-			if(AllRows[i][1].endsWith(",")){
-				if(AgrsArr.length>0){
-					ArgLast = AgrsArr.length-1;
-					UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
-					DesAllRow[DesAllRow.length -1][2] = UpLvArg;
-					DesAllRow[DesAllRow.length -1][0] = AllRows[i][0];
-					DesAllRow[DesAllRow.length -1][1] = AllRows[i][1].length
+				if(!hit){
+					this.descriptions.push({
+						level:0,
+						wordLength:0,
+						upLvArg:'',
+						newLine:this.results[i].newLine,
+						nextLevel:this.results[i].nextLevel
+					});
+				}
+			}else if(this.results[i].word.startsWith(')')){
+				this.descriptions.push({
+					level:0,
+					wordLength:0,
+					upLvArg:'',
+					newLine:this.results[i].newLine,
+					nextLevel:this.results[i].nextLevel
+				});
+				if(this.results[i].word.endsWith(',')){
+					if(AgrsArr.length>0){
+						ArgLast = AgrsArr.length-1;
+						UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
+						this.descriptions[this.descriptionslRow.length -1] = {
+							level:this.results[i].level,
+							wordLength: this.results[i].word.length,
+							upLvArg:UpLvArg,
+							newLine:this.descriptions[this.descriptionslRow.length -1].newLine,
+							nextLevel:this.descriptions[this.descriptionslRow.length -1].nextLevel,
+						}
+						if(AgrsArr[ArgLast].length>0){
+							if(!UpLvArg.endsWith(']')){
+								AgrsArr[ArgLast].pop();
+								if(AgrsArr[ArgLast].length===0){
+									AgrsArr.pop();
+								}
+							}
+						}else{
+							Errors.push(105);
+						}
+					}
+				}
+			}else if(this.results[i].word.endsWith(',')){
+				this.descriptions.push({
+					level:this.results[i].level,
+					wordLength:this.results[i].word.length,
+					upLvArg:UpLvArg,
+					newLine:this.results[i].newLine,
+					nextLevel:this.results[i].nextLevel
+				});
+				if(UpLvArg !== ''){
 					if(AgrsArr[ArgLast].length>0){
-						if(!UpLvArg.endsWith("]")){
+						if(!UpLvArg.endsWith(']')){
 							AgrsArr[ArgLast].pop();
 							if(AgrsArr[ArgLast].length===0){
 								AgrsArr.pop();
 							}
 						}
+					}else{
+						Errors.push(105);
 					}
-					else{
-						Errors.push("105:Too much args,函数参数太多");
-					}
+				}
+			}else{
+				this.descriptions.push({level:this.results[i].level,
+					wordLength:this.results[i].word.length,
+					upLvArg:UpLvArg,
+					newLine:this.results[i].newLine,
+					nextLevel:this.results[i].nextLevel
+				});
+				if(AgrsArr.length>0){
+					AgrsArr.pop();
 				}
 			}
 		}
-		//else if(AllRows[i][1].endsWith(")")){
-		//	if(AllRows[i][2] === 1){
-		//		DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-		//		if(AgrsArr.length >0){
-		//			AgrsArr[ArgLast].pop();
-		//			if(AgrsArr[ArgLast].length===0){
-		//				AgrsArr.pop();
-		//			}
-		//		}
-		//	}else{
-		//		DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-		//		
-		//	}
-		//}
-		else if(AllRows[i][1].endsWith(",")){
-			DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-			
-			
-			
-			//作为函数结尾
-			//if(AllRows[i][1].startsWith(")")){
-			//	DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
-			//}
-			//if(AllRows[i][1].endsWith("),")){
-			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-			//	AgrsArr.pop();
-			//	if(AgrsArr.length>0){
-			//		ArgLast = AgrsArr.length-1;
-			//		UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
-			//		DesAllRow[DesAllRow.length-1][2] = UpLvArg + "|" + DesAllRow[DesAllRow.length-1][2];
-			//	}
-			//}else{
-			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-			//	Pushed = true;
-				
-			//}
-			if(UpLvArg!==""){
-				if(AgrsArr[ArgLast].length>0){
-					if(!UpLvArg.endsWith("]")){
-						AgrsArr[ArgLast].pop();
-						if(AgrsArr[ArgLast].length===0){
-							AgrsArr.pop();
-						}
-					}
-				}
-				else{
-					Errors.push("105:Too much args,函数参数太多");
+	},
+	getExplainsString:function(){  //show Result Descriptions as string ,将解释以字符串展示
+		let output = '';
+		for(let i =0;i < this.descriptions.length;i++){
+			if(this.descriptions[i].upLvArg !== ''){
+				output = output + this.tabString.repeat(this.descriptions[i].level) + this.descriptionSpace.repeat(this.descriptions[i].wordLength + 2) + '--';
+				output = output + this.descriptions[i].upLvArg;
+			}
+			if(this.descriptions[i].newLine){
+				output = output + this.lineBreaker;
+			}
+		}
+		return output;
+	},
+	getExplainsArr:function(){  //show Result Descriptions as array ,将解释以数组展示
+		let output = [];
+		let row = '';
+		for(let i =0;i < this.descriptions.length;i++){
+			row = '';
+			if(this.descriptions[i].upLvArg !== ''){
+				row = '--';
+				row = row + this.descriptions[i].upLvArg;
+				output.push(row);
+			}else{
+				output.push(row);
+			}
+		}
+		return output;
+	},
+	getErrorArr:function(){ //将错误信息以数组输出
+		let output = [];
+		let row = '';
+		for(let i= 0; i<this.errors.length; i++){
+			if(typeof(this.errors[i]) === 'number'){
+				row = this.errors[i] + ':' + this.errorStr[this.errors[i]];
+			}else{
+				let code = this.errors[i].substring(0,3);
+				row = code + ':' + this.errorStr[code] + this.errors[i].substring(3);
+			}
+			output.push(row);
+		}
+		return output;
+	},
+	getUsedFunctionArr:function(){  //将使用过的函数的信息显示出来
+		let output = [];    //{index:x,function:obj,rows:[]}
+		for (let i = 0; i < this.usedFunction.length; i++) {
+			const f = this.usedFunction[i];
+			let hit = false;
+			for (let ii = 0; ii < output.length; ii++) {
+				const o = output[ii];
+				if(f.index === output[ii].index){
+					o.rows.push(f.row);
+					hit = true;
 				}
 			}
-			
-		}
-		else{
-			DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-			if(AgrsArr.length>0){
-				AgrsArr.pop();
+			if(!hit){
+				output.push({
+					index:f.index,
+					function:f.function,
+					rows:[f.row]
+				});
 			}
-			//if(AllRows[i][2] === 1){
-			//	DesAllRow.push(new Array(AllRows[i][0],AllRows[i][1].length,UpLvArg,AllRows[i][2],AllRows[i][3]));
-			//	if(AgrsArr.length >0){
-			//		AgrsArr[ArgLast].pop();
-			//	
-			//		if(AgrsArr[ArgLast].length===0){
-			//			AgrsArr.pop();
-			//		}
-			//	}
-			//}
-			
-			//DesAllRow.push(new Array(0,0,"",AllRows[i][2],AllRows[i][3]));
 		}
-
+		return output;
 	}
-	
-	
-	for(i =0;i < DesAllRow.length;i++){
-		//if(DesAllRow[i][0]>0){
-		if(DesAllRow[i][2]!==""){
-			
-		
-			Result = Result + TabString.repeat(DesAllRow[i][0]) + SpaceString.repeat(DesAllRow[i][1]+2) + "--";
-		//}
-			Result = Result + DesAllRow[i][2];
-		}
-		if(DesAllRow[i][3]===1){
-			Result = Result + NewLineString; //"\r\n";
-		}
-	}
-	return Result;
-	
-	
-}
-
-function GetErrors(){
-	
-	var ErrorsStr = "";
-	for(var i=0;i<Errors.length;i++){
-		ErrorsStr = ErrorsStr + Errors[i] + "\r\n";
-	}
-	return ErrorsStr;
-	
 }

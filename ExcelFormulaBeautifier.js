@@ -66,8 +66,8 @@ let ExcelFormulaBeautifier = {
 		let lv = 0;
 		let leftBKs = [];
 		let leftBKCount = 0; //左括号计数
-		
-		this.errors = [];   
+
+		this.errors = [];
 		this.results = [];
 		this.pureStrings = [];
 
@@ -110,7 +110,7 @@ let ExcelFormulaBeautifier = {
 					E = !E;
 					tempStr = tempStr + '"' + this.stringVarName + this.pureStrings.length + '"';
 					this.pureStrings.push(strs[i]);    //save strings as array 将纯字符串保存为数组
-				}			
+				}
 			}
 		}
 		//Remove newline and tab 去掉换行符、tab
@@ -122,7 +122,7 @@ let ExcelFormulaBeautifier = {
 		tempStr = tempStr.replace(this.leftBKReg,'( ');
 		tempStr = tempStr.replace(this.rightBKReg,') ');
 		tempStr = tempStr.replace(this.commaReg,', ');
-		
+
 		if(tempStr.split('(').length !== tempStr.split(')').length){
 			this.errors.push(102);
 			return;
@@ -139,7 +139,7 @@ let ExcelFormulaBeautifier = {
 				hit = false;
 				leftBKCount ++;
 				for(functionIndex = 0;functionIndex < ExFunction.length;functionIndex++){
-					if(word.endsWith(ExFunction[functionIndex].Fname + '(')){ 
+					if(word.endsWith(ExFunction[functionIndex].Fname + '(')){
 						hit = true;
 						break;
 					}
@@ -233,7 +233,7 @@ let ExcelFormulaBeautifier = {
 			}
 		}
 		for(let i = 0;i < this.pureStrings.length; i++){
-			output = output.replace(this.stringVarName + i,this.pureStrings[i]);		
+			output = output.replace(this.stringVarName + i,this.pureStrings[i]);
 		}
 		return output;
 	},
@@ -245,7 +245,7 @@ let ExcelFormulaBeautifier = {
 			row = row + this.space.repeat(result.level);
 			row = row + result.word;
 			for(let i = 0;i < this.pureStrings.length; i++){
-				row = row.replace(this.stringVarName + i,this.pureStrings[i]);		
+				row = row.replace(this.stringVarName + i,this.pureStrings[i]);
 			}
 			if(result.newLine){
 				output.push(row);
@@ -324,7 +324,7 @@ let ExcelFormulaBeautifier = {
 								}
 							}
 						}else{
-							Errors.push(105);
+							this.Errors.push(105);
 						}
 					}
 				}
@@ -345,7 +345,7 @@ let ExcelFormulaBeautifier = {
 							}
 						}
 					}else{
-						Errors.push(105);
+						this.Errors.push(105);
 					}
 				}
 			}else{
@@ -398,7 +398,7 @@ let ExcelFormulaBeautifier = {
 		let output = [];
 		let row = '';
 		for(let i= 0; i<this.errors.length; i++){
-			const error = errors[i];
+			const error = this.errors[i];
 			if(typeof(error) === 'number'){
 				row = error + ':' + this.errorStr[error];
 			}else{

@@ -4,6 +4,27 @@ Excel Formula Beautifier,make Excel formulas more easy to read.
 
 Excel公式格式化/美化,将Excel公式转为易读的排版。
 
+## 示例：
+
+``` Excel
+=IFERROR(SUMIFS(D:D,E:E,1,F:F,"Apple") + 1,IF(3 * A1 > 10,20,100))
+↓
+=IFERROR(
+    SUMIFS(
+        D:D,
+        E:E,
+        1,
+        F:F,
+        "Apple"
+    )+1,
+    IF(
+        3*A1>10,
+        20,
+        100
+    )
+  )
+```
+
 ## Why? 起因
 
 When we are writing a complex formula in an Excel Cell we have to face a difficulty,that is,the formula is too hard to read and it will take a lot of time for your co-worker to understand your formula,so I am going to create a way to make this thing more easier,inspired by the some SQL Beautifier Tools,I decided to develop a way to beautif Excel formula,which can easily access by webpage.

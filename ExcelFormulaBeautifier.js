@@ -32,7 +32,7 @@ let ExcelFormulaBeautifier = {
 	operators:['+','-','*','/','&'], //Newline Operators,not use now 需要换行的运算符,暂未使用
 	tabs: '  ', //分隔符
 	stringVarName: '_String_',
-	lineBreaker: '<br>',   //设置输出换行符
+	lineBreaker: '\n',   //设置输出换行符
 	space:' ',      //设置输出空格
 	descriptionSpace:' ', //设置描述的输出空格
 	tabString:'   ',   //设置解释的分隔符
@@ -225,11 +225,10 @@ let ExcelFormulaBeautifier = {
 	getResultString:function(){  //show Result as string ，将结果以字符串展示
 		let output = '';
 		for(let i =0;i < this.results.length;i++){
-			if(this.results[i].level > 0){
-				output = output + this.space.repeat(this.results[i].level);
-			}
-			output = output + this.results[i].word;
-			if(this.results[i].newLine){
+			const result = this.results[i];
+			output = output + this.space.repeat(result.level);
+			output = output +result.word;
+			if(result.newLine){
 				output = output + this.lineBreaker;
 			}
 		}
@@ -242,15 +241,19 @@ let ExcelFormulaBeautifier = {
 		let output = [];
 		let row = '';
 		for(let i =0 ; i < this.results.length;i++){
-			row = '';
-			if(this.results[i].level > 0){
-				row = row + this.space.repeat(this.results[i].level);
-			}
-			row = row + this.results[i].word;
+			const result = this.results[i];
+			row = row + this.space.repeat(result.level);
+			row = row + result.word;
 			for(let i = 0;i < this.pureStrings.length; i++){
 				row = row.replace(this.stringVarName + i,this.pureStrings[i]);		
 			}
-			output.push(row);
+			if(result.newLine){
+				output.push(row);
+				row = '';
+			}
+			if(i === this.results.length - 1 && !result.newLine){
+				output.push(row);
+			}
 		}
 		return output;
 	},
@@ -306,12 +309,12 @@ let ExcelFormulaBeautifier = {
 					if(AgrsArr.length>0){
 						ArgLast = AgrsArr.length-1;
 						UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length -1];
-						this.descriptions[this.descriptionslRow.length -1] = {
+						this.descriptions[this.descriptions.length -1] = {
 							level:this.results[i].level,
 							wordLength: this.results[i].word.length,
 							upLvArg:UpLvArg,
-							newLine:this.descriptions[this.descriptionslRow.length -1].newLine,
-							nextLevel:this.descriptions[this.descriptionslRow.length -1].nextLevel,
+							newLine:this.descriptions[this.descriptions.length -1].newLine,
+							nextLevel:this.descriptions[this.descriptions.length -1].nextLevel,
 						}
 						if(AgrsArr[ArgLast].length>0){
 							if(!UpLvArg.endsWith(']')){
@@ -361,11 +364,12 @@ let ExcelFormulaBeautifier = {
 	getExplainsString:function(){  //show Result Descriptions as string ,将解释以字符串展示
 		let output = '';
 		for(let i =0;i < this.descriptions.length;i++){
-			if(this.descriptions[i].upLvArg !== ''){
-				output = output + this.tabString.repeat(this.descriptions[i].level) + this.descriptionSpace.repeat(this.descriptions[i].wordLength + 2) + '--';
-				output = output + this.descriptions[i].upLvArg;
+			const description = this.descriptions[i];
+			if(description.upLvArg !== ''){
+				output = output + this.tabString.repeat(description.level) + this.descriptionSpace.repeat(description.wordLength + 2) + '--';
+				output = output + description.upLvArg;
 			}
-			if(this.descriptions[i].newLine){
+			if(description.newLine){
 				output = output + this.lineBreaker;
 			}
 		}
@@ -375,12 +379,16 @@ let ExcelFormulaBeautifier = {
 		let output = [];
 		let row = '';
 		for(let i =0;i < this.descriptions.length;i++){
-			row = '';
-			if(this.descriptions[i].upLvArg !== ''){
+			const description = this.descriptions[i];
+			if(description.upLvArg !== ''){
 				row = '--';
-				row = row + this.descriptions[i].upLvArg;
+				row = row + description.upLvArg;
+			}
+			if(description.newLine){
 				output.push(row);
-			}else{
+				row = '';
+			}
+			if(i === this.descriptions.length - 1 && !description.newLine){
 				output.push(row);
 			}
 		}
@@ -390,11 +398,12 @@ let ExcelFormulaBeautifier = {
 		let output = [];
 		let row = '';
 		for(let i= 0; i<this.errors.length; i++){
-			if(typeof(this.errors[i]) === 'number'){
-				row = this.errors[i] + ':' + this.errorStr[this.errors[i]];
+			const error = errors[i];
+			if(typeof(error) === 'number'){
+				row = error + ':' + this.errorStr[error];
 			}else{
-				let code = this.errors[i].substring(0,3);
-				row = code + ':' + this.errorStr[code] + this.errors[i].substring(3);
+				let code = error.substring(0,3);
+				row = code + ':' + this.errorStr[code] + error.substring(3);
 			}
 			output.push(row);
 		}

@@ -65,6 +65,9 @@ The complete runnable project has been released as a [release](https://github.co
   - 添加函数使用说明
   - 示例页面使用Bootstrap V3构造
 
+## 下一步计划
+- 增加对自定义函数的支持
+
 ## LICENSE
 
 This project is under GPL-3.0 License

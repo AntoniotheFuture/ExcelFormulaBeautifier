@@ -1,3538 +1,2653 @@
 var ExFunction = [{
-		"Fname": "ABS",
-		"NewLine": "No",
-		"Des": "returns a specified number of characters from the start of a supplied text string.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "COUNTIF",
+		"Fname": "FORECAST.ETS.SEASONALITY",
 		"NewLine": "Yes",
-		"Des": "returns the number of blank cells in a supplied range.",
-		"Args": [
-			"范围", "条件"
-		]
-	},
-	{
-		"Fname": "COUNTIFS",
-		"NewLine": "Yes",
-		"Des": "returns the number of cells within a supplied range, that satisfy a given criteria.",
-		"Args": [
-			"条件范围1", "标准1", "[条件范围2", "标准2]"
-		]
-	},
-	{
-		"Fname": "SUMIF",
-		"NewLine": "Yes",
-		"Des": "finds the values in a supplied array, that satisfy a given criteria, and returns the sum of the corresponding values in a second supplied array.",
-		"Args": [
-			"范围", "条件", "[总和范围]"
-		]
-	},
-	{
-		"Fname": "SUMIFS",
-		"NewLine": "Yes",
-		"Des": "finds values in one or more supplied arrays, that satisfy a set of criteria, and returns the sum of the corresponding values in a further supplied array.",
-		"Args": [
-			"总和范围", "条件范围1", "标准1", "[条件范围2", "标准2]"
-		]
-	},
-
-	{
-		"Fname": "EDATE",
-		"NewLine": "Yes",
-		"Des": "calculates the variance 'for an entire population', of the values in a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"开始日期", "月"
-		]
-	},
-	{
-		"Fname": "NETWORKDAYS",
-		"NewLine": "Yes",
-		"Des": "calculates the number of work days between two supplied dates 'including the start and end date'. The calculation includes all weekdays 'Mon - Fri', excluding a supplied list of holidays.",
-		"Args": [
-			"开始日期", "结束日期", "[假日]"
-		]
-	},
-	{
-		"Fname": "TODAY",
-		"NewLine": "No",
-		"Des": "returns the current date. The function has no arguments and therefore, the syntax of the function is simply:",
-		"Args": [
-
-		]
-	},	{
-		"Fname": "WORKDAY",
-		"NewLine": "Yes",
-		"Des": "returns a date that is a supplied number of working days 'excluding weekends and holidays' ahead of a given start date.",
-		"Args": [
-			"开始日期", "天", "[假日]"
-		]
-	},
-	{
-		"Fname": "WEEKDAY",
-		"NewLine": "Yes",
-		"Des": "returns an integer representing the day of the week for a supplied date.",
-		"Args": [
-			"序列号", "[返回类型]"
-		]
-	},	{
-		"Fname": "COUPDAYS",
-		"NewLine": "Yes",
-		"Des": "calculates the number of days from the beginning of a coupon's period to the settlement date.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},	{
-		"Fname": "UNICHAR",
-		"NewLine": "No",
-		"Des": "returns the Unicode character relating to a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},	{
-		"Fname": "AVERAGEIF",
-		"NewLine": "Yes",
-		"Des": "returns the arithmetic mean of a list of supplied numbers.",
-		"Args": [
-			"范围", "条件", "[平均范围]"
-		]
-	},
-	{
-		"Fname": "AVERAGEIFS",
-		"NewLine": "Yes",
-		"Des": "finds the values in a supplied array that satisfy a specified criteria, and returns the average 'i.e. the statistical mean' of the corresponding values in a second supplied array.",
-		"Args": [
-			"平均范围", "条件范围1", "标准1", "[条件范围2", "标准2]"
-		]
-	},	{
-		"Fname": "DATEVALUE",
-		"NewLine": "No",
-		"Des": "converts a supplied year, month and day into an Excel date.",
-		"Args": [
-			"日期文本"
-		]
-	},	{
-		"Fname": "NUMBERVALUE",
-		"NewLine": "Yes",
-		"Des": "converts a text string into a number, in a locale-independant way.",
-		"Args": [
-			"文本", "[小数分隔符]", "[组分隔符]"
-		]
-	},	{
-		"Fname": "TIMEVALUE",
-		"NewLine": "No",
-		"Des": "converts a text representation of a time, into an Excel time.",
-		"Args": [
-			"时间文本"
-		]
-	},	{
-		"Fname": "EOMONTH",
-		"NewLine": "Yes",
-		"Des": "returns the effective annual interest rate for a given nominal interest rate and number of compounding periods per year.",
-		"Args": [
-			"开始日期", "月"
-		]
-	},	{
-		"Fname": "HLOOKUP",
-		"NewLine": "Yes",
-		"Des": "converts a Hexadecimal 'Base 16' number into an Octal 'Base 8' number.",
-		"Args": [
-			"查找值", "表数组", "行索引数", "[范围查找]"
-		]
-	},	{
-		"Fname": "VLOOKUP",
-		"NewLine": "Yes",
-		"Des": "looks up' a given value in the left-hand column of a data array 'or table', and returns the corresponding value from another column of the array.",
-		"Args": [
-			"查找值", "表数组", "列索引数", "[范围查找]"
-		]
-	},	{
-		"Fname": "MAXA",
-		"NewLine": "Yes",
-		"Des": "returns the largest value from a supplied set of numeric values, while counting text and the logical value FALSE as the value 0 and counting the logical value TRUE as the value 1.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MAXIFS",
-		"NewLine": "Yes",
-		"Des": "returns the maximum value from a subset of values that are specified according to one or more criteria.",
-		"Args": [
-			"最大范围", "条件范围1", "标准1", "[条件范围2", "标准2]"
-		]
-	},	{
-		"Fname": "DMAX",
-		"NewLine": "Yes",
-		"Des": "calculates the Discount Rate for a security.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},	{
-		"Fname": "MINIFS",
-		"NewLine": "Yes",
-		"Des": "returns the minimum value from a subset of values that are specified according to one or more criteria.",
-		"Args": [
-			"最小范围", "条件范围1", "标准1", "[条件范围2", "标准2]"
-		]
-	},
-	{
-		"Fname": "DMIN",
-		"NewLine": "Yes",
-		"Des": "finds the maximum value in a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},			  
-				  
-	{
-		"Fname": "ACCRINT",
-		"NewLine": "Yes",
-		"Des": "returns the absolute value 'i.e. the modulus' of any supplied number.",
-		"Args": [
-			"问题", "首要利益", "解决", "率", "[标准件]", "频率", "[依据]", "[计算方法]"
-		]
-	},
-	{
-		"Fname": "ACCRINTM",
-		"NewLine": "Yes",
-		"Des": "returns the accrued interest for a security that pays periodic interest.",
-		"Args": [
-			"问题", "解决", "率", "[标准件]", "[依据]"
-		]
-	},
-	{
-		"Fname": "ACOS",
-		"NewLine": "No",
-		"Des": "returns the accrued interest for a security that pays interest at maturity.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ACOSH",
-		"NewLine": "No",
-		"Des": "calculates the arccosine 'i.e. the inverse cosine' of a given number, and returns an angle, in radians, between 0 and π.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ACOT",
-		"NewLine": "No",
-		"Des": "calculates the inverse hyperbolic cosine of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ACOTH",
-		"NewLine": "No",
-		"Des": "calculates the arccotangent 'i.e. the inverse cotangent' of a given number, and returns an angle, in radians, between 0 and π.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ADDRESS",
-		"NewLine": "Yes",
-		"Des": "calculates the hyperbolic arccotangent 'coth' of a supplied value.",
-		"Args": [
-			"行数", "列数", "[绝对值]", "[a1]", "[工作表文本]"
-		]
-	},
-	{
-		"Fname": "AMORDEGRC",
-		"NewLine": "Yes",
-		"Des": "takes a row and a column number and returns a cell reference as a text string.",
-		"Args": [
-			"成本", "购买日期", "第一期", "救助", "期间", "率", "[依据]"
-		]
-	},
-	{
-		"Fname": "AMORLINC",
-		"NewLine": "Yes",
-		"Des": "is provided for users of the French accounting system.",
-		"Args": [
-			"成本", "购买日期", "第一期", "救助", "期间", "率", "[依据]"
-		]
-	},
-	{
-		"Fname": "AND",
-		"NewLine": "Yes",
-		"Des": "is provided for users of the French accounting system. The function calculates the prorated linear depreciation of an asset for a specified accounting period.",
-		"Args": [
-			"逻辑测试1", "[逻辑测试2]"
-		]
-	},
-	{
-		"Fname": "ARABIC",
-		"NewLine": "No",
-		"Des": "tests a number of supplied conditions and returns:",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "AREAS",
-		"NewLine": "No",
-		"Des": "converts a Roman numeral into an Arabic numeral.",
-		"Args": [
-			"参考"
-		]
-	},
-	{
-		"Fname": "ASIN",
-		"NewLine": "No",
-		"Des": "takes an Excel reference and returns the number of areas that make up the reference.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ASINH",
-		"NewLine": "No",
-		"Des": "calculates the arcsine 'i.e. the inverse sine' of a given number, and returns an angle, in radians, between -π/2 and π/2.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ATAN",
-		"NewLine": "No",
-		"Des": "calculates the inverse hyperbolic sine of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ATAN2",
-		"NewLine": "Yes",
-		"Des": "calculates the arctangent 'i.e. the inverse tangent' of a given number, and returns an angle, in radians, between -π/2 and +π/2.",
-		"Args": [
-			"x数字", "y数"
-		]
-	},
-	{
-		"Fname": "ATANH",
-		"NewLine": "No",
-		"Des": "calculates the arctangent 'i.e. the inverse tangent' of a given set of x and y coordinates, and returns an angle, in radians, between -π/2 and +π/2.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "AVEDEV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse hyperbolic tangent of a supplied number.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "AVERAGE",
-		"NewLine": "Yes",
-		"Des": "calculates the average deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "AVERAGEA",
-		"NewLine": "Yes",
-		"Des": "returns the arithmetic mean of a list of supplied numbers.",
-		"Args": [
-			"值1", "[值2]"
-		]
-	},
-
-	{
-		"Fname": "BAHTTEXT",
-		"NewLine": "No",
-		"Des": "finds entries in one or more arrays, that satisfy a set of supplied criteria, and returns the average 'i.e. the statistical mean' of the corresponding values in a further supplied array.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "BASE",
-		"NewLine": "Yes",
-		"Des": "converts a number into Thai text, with the suffix 'Baht'.",
-		"Args": [
-			"数值", "基数", "[最小长度]"
-		]
-	},
-	{
-		"Fname": "BESSELI",
-		"NewLine": "Yes",
-		"Des": "converts a number into a supplied base 'radix', and returns a text representation of the calculated value.",
-		"Args": [
-			"x", "n"
-		]
-	},
-	{
-		"Fname": "BESSELJ",
-		"NewLine": "Yes",
-		"Des": "calculates the modified Bessel functions, In'x', 'also known as the hyperbolic Bessel Functions'. These functions are the equivalent of the Bessel functions, evaluated for purely imaginary arguments.",
-		"Args": [
-			"x", "n"
-		]
-	},
-	{
-		"Fname": "BESSELK",
-		"NewLine": "Yes",
-		"Des": "returns the Bessel function, Jn'x', for a specified order and value of x.",
-		"Args": [
-			"x", "n"
-		]
-	},
-	{
-		"Fname": "BESSELY",
-		"NewLine": "Yes",
-		"Des": "calculates the modified Bessel functions, Kn'x', which are also known as the hyperbolic Bessel Functions. These are the equivalent of the Bessel functions, evaluated for purely imaginary arguments.",
-		"Args": [
-			"x", "n"
-		]
-	},
-	{
-		"Fname": "BETA.DIST",
-		"NewLine": "Yes",
-		"Des": "returns the Bessel function, Yn'x', 'also known as the Weber function or the Neumann function', for a specified order and value of x.",
-		"Args": [
-			"x", "α", "β", "累积的", "[甲]", "[乙]"
-		]
-	},
-	{
-		"Fname": "BETA.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the cumulative beta distribution function or the probability density function of the Beta distribution, for a supplied set of parameters.",
-		"Args": [
-			"可能性", "α", "β", "[甲]", "[乙]"
-		]
-	},
-	{
-		"Fname": "BETADIST",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the cumulative beta probability density function for a supplied probability.",
-		"Args": [
-			"x", "α", "β", "[甲]", "[乙]"
-		]
-	},
-	{
-		"Fname": "BETAINV",
-		"NewLine": "Yes",
-		"Des": "calculates the cumulative beta probability density function for a supplied set of parameters.",
-		"Args": [
-			"可能性", "α", "β", "[甲]", "[乙]"
-		]
-	},
-	{
-		"Fname": "BIN2DEC",
-		"NewLine": "No",
-		"Des": "uses an iterative procedure to calculate the inverse of the cumulative beta probability density function for a supplied probability.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "BIN2HEX",
-		"NewLine": "Yes",
-		"Des": "converts a Binary 'a base-2 number' into a decimal number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "BIN2OCT",
-		"NewLine": "Yes",
-		"Des": "converts a Binary 'Base 2' number into a Hexadecimal 'Base 16' number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "BINOM.DIST",
-		"NewLine": "Yes",
-		"Des": "converts a Binary 'Base 2' number into an Octal 'Base 8' number.",
-		"Args": [
-			"数字s", "审判", "概率s", "累积的"
-		]
-	},
-	{
-		"Fname": "BINOM.DIST.RANGE",
-		"NewLine": "Yes",
-		"Des": "returns the Binomial Distribution probability for a given number of successes from a specified number of trials.",
-		"Args": [
-			"审判", "概率s", "数字s", "[编号s2]"
-		]
-	},
-	{
-		"Fname": "BINOM.INV",
-		"NewLine": "Yes",
-		"Des": "returns the Binomial Distribution probability for the number of successes from a specified number of trials falling into a specified range.",
-		"Args": [
-			"审判", "概率s", "α"
-		]
-	},
-	{
-		"Fname": "BINOMDIST",
-		"NewLine": "Yes",
-		"Des": "returns the inverse of the Cumulative Binomial Distribution.",
-		"Args": [
-			"数字s", "审判", "概率s", "累积的"
-		]
-	},
-	{
-		"Fname": "BITAND",
-		"NewLine": "Yes",
-		"Des": "returns the Binomial Distribution probability of a specified number of successes out of a specified number of trials.",
-		"Args": [
-			"数字1", "数字2"
-		]
-	},
-	{
-		"Fname": "BITLSHIFT",
-		"NewLine": "Yes",
-		"Des": "returns the bitwise 'AND' for two supplied integers.",
-		"Args": [
-			"数值", "移位量"
-		]
-	},
-	{
-		"Fname": "BITOR",
-		"NewLine": "Yes",
-		"Des": "returns a supplied integer, shifted left by a specified number of bits.",
-		"Args": [
-			"数字1", "数字2"
-		]
-	},
-	{
-		"Fname": "BITRSHIFT",
-		"NewLine": "Yes",
-		"Des": "returns the bitwise 'OR' for two supplied integers.",
-		"Args": [
-			"数值", "移位量"
-		]
-	},
-	{
-		"Fname": "BITXOR",
-		"NewLine": "Yes",
-		"Des": "returns a supplied integer, shifted right by a specified number of bits.",
-		"Args": [
-			"数字1", "数字2"
-		]
-	},
-	{
-		"Fname": "CEILING",
-		"NewLine": "Yes",
-		"Des": "returns the bitwise 'XOR' 'exclusive 'OR'' for two supplied integers.",
-		"Args": [
-			"数值", "意义"
-		]
-	},
-	{
-		"Fname": "CEILING.MATH",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number away from zero, to the nearest multiple of a given number.",
-		"Args": [
-			"数值", "[意义]", "[模式]"
-		]
-	},
-	{
-		"Fname": "CEILING.PRECISE",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number up to a supplied multiple of significance.",
-		"Args": [
-			"数值", "[意义]"
-		]
-	},
-	{
-		"Fname": "CELL",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number up 'regardless of the number's sign', to the nearest multiple of a given number.",
-		"Args": [
-			"信息类型", "参考"
-		]
-	},
-	{
-		"Fname": "CHAR",
-		"NewLine": "No",
-		"Des": "returns information about a given cell. This can be information in relation to the contents, formatting or location of the cell.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "CHIDIST",
-		"NewLine": "Yes",
-		"Des": "returns the character relating to a supplied character set number 'from 1 to 255'.",
-		"Args": [
-			"x", "自由度"
-		]
-	},
-	{
-		"Fname": "CHIINV",
-		"NewLine": "Yes",
-		"Des": "calculates the right-tailed probability of the chi-square distribution.",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-	{
-		"Fname": "CHISQ.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the right-tailed probability of the Chi-Square Distribution.",
-		"Args": [
-			"x", "自由度", "累积的"
-		]
-	},
-	{
-		"Fname": "CHISQ.DIST.RT",
-		"NewLine": "Yes",
-		"Des": "calculates the Probability Density Function or the Cumulative Distribution Function for the Chi-Square Distribution.",
-		"Args": [
-			"x", "自由度"
-		]
-	},
-	{
-		"Fname": "CHISQ.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the right-tailed probability of the Chi-Square Distribution",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-	{
-		"Fname": "CHISQ.INV.RT",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the left-tailed probability of the Chi-Square Distribution.",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-	{
-		"Fname": "CHISQ.TEST",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the right-tailed probability of the Chi-Square Distribution.",
-		"Args": [
-			"实际范围", "预期范围"
-		]
-	},
-	{
-		"Fname": "CHITEST",
-		"NewLine": "Yes",
-		"Des": "performs the chi-square test on two supplied data sets 'of observed and expected frequencies', and returns the probability that the differences between the sets are simply due to sampling error.",
-		"Args": [
-			"实际范围", "预期范围"
-		]
-	},
-	{
-		"Fname": "CHOOSE",
-		"NewLine": "Yes",
-		"Des": "uses the chi-square test to calculate the probability that the differences between two supplied data sets 'of observed and expected frequencies', are likely to be simply due to sampling error, or if they are likely to be real.",
-		"Args": [
-			"索引编号", "值1", "[值2]"
-		]
-	},
-	{
-		"Fname": "CODE",
-		"NewLine": "No",
-		"Des": "returns a value from an array, that corresponds to a supplied index number 'position'.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "COLUMN",
-		"NewLine": "No",
-		"Des": "converts the first character of a supplied text string into the associated numeric character set code used by your computer.",
-		"Args": [
-			"[参考]"
-		]
-	},
-	{
-		"Fname": "COLUMNS",
-		"NewLine": "No",
-		"Des": "returns the first column number within a supplied reference or the number of the current column.",
-		"Args": [
-			"阵列"
-		]
-	},
-	{
-		"Fname": "COMBIN",
-		"NewLine": "Yes",
-		"Des": "receives an Excel range and returns the number of columns that are contained within the range.",
-		"Args": [
-			"数值", "选择的号码"
-		]
-	},
-	{
-		"Fname": "COMBINA",
-		"NewLine": "Yes",
-		"Des": "calculates the number of combinations 'in any order' of a given number objects from a set.",
-		"Args": [
-			"数值", "选择的号码"
-		]
-	},
-	{
-		"Fname": "COMPLEX",
-		"NewLine": "Yes",
-		"Des": "calculates the number of combinations, with repetitions, of a given number objects from a set.",
-		"Args": [
-			"实数", "数量", "[后缀]"
-		]
-	},
-	{
-		"Fname": "CONCAT",
-		"NewLine": "Yes",
-		"Des": "takes two arguments, representing the real and the imaginary coefficients of a complex number, and from these, creates a complex number.",
-		"Args": [
-			"文本1", "[文本2]"
-		]
-	},
-	{
-		"Fname": "CONCATENATE",
-		"NewLine": "Yes",
-		"Des": "joins together a series of supplied text strings into one combined text string.",
-		"Args": [
-			"文本1", "[文本2]"
-		]
-	},
-	{
-		"Fname": "CONFIDENCE",
-		"NewLine": "Yes",
-		"Des": "joins together a series of supplied text strings or other values, into one combined text string.",
-		"Args": [
-			"α", "标准偏差", "大小"
-		]
-	},
-	{
-		"Fname": "CONFIDENCE.NORM",
-		"NewLine": "Yes",
-		"Des": "uses a Normal Distribution to calculate a confidence value that can be used to construct the Confidence Interval for a population mean, for a supplied probablity and sample size. It is assumed that the standard deviation of the population is known.",
-		"Args": [
-			"α", "标准偏差", "大小"
-		]
-	},
-	{
-		"Fname": "CONFIDENCE.T",
-		"NewLine": "Yes",
-		"Des": "uses a Normal Distribution to calculate a confidence value that can be used to construct the confidence interval for a population mean, for a supplied probablity and sample size. It is assumed that the standard deviation of the population is known.",
-		"Args": [
-			"α", "标准偏差", "大小"
-		]
-	},
-	{
-		"Fname": "CONVERT",
-		"NewLine": "Yes",
-		"Des": "uses a Student's T-Distribution to calculate a confidence value that can be used to construct the confidence interval for a population mean, for a supplied probablity and supplied sample size. It is assumed that the standard deviation of the population is known.",
-		"Args": [
-			"数值", "来自单位", "到单位"
-		]
-	},
-	{
-		"Fname": "CORREL",
-		"NewLine": "Yes",
-		"Des": "converts a number from one unit type 'e.g. Yards' to another unit type 'e.g. Meters'. The function is new to Excel 2007, so is not available in earlier versions of Excel.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "COS",
-		"NewLine": "No",
-		"Des": "calculates the Pearson Product-Moment Correlation Coefficient for two sets of values.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "COSH",
-		"NewLine": "No",
-		"Des": "calculates the cosine of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "COT",
-		"NewLine": "No",
-		"Des": "calculates the hyperbolic cosine 'cosh' of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "COTH",
-		"NewLine": "No",
-		"Des": "calculates the cotangent of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "COUNT",
-		"NewLine": "Yes",
-		"Des": "calculates the hyperbolic cotangent 'coth' of a supplied angle.",
-		"Args": [
-			"值1", "[值2]"
-		]
-	},
-	{
-		"Fname": "COUNTA",
-		"NewLine": "Yes",
-		"Des": "returns the count of numeric values in a supplied set of cells or values. This count includes both numbers and dates.",
-		"Args": [
-			"值1", "[值2]"
-		]
-	},
-	{
-		"Fname": "COUNTBLANK",
-		"NewLine": "No",
-		"Des": "returns the number of non-blanks within a supplied set of cells or values.",
-		"Args": [
-			"范围"
-		]
-	},
-
-	{
-		"Fname": "COUPDAYBS",
-		"NewLine": "Yes",
-		"Des": "returns the number of rows within a table, that satisfy a set of given criteria.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},
-
-	{
-		"Fname": "COUPDAYSNC",
-		"NewLine": "Yes",
-		"Des": "calculates the number of days in a coupon period that contains the settlement date.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "COUPNCD",
-		"NewLine": "Yes",
-		"Des": "For a security, with given conditions, the Excel Coupdaysnc function calculates the number of days from the settlement date to the next coupon date.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "COUPNUM",
-		"NewLine": "Yes",
-		"Des": "For a security with given conditions, the Excel Coupncd function calculates the next coupon date, after the settlement date.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "COUPPCD",
-		"NewLine": "Yes",
-		"Des": "calculates the number of coupons payable, between a security's settlement date and maturity date, rounded up to the nearest whole coupon.",
-		"Args": [
-			"解决", "成熟度", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "COVAR",
-		"NewLine": "Yes",
-		"Des": "returns the previous coupon date, before the settlement date for a security.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "COVARIANCE.P",
-		"NewLine": "Yes",
-		"Des": "calculates the covariance of two supplied sets of values.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "COVARIANCE.S",
-		"NewLine": "Yes",
-		"Des": "calculates the population covariance of two supplied sets of values.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "CRITBINOM",
-		"NewLine": "Yes",
-		"Des": "calculates the sample covariance of two supplied sets of values.",
-		"Args": [
-			"审判", "概率s", "α"
-		]
-	},
-	{
-		"Fname": "CSC",
-		"NewLine": "No",
-		"Des": "returns the inverse of the Cumulative Binomial Distribution. I.e. for a specific number of independent trials, the function returns the smallest value 'number of successes' for which the cumulative binomial distribution is greater than or equal to a specified value.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "CSCH",
-		"NewLine": "No",
-		"Des": "calculates the cosecant of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "CUMIPMT",
-		"NewLine": "Yes",
-		"Des": "calculates the hyperbolic cosecant 'csch' of a supplied angle.",
-		"Args": [
-			"率", "核电厂", "现值总额", "开始时间段", "期末", "类型"
-		]
-	},
-	{
-		"Fname": "CUMPRINC",
-		"NewLine": "Yes",
-		"Des": "calculates the cumulative interest paid on a loan or investment, between two specified periods.",
-		"Args": [
-			"率", "核电厂", "现值总额", "开始时间段", "期末", "类型"
-		]
-	},
-	{
-		"Fname": "DATE",
-		"NewLine": "Yes",
-		"Des": "calculates the cumulative payment on the principal of a loan or investment, between two specified periods.",
-		"Args": [
-			"年", "月", "白天"
-		]
-	},
-
-	{
-		"Fname": "DAVERAGE",
-		"NewLine": "Yes",
-		"Des": "converts a text representation of a date into an Excel date.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DAY",
-		"NewLine": "No",
-		"Des": "calculates the average 'statistical mean' of values in a field 'column' in a database for selected records, that satisfy user-specified criteria.",
-		"Args": [
-			"序列号"
-		]
-	},
-	{
-		"Fname": "DAYS",
-		"NewLine": "Yes",
-		"Des": "returns an integer representing the day of the month 'from 1 - 31' of a supplied date.",
-		"Args": [
-			"结束日期", "开始日期"
-		]
-	},
-	{
-		"Fname": "DAYS360",
-		"NewLine": "Yes",
-		"Des": "returns the number of days between two supplied dates.",
-		"Args": [
-			"开始日期", "结束日期", "[方法]"
-		]
-	},
-	{
-		"Fname": "DB",
-		"NewLine": "Yes",
-		"Des": "returns the number of days between 2 dates, based on a 360-day year '12 x 30 months'.",
-		"Args": [
-			"成本", "救助", "生活", "期间", "[月]"
-		]
-	},
-	{
-		"Fname": "DCOUNT",
-		"NewLine": "Yes",
-		"Des": "calculates the depreciation of an asset, using the Fixed Declining Balance Method, for each period of the asset's lifetime.",
-		"Args": [
-			"数据库", "[字段]", "条件"
-		]
-	},
-	{
-		"Fname": "DCOUNTA",
-		"NewLine": "Yes",
-		"Des": "returns the number of cells containing numeric values, in a field 'column' of a database for selected records only.",
-		"Args": [
-			"数据库", "[字段]", "条件"
-		]
-	},
-	{
-		"Fname": "DDB",
-		"NewLine": "Yes",
-		"Des": "returns the number of non-blank cells, in a field 'column' of a database for selected records only.",
-		"Args": [
-			"成本", "救助", "生活", "期间", "[因素]"
-		]
-	},
-	{
-		"Fname": "DEC2BIN",
-		"NewLine": "Yes",
-		"Des": "calculates the depreciation of an asset, using the Double Declining Balance Method, or another specified depreciation rate.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "DEC2HEX",
-		"NewLine": "Yes",
-		"Des": "converts a decimal number into a Binary 'Base 2' number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "DEC2OCT",
-		"NewLine": "Yes",
-		"Des": "converts a text representation of a number in a specified base, into a decimal value.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "DECIMAL",
-		"NewLine": "Yes",
-		"Des": "converts a decimal number into a Hexadecimal 'Base 16' number.",
-		"Args": [
-			"文本", "基数"
-		]
-	},
-	{
-		"Fname": "DEGREES",
-		"NewLine": "No",
-		"Des": "Hexadecimal 'base 16', decimal 'base 10', octal 'base 8', and binary 'base 2' are the most commonly used numeral systems in engineering and computing. Therefore, Excel has provided functions to convert numeric values to and from each of these systems.",
-		"Args": [
-			"角"
-		]
-	},
-	{
-		"Fname": "DELTA",
-		"NewLine": "Yes",
-		"Des": "converts radians into degrees.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "DEVSQ",
-		"NewLine": "Yes",
-		"Des": "tests two numbers for equality and returns the Kronecker Delta. i.e. the function returns 1 if the two supplied numbers are equal and 0 otherwise.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "DGET",
-		"NewLine": "Yes",
-		"Des": "For a supplied set of values, the Excel DEVSQ function calculates the sum of the squared deviations from the sample mean.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DISC",
-		"NewLine": "Yes",
-		"Des": "returns a single value from a column of a database.",
-		"Args": [
-			"解决", "成熟度", "公共关系", "赎回", "[依据]"
-		]
-	},
-
-	{
-		"Fname": "DOLLAR",
-		"NewLine": "Yes",
-		"Des": "finds the minimum value in a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"数值", "[小数]"
-		]
-	},
-	{
-		"Fname": "DOLLARDE",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number to a specified number of decimal places and then converts this into a text string with a currency format.",
-		"Args": [
-			"零碎美元", "分数"
-		]
-	},
-	{
-		"Fname": "DOLLARFR",
-		"NewLine": "Yes",
-		"Des": "converts a dollar value in fractional notation, into a dollar value expressed as a decimal.",
-		"Args": [
-			"十进制美元", "分数"
-		]
-	},
-	{
-		"Fname": "DPRODUCT",
-		"NewLine": "Yes",
-		"Des": "converts a dollar value in decimal notation, into a dollar value that is expressed in fractional notation.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DSTDEV",
-		"NewLine": "Yes",
-		"Des": "calculates the product of a field 'column' in a database for selected records, that satisfy user-specified criteria.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DSTDEVP",
-		"NewLine": "Yes",
-		"Des": "calculates the sample standard deviation of a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DSUM",
-		"NewLine": "Yes",
-		"Des": "calculates the standard deviation of a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DURATION",
-		"NewLine": "Yes",
-		"Des": "calculates the sum of a field 'column' in a database for selected records, that satisfy user-specified criteria.",
-		"Args": [
-			"解决", "成熟度", "优惠券", "yld公司", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "DVAR",
-		"NewLine": "Yes",
-		"Des": "calculates the Duration 'specifically, the Macaulay Duration' of a security that pays periodic interest, assuming a par value of $100.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-	{
-		"Fname": "DVARP",
-		"NewLine": "Yes",
-		"Des": "calculates the sample variance of a field 'column' in a database for selected records only. The records to be included in the calculation are defined by a set of one or more user-specified criteria.",
-		"Args": [
-			"数据库", "区域", "条件"
-		]
-	},
-
-	{
-		"Fname": "EFFECT",
-		"NewLine": "Yes",
-		"Des": "returns a date that is a specified number of months before or after a supplied start date.",
-		"Args": [
-			"名义汇率", "npery"
-		]
-	},
-
-	{
-		"Fname": "ERF",
-		"NewLine": "Yes",
-		"Des": "returns the last day of the month, that is a specified number of months before or after an initial supplied start date.",
-		"Args": [
-			"下限", "[上限]"
-		]
-	},
-	{
-		"Fname": "ERF.PRECISE",
-		"NewLine": "No",
-		"Des": "calculates the Error Function, integrated between two supplied limits.",
-		"Args": [
-			"x"
-		]
-	},
-	{
-		"Fname": "ERFC",
-		"NewLine": "No",
-		"Des": "calculates the Error Function, integrated between a supplied lower or upper limit and 0.",
-		"Args": [
-			"x"
-		]
-	},
-	{
-		"Fname": "ERFC.PRECISE",
-		"NewLine": "No",
-		"Des": "calculates the Complementary Error Function, integrated between a supplied lower limit and infinity.",
-		"Args": [
-			"x"
-		]
-	},
-	{
-		"Fname": "ERROR.TYPE",
-		"NewLine": "No",
-		"Des": "calculates the Complementary Error Function, integrated between a supplied lower limit and infinity.",
-		"Args": [
-			"错误值"
-		]
-	},
-	{
-		"Fname": "EVEN",
-		"NewLine": "No",
-		"Des": "receives an error value and returns an integer, that tells you the type of the supplied error.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "EXACT",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number away from zero 'i.e. rounds a positive number up and a negative number down', to the next even number.",
-		"Args": [
-			"文本1", "文本2"
-		]
-	},
-	{
-		"Fname": "EXP",
-		"NewLine": "No",
-		"Des": "tests if two supplied text strings or values are exactly equal and if so, returns TRUE; Otherwise, the function returns FALSE.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "EXPON.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the value of the mathematical constant e, raised to the power of a given number.",
-		"Args": [
-			"x", "λ", "累积的"
-		]
-	},
-	{
-		"Fname": "EXPONDIST",
-		"NewLine": "Yes",
-		"Des": "For a given value of x and parameter λ the Excel EXPON.DIST function calculates the value of the probability density function or the cumulative distribution function for the exponential distribution.",
-		"Args": [
-			"x", "λ", "累积的"
-		]
-	},
-	{
-		"Fname": "F.DIST",
-		"NewLine": "Yes",
-		"Des": "returns the value of the exponential distribution for a give value of x. The user can specify whether the probability density function or the cumulative distribution function is used.",
-		"Args": [
-			"x", "自由度1", "自由度2", "累积的"
-		]
-	},
-	{
-		"Fname": "F.DIST.RT",
-		"NewLine": "Yes",
-		"Des": "calculates the 'right-tailed' F Probability Distribution, which measures the degree of diversity between two data sets.",
-		"Args": [
-			"x", "自由度1", "自由度2"
-		]
-	},
-	{
-		"Fname": "F.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the Probability Density Function or the Cumulative Distribution Function for the F Distribution. This function is frequently used used to measure the degree of diversity between two data sets.",
-		"Args": [
-			"可能性", "自由度1", "自由度2"
-		]
-	},
-	{
-		"Fname": "F.INV.RT",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Cumulative F Distribution for a supplied probability.",
-		"Args": [
-			"可能性", "自由度1", "自由度2"
-		]
-	},
-	{
-		"Fname": "F.TEST",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the 'right-tailed' F Probability Distribution for a specified probability.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "FACT",
-		"NewLine": "No",
-		"Des": "returns the F-Test for two supplied arrays. I.e. the function returns the two-tailed probability that the variances in the two supplied arrays are not significantly different.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "FACTDOUBLE",
-		"NewLine": "No",
-		"Des": "returns the factorial of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "FDIST",
-		"NewLine": "Yes",
-		"Des": "returns the double factorial of a supplied number.",
-		"Args": [
-			"x", "自由度1", "自由度2"
-		]
-	},
-	{
-		"Fname": "FIND",
-		"NewLine": "Yes",
-		"Des": "calculates the 'right-tailed' F Probability Distribution, which measures the degree of diversity between two data sets.",
-		"Args": [
-			"查找文本", "文本内", "[开始编号]"
-		]
-	},
-	{
-		"Fname": "FINV",
-		"NewLine": "Yes",
-		"Des": "returns the position of a specified character or sub-string within a supplied text string.",
-		"Args": [
-			"可能性", "自由度1", "自由度2"
-		]
-	},
-	{
-		"Fname": "FISHER",
-		"NewLine": "No",
-		"Des": "calculates the inverse of the 'right-tailed' F Probability Distribution for a supplied probability.",
-		"Args": [
-			"x"
-		]
-	},
-	{
-		"Fname": "FISHERINV",
-		"NewLine": "No",
-		"Des": "calculates the Fisher Transformation for a supplied value.",
-		"Args": [
-			"y"
-		]
-	},
-	{
-		"Fname": "FIXED",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Fisher Transformation and returns a value between -1 and +1.",
-		"Args": [
-			"数值", "[小数]", "[没有逗号]"
-		]
-	},
-	{
-		"Fname": "FLOOR",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number to a specified number of decimal places and then converts this into text.",
-		"Args": [
-			"数值", "意义"
-		]
-	},
-	{
-		"Fname": "FLOOR.MATH",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number towards zero to the nearest multiple of a specified significance.",
-		"Args": [
-			"数值", "[意义]", "[模式]"
-		]
-	},
-	{
-		"Fname": "FLOOR.PRECISE",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number down to a supplied multiple of significance.",
-		"Args": [
-			"数值", "[意义]"
-		]
-	},
-	{
-		"Fname": "FORECAST",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number down to a supplied multiple of significance.",
-		"Args": [
-			"x", "已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "FORECAST.ETS",
-		"NewLine": "Yes",
-		"Des": "predicts a future point on a linear trend line fitted to a supplied set of x- and y- values.",
-		"Args": [
-			"目标日期", "价值观", "时间线", "[季节性]", "[数据完成]", "[聚合]"
-		]
+		"Des": "计算时间线上预测值的置信区间。",
+		"Args": ["价值观", "时间线", "[数据完成]", "[聚合]"]
 	},
 	{
 		"Fname": "FORECAST.ETS.CONFINT",
 		"NewLine": "Yes",
-		"Des": "uses an exponential smoothing algorithm to predict a future value on a timeline, based on a series of existing values.",
-		"Args": [
-			"目标日期", "价值观", "时间线", "[置信水平]", "[季节性]", "[数据完成]", "[聚合]"
-		]
-	},
-	{
-		"Fname": "FORECAST.ETS.SEASONALITY",
-		"NewLine": "Yes",
-		"Des": "calculates the confidence interval for a forecast value on a timeline.",
-		"Args": [
-			"价值观", "时间线", "[数据完成]", "[聚合]"
-		]
+		"Des": "使用指数平滑算法根据一系列现有值预测时间线上的未来值。",
+		"Args": ["目标日期", "价值观", "时间线", "[置信水平]", "[季节性]", "[数据完成]", "[聚合]"]
 	},
 	{
 		"Fname": "FORECAST.ETS.STAT",
 		"NewLine": "Yes",
-		"Des": "calculates the length of a repetitive pattern in a timeline.",
-		"Args": [
-			"价值观", "时间线", "统计类型", "[季节性]", "[数据完成]", "[聚合]"
-		]
+		"Des": "计算时间线中重复模式的长度。",
+		"Args": ["价值观", "时间线", "统计类型", "[季节性]", "[数据完成]", "[聚合]"]
+	},
+	{
+		"Fname": "BINOM.DIST.RANGE",
+		"NewLine": "Yes",
+		"Des": "从指定的试验次数返回给定次数的成功的二项分布概率。",
+		"Args": ["审判", "概率s", "数字s", "[编号s2]"]
+	},
+	{
+		"Fname": "NETWORKDAYS.INTL",
+		"NewLine": "Yes",
+		"Des": "计算两个提供日期之间的整个工作日数，不包括周末和节假日。该功能允许用户指定哪些天算作周末和节假日。",
+		"Args": ["开始日期", "结束日期", "[周末]", "[假日]"]
+	},
+	{
+		"Fname": "CEILING.PRECISE",
+		"NewLine": "Yes",
+		"Des": "将提供的数字四舍五入到提供的有效倍数。",
+		"Args": ["数值", "[意义]"]
+	},
+	{
+		"Fname": "CONFIDENCE.NORM",
+		"NewLine": "Yes",
+		"Des": "使用正态分布计算置信值，该值可用于为提供的概率和样本大小构建总体均值的置信区间。假设总体的标准差是已知的。",
+		"Args": ["α", "标准偏差", "大小"]
 	},
 	{
 		"Fname": "FORECAST.LINEAR",
 		"NewLine": "Yes",
-		"Des": "calculates a specified statistical value, relating to a time series forecasting.",
-		"Args": [
-			"x", "已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "FORMULATEXT",
-		"NewLine": "No",
-		"Des": "predicts a future point on a linear trend line fitted to a supplied set of x- and y- values.",
-		"Args": [
-			"参考"
-		]
-	},
-	{
-		"Fname": "FREQUENCY",
-		"NewLine": "Yes",
-		"Des": "returns a formula as a text string.",
-		"Args": [
-			"数据数组", "垃圾箱阵列"
-		]
-	},
-	{
-		"Fname": "FTEST",
-		"NewLine": "Yes",
-		"Des": "For a supplied array of numeric values, the Excel Frequency function returns the number of values that fall into specified ranges.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "FV",
-		"NewLine": "Yes",
-		"Des": "returns the F-Test for two supplied arrays. I.e. the function returns the two-tailed probability that the variances in the two supplied arrays are not significantly different.",
-		"Args": [
-			"率", "核电厂", "[付款]", "[现值]", "[类型]"
-		]
-	},
-	{
-		"Fname": "FVSCHEDULE",
-		"NewLine": "Yes",
-		"Des": "calculates the Future Value of an investment with periodic constant payments and a constant interest rate.",
-		"Args": [
-			"主要的", "日程安排"
-		]
-	},
-	{
-		"Fname": "GAMMA",
-		"NewLine": "No",
-		"Des": "calculates the Future Value of an investment with a variable interest rate.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "GAMMA.DIST",
-		"NewLine": "Yes",
-		"Des": "returns the value of the Gamma Function, Γ'n', for a specified number, n.",
-		"Args": [
-			"x", "α", "β", "累积的"
-		]
-	},
-	{
-		"Fname": "GAMMA.INV",
-		"NewLine": "Yes",
-		"Des": "For a set of supplied parameters, the Excel Gamma.Dist function calculates the value of either the cumulative distribution or the probability density function for the Gamma Distribution.",
-		"Args": [
-			"可能性", "α", "β"
-		]
-	},
-	{
-		"Fname": "GAMMADIST",
-		"NewLine": "Yes",
-		"Des": "returns the inverse of the Gamma Cumulative Distribution.",
-		"Args": [
-			"x", "α", "β", "累积的"
-		]
-	},
-	{
-		"Fname": "GAMMAINV",
-		"NewLine": "Yes",
-		"Des": "returns the Gamma Distribution, which is frequently used to provide probabilities for values that may have a skewed distribution, such as queuing analysis.",
-		"Args": [
-			"可能性", "α", "β"
-		]
-	},
-	{
-		"Fname": "GAMMALN",
-		"NewLine": "No",
-		"Des": "returns the inverse of the Gamma Cumulative Distribution.",
-		"Args": [
-			"x"
-		]
+		"Des": "计算与时间序列预测相关的指定统计值。",
+		"Args": ["x", "已知的", "已知x"]
 	},
 	{
 		"Fname": "GAMMALN.PRECISE",
 		"NewLine": "No",
-		"Des": "returns the natural logarithm of the Gamma Function, Γ'n'.",
-		"Args": [
-			"x"
-		]
-	},
-	{
-		"Fname": "GAUSS",
-		"NewLine": "No",
-		"Des": "returns the probability that a member of a standard normal population will fall between the mean and a specified number of standard deviations from the mean.",
-		"Args": [
-			"z"
-		]
-	},
-	{
-		"Fname": "GCD",
-		"NewLine": "Yes",
-		"Des": "returns the natural logarithm of the Gamma Function, Γ'n'.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "GEOMEAN",
-		"NewLine": "Yes",
-		"Des": "returns the greatest common divisor of two or more supplied integers.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "GESTEP",
-		"NewLine": "Yes",
-		"Des": "calculates the geometric mean of a supplied set of values.",
-		"Args": [
-			"数值", "[步骤]"
-		]
-	},
-	{
-		"Fname": "GETPIVOTDATA",
-		"NewLine": "Yes",
-		"Des": "tests whether a supplied number is greater than a supplied step size and returns:",
-		"Args": [
-			"数据字段", "数据透视表", "[字段1]", "[项目1]", "[字段2]", "[项目2]"
-		]
-	},
-	{
-		"Fname": "GROWTH",
-		"NewLine": "Yes",
-		"Des": "extracts data from specified fields of an Excel Pivot Table.",
-		"Args": [
-			"已知的", "[已知x's]", "[新x's]", "[常量]"
-		]
-	},
-	{
-		"Fname": "HARMEAN",
-		"NewLine": "Yes",
-		"Des": "calculates the exponential growth curve through a given set of y-values and 'optionally', one or more sets of x-values. The function then extends the curve to calculate additional y-values for a further supplied set of new x-values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "HEX2BIN",
-		"NewLine": "Yes",
-		"Des": "converts a Hexadecimal 'Base 16' number into a Binary 'Base 2' number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "HEX2DEC",
-		"NewLine": "No",
-		"Des": "calculates the harmonic mean of a supplied set of values.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "HEX2OCT",
-		"NewLine": "Yes",
-		"Des": "converts a hexadecimal 'a base-16 number' into a decimal number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-
-	{
-		"Fname": "HOUR",
-		"NewLine": "No",
-		"Des": "looks up' a given value in the top row of a data array 'or table', and returns the corresponding value from another row of the array.",
-		"Args": [
-			"序列号"
-		]
-	},
-	{
-		"Fname": "HYPERLINK",
-		"NewLine": "Yes",
-		"Des": "returns an integer representing the hour component of a supplied Excel time.",
-		"Args": [
-			"链接位置", "[友好名称]"
-		]
-	},
-	{
-		"Fname": "HYPGEOM.DIST",
-		"NewLine": "Yes",
-		"Des": "creates a hyperlink to a specified location.",
-		"Args": [
-			"样品s", "数字样本", "人口", "数字弹出", "累积的"
-		]
-	},
-	{
-		"Fname": "HYPGEOMDIST",
-		"NewLine": "Yes",
-		"Des": "returns the value of the hypergeometric distribution for a specified number of successes from a population sample.",
-		"Args": [
-			"样品s", "数字样本", "人口", "数字弹出"
-		]
-	},
-	{
-		"Fname": "IF",
-		"NewLine": "Yes",
-		"Des": "returns the value of the hypergeometric distribution for a given number of successes from a sample of a population.",
-		"Args": [
-			"逻辑测试", "值（如果为真）", "值（如果为误）"
-		]
-	},
-	{
-		"Fname": "IFERROR",
-		"NewLine": "Yes",
-		"Des": "tests a supplied condition and returns one result if the condition evaluates to TRUE, and another result if the condition evaluates to FALSE.",
-		"Args": [
-			"价值", "错误时的值"
-		]
-	},
-	{
-		"Fname": "IFNA",
-		"NewLine": "Yes",
-		"Des": "receives two values 'or expressions' and tests if the first of these evaluates to an error.",
-		"Args": [
-			"价值", "值（如果为na）"
-		]
-	},
-	{
-		"Fname": "IFS",
-		"NewLine": "Yes",
-		"Des": "tests if an initial supplied value 'or expression' evaluates to the Excel #N/A error. If so, the function returns a second supplied value; Otherwise the function returns the first supplied value.",
-		"Args": [
-			"逻辑测试1", "如果为真值1", "[逻辑测试2", "如果是真值2]", "[逻辑测试3", "如果是真值3]"
-		]
-	},
-	{
-		"Fname": "IMABS",
-		"NewLine": "No",
-		"Des": "tests a number of supplied conditions and returns the result corresponding to the first condition that evaluates to TRUE. If none of the supplied conditions evaluate to TRUE, the function returns the #N/A error.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMAGINARY",
-		"NewLine": "No",
-		"Des": "returns the absolute value 'the modulus' of a complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCONJUGATE",
-		"NewLine": "No",
-		"Des": "returns the imaginary coefficient of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCOS",
-		"NewLine": "No",
-		"Des": "returns the complex conjugate of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCOSH",
-		"NewLine": "No",
-		"Des": "returns the cosine of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCOT",
-		"NewLine": "No",
-		"Des": "returns the hyperbolic cosine of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCSC",
-		"NewLine": "No",
-		"Des": "returns the cotangent of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMCSCH",
-		"NewLine": "No",
-		"Des": "returns the cosecant of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMDIV",
-		"NewLine": "Yes",
-		"Des": "returns the hyperbolic cosecant of a supplied complex number.",
-		"Args": [
-			"数值1", "λ2"
-		]
-	},
-	{
-		"Fname": "IMEXP",
-		"NewLine": "No",
-		"Des": "calculates the quotient of two complex numbers 'i.e. divides one complex number by another'.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMLN",
-		"NewLine": "No",
-		"Des": "returns the exponential of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMLOG10",
-		"NewLine": "No",
-		"Des": "returns the natural logarithm of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMLOG2",
-		"NewLine": "No",
-		"Des": "returns the common 'base 10' logarithm of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMPOWER",
-		"NewLine": "Yes",
-		"Des": "calculates the base 2 logarithm of a supplied complex number.",
-		"Args": [
-			"数值", "数值"
-		]
-	},
-	{
-		"Fname": "IMPRODUCT",
-		"NewLine": "Yes",
-		"Des": "returns a supplied complex number, raised to a given power.",
-		"Args": [
-			"数值1", "λ2"
-		]
-	},
-	{
-		"Fname": "IMREAL",
-		"NewLine": "No",
-		"Des": "calculates the product of two or more complex numbers.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSEC",
-		"NewLine": "No",
-		"Des": "returns the real coefficient of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSECH",
-		"NewLine": "No",
-		"Des": "returns the secant of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSIN",
-		"NewLine": "No",
-		"Des": "returns the hyperbolic secant of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSINH",
-		"NewLine": "No",
-		"Des": "returns the Sine of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSQRT",
-		"NewLine": "No",
-		"Des": "returns the hyperbolic sine of a supplied complex number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "IMSUB",
-		"NewLine": "Yes",
-		"Des": "returns the square root of a supplied complex number.",
-		"Args": [
-			"数值1", "λ2"
-		]
-	},
-	{
-		"Fname": "IMSUM",
-		"NewLine": "Yes",
-		"Des": "calculates the sum of two or more complex numbers.",
-		"Args": [
-			"数值1", "λ2"
-		]
-	},
-	{
-		"Fname": "IMTAN",
-		"NewLine": "No",
-		"Des": "calculates the difference between two complex numbers 'i.e. subtracts one complex number from another'.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "INDIRECT",
-		"NewLine": "Yes",
-		"Des": "returns the tangent of a supplied complex number.",
-		"Args": [
-			"参考文本", "[a1]"
-		]
-	},
-	{
-		"Fname": "INFO",
-		"NewLine": "No",
-		"Des": "converts a text string into a cell reference.",
-		"Args": [
-			"键入文本"
-		]
-	},
-	{
-		"Fname": "INT",
-		"NewLine": "No",
-		"Des": "returns a text string containing information about the current operating environment.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "INTERCEPT",
-		"NewLine": "Yes",
-		"Des": "truncates a supplied number down to the closest integer.",
-		"Args": [
-			"已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "INTRATE",
-		"NewLine": "Yes",
-		"Des": "calculates the intercept 'the value at the intersection of the y axis' of the linear regression line through a supplied set of x- and y- values.",
-		"Args": [
-			"解决", "成熟度", "投资", "赎回", "[依据]"
-		]
-	},
-	{
-		"Fname": "IPMT",
-		"NewLine": "Yes",
-		"Des": "calculates the interest rate for a fully invested security.",
-		"Args": [
-			"率", "每", "核电厂", "现值总额", "[fv]", "[类型]"
-		]
-	},
-	{
-		"Fname": "IRR",
-		"NewLine": "Yes",
-		"Des": "calculates the interest payment, during a specific period of a loan or investment that is paid in constant periodic payments, with a constant interest rate.",
-		"Args": [
-			"价值观", "[猜猜]"
-		]
-	},
-	{
-		"Fname": "ISBLANK",
-		"NewLine": "No",
-		"Des": "returns the Internal Rate of Return for a supplied series of periodic cash flows 'i.e. an initial investment value and a series of net income values'.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISERR",
-		"NewLine": "No",
-		"Des": "tests if an initial supplied expression 'or value' returns an Excel Error, and if so, returns the logical value TRUE; Otherwise the function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISERROR",
-		"NewLine": "No",
-		"Des": "tests if an initial supplied expression 'or value' returns any Excel Error, except the #N/A error. If so, the function returns the logical value TRUE; If the supplied value is not an error or is the #N/A error, the Iserr function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISEVEN",
-		"NewLine": "No",
-		"Des": "tests if a specified cell is blank 'empty' and if so, returns TRUE; Otherwise the function returns FALSE.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ISFORMULA",
-		"NewLine": "No",
-		"Des": "tests if a supplied number 'or numeric expression' evaluates to an even number, and if so, returns TRUE; Otherwise, the function returns FALSE.",
-		"Args": [
-			"参考"
-		]
-	},
-	{
-		"Fname": "ISLOGICAL",
-		"NewLine": "No",
-		"Des": "tests if a specified cell contains a formula, and if so, returns TRUE; Otherwise, the function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISNA",
-		"NewLine": "No",
-		"Des": "tests if a supplied value 'or expression' returns a logical value 'i.e. evaluates to True or False'. If so, the function returns TRUE; Otherwise, it returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISNONTEXT",
-		"NewLine": "No",
-		"Des": "tests if an initial supplied expression 'or value' returns the Excel #N/A Error, and if so, returns TRUE; Otherwise the function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISNUMBER",
-		"NewLine": "No",
-		"Des": "tests if a supplied value is text. If not, the function returns TRUE; If the supplied value is text, the function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISO.CEILING",
-		"NewLine": "Yes",
-		"Des": "tests if a supplied value is a number. If so, the function returns TRUE; Otherwise it returns FALSE.",
-		"Args": [
-			"数值", "[意义]"
-		]
-	},
-	{
-		"Fname": "ISODD",
-		"NewLine": "No",
-		"Des": "rounds a supplied number up 'regardless of the number's sign', to the nearest multiple of a supplied significance.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ISOWEEKNUM",
-		"NewLine": "No",
-		"Des": "returns the ISO week number of a supplied date.",
-		"Args": [
-			"日期"
-		]
-	},
-	{
-		"Fname": "ISPMT",
-		"NewLine": "Yes",
-		"Des": "calculates the interest paid during a specific period of a loan or investment.",
-		"Args": [
-			"率", "每", "核电厂", "现值总额"
-		]
-	},
-	{
-		"Fname": "ISREF",
-		"NewLine": "No",
-		"Des": "tests if a supplied number 'or numeric expression' evaluates to an odd number, and if so, returns TRUE; Otherwise, the function returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "ISTEXT",
-		"NewLine": "No",
-		"Des": "tests if a supplied value is a reference. If so, the function returns TRUE; Otherwise it returns FALSE.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "KURT",
-		"NewLine": "Yes",
-		"Des": "tests if a supplied value is text, and if so, returns TRUE; Otherwise, the function returns FALSE.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "LARGE",
-		"NewLine": "Yes",
-		"Des": "returns the k'th largest value from an array of numeric values.",
-		"Args": [
-			"阵列", "k"
-		]
-	},
-	{
-		"Fname": "LCM",
-		"NewLine": "Yes",
-		"Des": "calculates the kurtosis of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "LEFT",
-		"NewLine": "Yes",
-		"Des": "returns a specified number of characters from the start of a supplied text string.",
-		"Args": [
-			"文本", "[数字字符]"
-		]
-	},
-	{
-		"Fname": "LEFT",
-		"NewLine": "Yes",
-		"Des": "returns the least common multiple of two or more supplied integers.",
-		"Args": [
-			"文本", "[数字字符]"
-		]
-	},
-	{
-		"Fname": "LEN",
-		"NewLine": "No",
-		"Des": "returns the length of a supplied text string.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "LN",
-		"NewLine": "No",
-		"Des": "calculates the natural logarithm of a given number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "LOG",
-		"NewLine": "Yes",
-		"Des": "calculates the logarithm of a given number, to a supplied base.",
-		"Args": [
-			"数值", "[基地]"
-		]
-	},
-	{
-		"Fname": "LOG10",
-		"NewLine": "No",
-		"Des": "calculates the base 10 logarithm of a given number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "LOGEST",
-		"NewLine": "Yes",
-		"Des": "returns statistical information on the exponential curve of best fit, through a supplied set of x- and y- values.",
-		"Args": [
-			"已知的", "[已知x's]", "[常量]", "[统计]"
-		]
-	},
-	{
-		"Fname": "LOGINV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Cumulative Log-Normal Distribution Function of x, for a supplied probability.",
-		"Args": [
-			"可能性", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "LOGNORM.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Log-Normal Probability Density Function or the Cumulative Log-Normal Distribution Function for a supplied value of x.",
-		"Args": [
-			"x", "ln(x)的平均数", "标准偏差", "累积的"
-		]
-	},
-	{
-		"Fname": "LOGNORM.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Cumulative Log-Normal Distribution Function of x, for a supplied probability.",
-		"Args": [
-			"可能性", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "LOGNORMDIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Cumulative Log-Normal Distribution Function at a supplied value of x.",
-		"Args": [
-			"x", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "LOOKUP",
-		"NewLine": "Yes",
-		"Des": "has two forms: the Vector form and the Array form.",
-		"Args": [
-			"查找值", "查找向量", "[结果向量]"
-		]
-	},
-	{
-		"Fname": "LOWER",
-		"NewLine": "No",
-		"Des": "converts all characters in a supplied text string to lower case.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "MATCH",
-		"NewLine": "Yes",
-		"Des": "looks up a value in an array, and returns the position of the value within the array.",
-		"Args": [
-			"查找值", "查找数组", "[匹配类型]"
-		]
-	},
-	{
-		"Fname": "MAX",
-		"NewLine": "Yes",
-		"Des": "returns the largest value from a supplied set of numeric values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-
-	{
-		"Fname": "MDETERM",
-		"NewLine": "No",
-		"Des": "calculates the determinant of a square matrix.",
-		"Args": [
-			"阵列"
-		]
-	},
-	{
-		"Fname": "MDURATION",
-		"NewLine": "Yes",
-		"Des": "calculates the Modified Macaulay Duration of a security that pays periodic interest, assuming a par value of $100.",
-		"Args": [
-			"解决", "成熟度", "优惠券", "yld公司", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "MEDIAN",
-		"NewLine": "Yes",
-		"Des": "returns the statistical median 'the middle value' of a list of supplied numbers.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MID",
-		"NewLine": "Yes",
-		"Des": "returns a specified number of characters from the middle of a supplied text string.",
-		"Args": [
-			"文本", "开始编号", "数字字符"
-		]
-	},
-	{
-		"Fname": "MIN",
-		"NewLine": "Yes",
-		"Des": "returns the smallest value from a supplied set of numeric values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MINA",
-		"NewLine": "Yes",
-		"Des": "returns the smallest value from a supplied set of numeric values, while counting text and the logical value FALSE as the value 0 and counting the logical value TRUE as the value 1.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-
-	{
-		"Fname": "MINUTE",
-		"NewLine": "No",
-		"Des": "returns an integer representing the minute component of a supplied Excel time.",
-		"Args": [
-			"序列号"
-		]
-	},
-	{
-		"Fname": "MINVERSE",
-		"NewLine": "No",
-		"Des": "calculates the inverse of a square matrix.",
-		"Args": [
-			"阵列"
-		]
-	},
-	{
-		"Fname": "MIRR",
-		"NewLine": "Yes",
-		"Des": "returns the Modified Internal Rate of Return for a supplied series of periodic cash flows 'i.e. a set of values, which includes an initial investment value and a series of net income values'.",
-		"Args": [
-			"价值观", "财务比率", "再投资率"
-		]
-	},
-	{
-		"Fname": "MMULT",
-		"NewLine": "Yes",
-		"Des": "calculates the matrix product of two arrays 'representing matrices'.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "MOD",
-		"NewLine": "Yes",
-		"Des": "returns the remainder of a division between two supplied numbers.",
-		"Args": [
-			"数值", "除数"
-		]
-	},
-	{
-		"Fname": "MODE",
-		"NewLine": "Yes",
-		"Des": "returns the statistical mode 'the most frequently occurring value' of a list of supplied numbers. If there are 2 or more most frequently occurring values in the supplied data, the function returns the lowest of these values",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MODE.MULT",
-		"NewLine": "Yes",
-		"Des": "returns a vertical array of the statistical modes 'the most frequently occurring values' within a list of supplied numbers.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MODE.SNGL",
-		"NewLine": "Yes",
-		"Des": "returns the statistical mode 'the most frequently occurring value' within a list of supplied numbers. If there are 2 or more most frequently occurring values in the supplied data, the function returns the lowest of these values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "MONTH",
-		"NewLine": "No",
-		"Des": " returns an integer, representing the month 'from 1 - 12' of a supplied date.",
-		"Args": [
-			"序列号"
-		]
-	},
-	{
-		"Fname": "MROUND",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number up or down to the nearest multiple of a given number.",
-		"Args": [
-			"数值", "倍数"
-		]
-	},
-	{
-		"Fname": "MUNIT",
-		"NewLine": "No",
-		"Des": "returns the unit matrix for a specified dimension.",
-		"Args": [
-			"维"
-		]
-	},
-	{
-		"Fname": "N",
-		"NewLine": "No",
-		"Des": "converts data into a numeric value, using the following rules:",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "NA",
-		"NewLine": "No",
-		"Des": "returns the Excel #N/A error. This error message has the meaning 'value not available' and is produced when an Excel Formula is unable to find a value that it needs.",
-		"Args": [
-
-		]
-	},
-	{
-		"Fname": "NEGBINOM.DIST",
-		"NewLine": "Yes",
-		"Des": "Given the probability of a success from a single event, the Excel NEGBINOM.DIST function calculates the probability mass function or the cumulative distribution function for the Negative Binomial Distribution.",
-		"Args": [
-			"f号", "数字s", "概率s", "累积的"
-		]
-	},
-	{
-		"Fname": "NEGBINOMDIST",
-		"NewLine": "Yes",
-		"Des": "Given the probability of a success from a single event, the Excel NEGBINOMDIST function calculates the Negative Binomial Distribution for a given set of parameters.",
-		"Args": [
-			"f号", "数字s", "概率s"
-		]
-	},
-
-	{
-		"Fname": "NETWORKDAYS.INTL",
-		"NewLine": "Yes",
-		"Des": "calculates the number of whole work days between two supplied dates, excluding weekends and holidays. The function allows the user to specify which days are counted as weekends and holidays.",
-		"Args": [
-			"开始日期", "结束日期", "[周末]", "[假日]"
-		]
-	},
-	{
-		"Fname": "NOMINAL",
-		"NewLine": "Yes",
-		"Des": "returns the nominal interest rate for a given effective interest rate and number of compounding periods per year.",
-		"Args": [
-			"影响率", "npery"
-		]
-	},
-	{
-		"Fname": "NORM.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Normal Probability Density Function or the Cumulative Normal Distribution Function for a supplied value of x, and a supplied distribution mean & standard deviation.",
-		"Args": [
-			"x", "ln(x)的平均数", "标准偏差", "累积的"
-		]
-	},
-	{
-		"Fname": "NORM.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Cumulative Normal Distribution Function for a supplied value of x, and a supplied distribution mean & standard deviation.",
-		"Args": [
-			"可能性", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "NORM.S.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Standard Normal Distribution Function for a supplied value.",
-		"Args": [
-			"z", "累积的"
-		]
-	},
-	{
-		"Fname": "NORM.S.INV",
-		"NewLine": "No",
-		"Des": "calculates the inverse of the Standard Normal Cumulative Distribution Function for a supplied probability value.",
-		"Args": [
-			"可能性"
-		]
-	},
-	{
-		"Fname": "NORMDIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Normal Probability Density Function or the Cumulative Normal Distribution. Function for a supplied set of parameters.",
-		"Args": [
-			"x", "ln(x)的平均数", "标准偏差", "累积的"
-		]
-	},
-	{
-		"Fname": "NORMINV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the Cumulative Normal Distribution Function for a supplied value of x, and a supplied distribution mean & standard deviation.",
-		"Args": [
-			"可能性", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "NORMSDIST",
-		"NewLine": "No",
-		"Des": "calculates the Standard Normal Cumulative Distribution Function for a supplied value.",
-		"Args": [
-			"z"
-		]
-	},
-	{
-		"Fname": "NORMSINV",
-		"NewLine": "No",
-		"Des": "calculates the inverse of the Standard Normal Cumulative Distribution Function for a supplied probability value.",
-		"Args": [
-			"可能性"
-		]
-	},
-	{
-		"Fname": "NOT",
-		"NewLine": "No",
-		"Des": "returns the opposite to a supplied logical value.",
-		"Args": [
-			"符合逻辑的"
-		]
-	},
-	{
-		"Fname": "NOW",
-		"NewLine": "No",
-		"Des": "returns the current date and time. The function receives no arguments and therefore, the function syntax is:",
-		"Args": [
-
-		]
-	},
-	{
-		"Fname": "NPER",
-		"NewLine": "Yes",
-		"Des": "calculates the number of periods required to pay off a loan, for a constant periodic payment and a constant interest rate.",
-		"Args": [
-			"率", "付款", "现值总额", "[fv]", "[类型]"
-		]
-	},
-	{
-		"Fname": "NPV",
-		"NewLine": "Yes",
-		"Des": "calculates the Net Present Value of an investment, based on a supplied discount rate, and a series of future payments and income.",
-		"Args": [
-			"率", "值1", "[值2]", "[值3]"
-		]
-	},
-
-	{
-		"Fname": "OCT2BIN",
-		"NewLine": "Yes",
-		"Des": "converts an Octal 'Base 8' number into a Binary 'Base 2' number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "OCT2DEC",
-		"NewLine": "No",
-		"Des": "converts an Octal 'a base-8 number' into a decimal number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "OCT2HEX",
-		"NewLine": "Yes",
-		"Des": "converts an Octal 'Base 8' number into a Hexadecimal 'Base 16' number.",
-		"Args": [
-			"数值", "[地点]"
-		]
-	},
-	{
-		"Fname": "ODD",
-		"NewLine": "No",
-		"Des": "rounds a supplied number away from zero 'i.e. rounds a positive number up and a negative number down', to the next odd number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "ODDFPRICE",
-		"NewLine": "Yes",
-		"Des": "calculates the price per $100 face value of a security with an odd 'short or long' first period.",
-		"Args": [
-			"解决", "成熟度", "问题", "第一张优惠券", "率", "yld公司", "赎回", "频率", "[依据]）"
-		]
-	},
-	{
-		"Fname": "ODDFYIELD",
-		"NewLine": "Yes",
-		"Des": "calculates the yield of a security with an odd 'short or long' first period.",
-		"Args": [
-			"解决", "成熟度", "问题", "第一张优惠券", "率", "公共关系", "赎回", "频率", "[依据]）"
-		]
-	},
-	{
-		"Fname": "ODDFYIELD",
-		"NewLine": "Yes",
-		"Des": "calculates the price per $100 face value of a security with an odd 'short or long' last period.",
-		"Args": [
-			"解决", "成熟度", "问题", "第一张优惠券", "率", "公共关系", "赎回", "频率", "[依据]）"
-		]
-	},
-	{
-		"Fname": "ODDLPRICE",
-		"NewLine": "Yes",
-		"Des": "calculates the yield of a security with an odd 'short or long' last period.",
-		"Args": [
-			"解决", "成熟度", "最后的兴趣", "率", "yld公司", "赎回", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "OFFSET",
-		"NewLine": "Yes",
-		"Des": "returns range of cells that is a specified number of rows and columns from an initial specified range.",
-		"Args": [
-			"参考", "排", "科尔斯", "[高度]", "[宽度]"
-		]
-	},
-	{
-		"Fname": "OR",
-		"NewLine": "Yes",
-		"Des": "tests a number of supplied conditions and returns either:",
-		"Args": [
-			"逻辑测试1", "[逻辑测试2]"
-		]
-	},
-	{
-		"Fname": "PDURATION",
-		"NewLine": "Yes",
-		"Des": "calculates the number of periods required for an investment to reach a specified future value.",
-		"Args": [
-			"率", "现值总额", "fv公司"
-		]
-	},
-	{
-		"Fname": "PEARSON",
-		"NewLine": "Yes",
-		"Des": "calculates the Pearson Product-Moment Correlation Coefficient for two sets of values.",
-		"Args": [
-			"阵列1", "阵列2"
-		]
-	},
-	{
-		"Fname": "PERCENTILE",
-		"NewLine": "Yes",
-		"Des": "returns the k'th percentile 'i.e. the value below which k% of the data values fall' for a supplied range of values and a supplied k.",
-		"Args": [
-			"阵列", "k"
-		]
-	},
-	{
-		"Fname": "PERCENTILE.EXC",
-		"NewLine": "Yes",
-		"Des": "returns the k'th percentile 'i.e. the value below which k% of the data values fall' for a supplied range of values and a supplied k 'between 0 & 1 exclusive'.",
-		"Args": [
-			"阵列", "k"
-		]
-	},
-	{
-		"Fname": "PERCENTILE.INC",
-		"NewLine": "Yes",
-		"Des": "returns the k'th percentile 'i.e. the value below which k% of the data values fall' for a supplied range of values and a supplied k 'between 0 & 1 inclusive'.",
-		"Args": [
-			"阵列", "k"
-		]
-	},
-	{
-		"Fname": "PERCENTRANK",
-		"NewLine": "Yes",
-		"Des": "calculates the relative position of a specified value, within a set of values, as a percentage.",
-		"Args": [
-			"阵列", "x", "[意义]"
-		]
+		"Des": "返回 Gamma 函数的自然对数 Γ'n'。",
+		"Args": ["x"]
 	},
 	{
 		"Fname": "PERCENTRANK.EXC",
 		"NewLine": "Yes",
-		"Des": "calculates the relative position, between 0 and 1 'exclusive', of a specified value within a supplied array.",
-		"Args": [
-			"阵列", "x", "[意义]"
-		]
+		"Des": "计算提供的数组中指定值的相对位置，介于 0 和 1 'exclusive' 之间。",
+		"Args": ["阵列", "x", "[意义]"]
 	},
 	{
 		"Fname": "PERCENTRANK.INC",
 		"NewLine": "Yes",
-		"Des": "calculates the relative position, between 0 and 1 'inclusive', of a specified value within a supplied array.",
-		"Args": [
-			"阵列", "x", "[意义]"
-		]
+		"Des": "计算提供的数组中指定值的相对位置，介于 0 和 1 'inclusive' 之间。",
+		"Args": ["阵列", "x", "[意义]"]
 	},
 	{
-		"Fname": "PERMUT",
+		"Fname": "PERCENTILE.EXC",
 		"NewLine": "Yes",
-		"Des": "calculates the number of permutations of a specified number of objects from a set of objects.",
-		"Args": [
-			"数值", "选择的号码"
-		]
+		"Des": "对于提供的值范围和提供的 k '在 0 和 1 之间排除'，返回第 k 个百分位数'即 k% 的数据值低于该值的值'。",
+		"Args": ["阵列", "k"]
+	},
+	{
+		"Fname": "PERCENTILE.INC",
+		"NewLine": "Yes",
+		"Des": "对于提供的值范围和提供的 k“介于 0 和 1 之间”，返回第 k 个百分位数“即低于 k% 的数据值的值”。",
+		"Args": ["阵列", "k"]
+	},
+	{
+		"Fname": "CHISQ.DIST.RT",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的概率密度函数或累积分布函数。",
+		"Args": ["x", "自由度"]
+	},
+	{
+		"Fname": "FLOOR.PRECISE",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向下舍入为提供的有效倍数。",
+		"Args": ["数值", "[意义]"]
+	},
+	{
+		"Fname": "NEGBINOM.DIST",
+		"NewLine": "Yes",
+		"Des": "给定单个事件的成功概率，Excel NEGBINOM.DIST 函数计算负二项分布的概率质量函数或累积分布函数。",
+		"Args": ["f号", "数字s", "概率s", "累积的"]
+	},
+	{
+		"Fname": "CEILING.MATH",
+		"NewLine": "Yes",
+		"Des": "将提供的数字从零四舍五入到给定数字的最接近的倍数。",
+		"Args": ["数值", "[意义]", "[模式]"]
+	},
+	{
+		"Fname": "CHISQ.INV.RT",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的左尾概率的倒数。",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "CONFIDENCE.T",
+		"NewLine": "Yes",
+		"Des": "使用正态分布计算置信值，该值可用于为提供的概率和样本大小构建总体均值的置信区间。假设总体的标准差是已知的。",
+		"Args": ["α", "标准偏差", "大小"]
+	},
+	{
+		"Fname": "COVARIANCE.P",
+		"NewLine": "Yes",
+		"Des": "计算提供的两组值的协方差。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "COVARIANCE.S",
+		"NewLine": "Yes",
+		"Des": "计算提供的两组值的总体协方差。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "ERFC.PRECISE",
+		"NewLine": "No",
+		"Des": "计算互补误差函数，在提供的下限和无穷大之间积分。",
+		"Args": ["x"]
+	},
+	{
+		"Fname": "FORECAST.ETS",
+		"NewLine": "Yes",
+		"Des": "预测拟合到一组提供的 x 和 y 值的线性趋势线上的未来点。",
+		"Args": ["目标日期", "价值观", "时间线", "[季节性]", "[数据完成]", "[聚合]"]
+	},
+	{
+		"Fname": "GETPIVOTDATA",
+		"NewLine": "Yes",
+		"Des": "测试提供的数字是否大于提供的步长并返回：",
+		"Args": ["数据字段", "数据透视表", "[字段1]", "[项目1]", "[字段2]", "[项目2]"]
+	},
+	{
+		"Fname": "HYPGEOM.DIST",
+		"NewLine": "Yes",
+		"Des": "创建到指定位置的超链接。",
+		"Args": ["样品s", "数字样本", "人口", "数字弹出", "累积的"]
+	},
+	{
+		"Fname": "LOGNORM.DIST",
+		"NewLine": "Yes",
+		"Des": "计算提供的 x 值的对数正态概率密度函数或累积对数正态分布函数。",
+		"Args": ["x", "ln(x)的平均数", "标准偏差", "累积的"]
+	},
+	{
+		"Fname": "NEGBINOMDIST",
+		"NewLine": "Yes",
+		"Des": "给定单个事件的成功概率，Excel NEGBINOMDIST 函数计算给定参数集的负二项分布。",
+		"Args": ["f号", "数字s", "概率s"]
 	},
 	{
 		"Fname": "PERMUTATIONA",
 		"NewLine": "Yes",
-		"Des": "calculates the number of permutations, with repetitions, of a specified number of objects from a set.",
-		"Args": [
-			"数值", "选择的号码"
-		]
-	},
-	{
-		"Fname": "PHI",
-		"NewLine": "No",
-		"Des": "returns the value of the density function for a standard normal distribution for a supplied number.",
-		"Args": [
-			"x"
-		]
-	},
-
-	{
-		"Fname": "PI",
-		"NewLine": "No",
-		"Des": "returns the value of the mathematical constant π 'pi', accurate to 15 digits '14 decimal places'.",
-		"Args": [
-
-		]
-	},
-	{
-		"Fname": "PMT",
-		"NewLine": "Yes",
-		"Des": "calculates the constant periodic payment required to pay off 'or partially pay off' a loan or investment, with a constant interest rate, over a specified period.",
-		"Args": [
-			"率", "核电厂", "现值总额", "[fv]", "[类型]"
-		]
-	},
-	{
-		"Fname": "POISSON",
-		"NewLine": "Yes",
-		"Des": "calculates the Poisson Probability Mass Function or the Cumulative Poisson Probability Function for a supplied set of parameters.",
-		"Args": [
-			"x", "ln(x)的平均数", "累积的"
-		]
+		"Des": "计算集合中指定数量的对象的重复排列数.",
+		"Args": ["数值", "选择的号码"]
 	},
 	{
 		"Fname": "POISSON.DIST",
 		"NewLine": "Yes",
-		"Des": "calculates the Poisson Probability Mass Function or the Cumulative Poisson Probability Function for a supplied set of parameters.",
-		"Args": [
-			"x", "ln(x)的平均数", "累积的"
-		]
-	},
-	{
-		"Fname": "POWER",
-		"NewLine": "Yes",
-		"Des": "calculates a given number, raised to a supplied power.",
-		"Args": [
-			"数值", "权力"
-		]
-	},
-	{
-		"Fname": "PPMT",
-		"NewLine": "Yes",
-		"Des": "calculates the payment on the principal, during a specific period of a loan or investment that is paid in constant periodic payments, with a constant interest rate.",
-		"Args": [
-			"率", "每", "核电厂", "现值总额", "[fv]", "[类型]"
-		]
-	},
-	{
-		"Fname": "PRICE",
-		"NewLine": "Yes",
-		"Des": "calculates the price, per $100 face value of a security that pays periodic interest.",
-		"Args": [
-			"解决", "成熟度", "率", "yld公司", "赎回", "频率", "[依据]"
-		]
-	},
-	{
-		"Fname": "PRICEDISC",
-		"NewLine": "Yes",
-		"Des": "calculates the price, per $100 face value of a discounted security.",
-		"Args": [
-			"解决", "成熟度", "折扣", "赎回", "[依据]"
-		]
-	},
-	{
-		"Fname": "PRICEMAT",
-		"NewLine": "Yes",
-		"Des": "calculates the price, per $100 face value of a security that pays interest at maturity.",
-		"Args": [
-			"解决", "成熟度", "问题", "率", "yld公司", "[依据]"
-		]
-	},
-	{
-		"Fname": "PROB",
-		"NewLine": "Yes",
-		"Des": "Given a list of values and a corresponding list of probabilities, the Excel PROB function calculates the probability associated with a given range.",
-		"Args": [
-			"x范围", "探测范围", "[下限]", "[上限]"
-		]
-	},
-	{
-		"Fname": "PRODUCT",
-		"NewLine": "Yes",
-		"Des": "returns the product 'multiplication' of a supplied set of numerical values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "PROPER",
-		"NewLine": "No",
-		"Des": "converts all characters in a supplied text string to proper case 'i.e. all letters that do not immediately follow another letter are set to upper case and all other characters are lower case'.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "PV",
-		"NewLine": "Yes",
-		"Des": "calculates the Present Value of an investment, based on a series of future payments.",
-		"Args": [
-			"率", "核电厂", "[付款]", "[fv]", "[类型]"
-		]
-	},
-	{
-		"Fname": "QUARTILE",
-		"NewLine": "Yes",
-		"Des": "returns a requested  quartile of a supplied range of values.",
-		"Args": [
-			"阵列", "夸脱"
-		]
+		"Des": "计算一组提供的参数的泊松概率质量函数或累积泊松概率函数。",
+		"Args": ["x", "ln(x)的平均数", "累积的"]
 	},
 	{
 		"Fname": "QUARTILE.EXC",
 		"NewLine": "Yes",
-		"Des": " returns a requested quartile of a supplied range of values, based on a percentile range of 0 to 1 exclusive.",
-		"Args": [
-			"阵列", "夸脱"
-		]
+		"Des": "根据 0 到 1 的百分位数范围，返回所提供值范围的请求四分位数。",
+		"Args": ["阵列", "夸脱"]
 	},
 	{
 		"Fname": "QUARTILE.INC",
 		"NewLine": "Yes",
-		"Des": "returns a requested quartile of a supplied range of values, based on a percentile range of 0 to 1 'inclusive'.",
-		"Args": [
-			"阵列", "夸脱"
-		]
-	},
-	{
-		"Fname": "QUOTIENT",
-		"NewLine": "Yes",
-		"Des": "returns the integer portion of a division between two supplied numbers.",
-		"Args": [
-			"分子", "分母"
-		]
-	},
-	{
-		"Fname": "RADIANS",
-		"NewLine": "No",
-		"Des": "generates a random real number between 0 and 1.",
-		"Args": [
-			"角"
-		]
-	},
-	{
-		"Fname": "RAND",
-		"NewLine": "No",
-		"Des": "converts radians into degrees.",
-		"Args": [
-
-		]
-	},
-	{
-		"Fname": "RANDBETWEEN",
-		"NewLine": "Yes",
-		"Des": "generates a random integer between two supplied integers.",
-		"Args": [
-			"底部", "顶部"
-		]
-	},
-	{
-		"Fname": "RANK",
-		"NewLine": "Yes",
-		"Des": "returns the statistical rank of a given value, within a supplied array of values. If there are duplicate values in the list, these are given the same rank.",
-		"Args": [
-			"数值", "引用", "[命令]"
-		]
-	},
-	{
-		"Fname": "RANK.AVG",
-		"NewLine": "Yes",
-		"Des": "returns the statistical rank of a given value, within a supplied array of values. If there are duplicate values in the list, the average rank is returned.",
-		"Args": [
-			"数值", "引用", "[命令]"
-		]
-	},
-	{
-		"Fname": "RANK.EQ",
-		"NewLine": "Yes",
-		"Des": "returns the statistical rank of a given value, within a supplied array of values. If there are duplicate values in the list, these are given the same rank.",
-		"Args": [
-			"数值", "引用", "[命令]"
-		]
-	},
-	{
-		"Fname": "RATE",
-		"NewLine": "Yes",
-		"Des": "calculates the interest rate required to pay off a specified amount of a loan, or to reach a target amount on an investment, over a given period.",
-		"Args": [
-			"核电厂", "付款", "现值总额", "[fv]", "[类型]", "[猜猜]"
-		]
-	},
-	{
-		"Fname": "RECEIVED",
-		"NewLine": "Yes",
-		"Des": "calculates the amount received at maturity for a fully invested security.",
-		"Args": [
-			"解决", "成熟度", "投资", "折扣", "[依据]"
-		]
-	},
-	{
-		"Fname": "REPLACE",
-		"NewLine": "Yes",
-		"Des": "replaces all or part of a text string with another string.",
-		"Args": [
-			"旧文本", "开始编号", "数字字符", "新文本"
-		]
-	},
-	{
-		"Fname": "REPT",
-		"NewLine": "Yes",
-		"Des": "returns a supplied text string, repeated a specified number of times.",
-		"Args": [
-			"文本", "次数"
-		]
-	},
-	{
-		"Fname": "RIGHT",
-		"NewLine": "Yes",
-		"Des": "returns a specified number of characters from the end of a supplied text string.",
-		"Args": [
-			"文本", "[数字字符]"
-		]
-	},
-	{
-		"Fname": "ROMAN",
-		"NewLine": "Yes",
-		"Des": "converts an arabic number to Roman. I.e. for a supplied integer, the function returns a text string depicting the roman numeral form of the number.",
-		"Args": [
-			"数值", "[表格]"
-		]
-	},
-	{
-		"Fname": "ROUND",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number up or down, to a specified number of decimal places.",
-		"Args": [
-			"数值", "数字"
-		]
-	},
-	{
-		"Fname": "ROUNDDOWN",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number down towards zero, to a specified number of decimal places.",
-		"Args": [
-			"数值", "数字"
-		]
-	},
-	{
-		"Fname": "ROUNDUP",
-		"NewLine": "Yes",
-		"Des": "rounds a supplied number up, away from zero, to a specified number of decimal places.",
-		"Args": [
-			"数值", "数字"
-		]
-	},
-	{
-		"Fname": "ROW",
-		"NewLine": "No",
-		"Des": "returns the first row number within a supplied reference or the number of the current row.",
-		"Args": [
-			"[参考]"
-		]
-	},
-	{
-		"Fname": "ROWS",
-		"NewLine": "No",
-		"Des": "takes an Excel range and returns the number of rows that are contained within the range.",
-		"Args": [
-			"阵列"
-		]
-	},
-	{
-		"Fname": "RRI",
-		"NewLine": "Yes",
-		"Des": "calculates the equivalent interest rate for an investment with specified present value, future value and duration.",
-		"Args": [
-			"核电厂", "现值总额", "fv公司"
-		]
-	},
-	{
-		"Fname": "RSQ",
-		"NewLine": "Yes",
-		"Des": "calculates the square of the Pearson Product-Moment Correlation Coefficient for two supplied sets of values.",
-		"Args": [
-			"已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "SEARCH",
-		"NewLine": "Yes",
-		"Des": "returns the position of a specified character or sub-string within a supplied text string.",
-		"Args": [
-			"搜索文本", "文本内", "[开始编号]"
-		]
-	},
-	{
-		"Fname": "SEC",
-		"NewLine": "No",
-		"Des": "calculates the secant of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SECH",
-		"NewLine": "No",
-		"Des": "calculates the hyperbolic secant 'sech' of a supplied angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SECOND",
-		"NewLine": "No",
-		"Des": "returns an integer representing the second component of a supplied Excel time.",
-		"Args": [
-			"序列号"
-		]
-	},
-	{
-		"Fname": "SHEET",
-		"NewLine": "No",
-		"Des": "returns the Sheet number for a specified reference.",
-		"Args": [
-			"[价值]"
-		]
-	},
-	{
-		"Fname": "SHEETS",
-		"NewLine": "No",
-		"Des": "returns the number of sheets in a supplied reference. The result includes sheets that are Visible, Hidden or Very Hidden.",
-		"Args": [
-			"[参考]"
-		]
-	},
-	{
-		"Fname": "SIGN",
-		"NewLine": "No",
-		"Des": "returns the arithmetic sign '+1, -1 or 0' of a supplied number. I.e. if the number is positive, the Sign function returns +1, if the number is negative, the function returns -1 and if the number is 0 'zero', the function returns 0.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SIN",
-		"NewLine": "No",
-		"Des": "calculates the sine of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SINH",
-		"NewLine": "No",
-		"Des": "calculates the hyperbolic sine 'sinh' of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SKEW",
-		"NewLine": "Yes",
-		"Des": "calculates the skewness of the distribution of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "SKEW.P",
-		"NewLine": "Yes",
-		"Des": "calculates the skewness of the distribution of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "SLN",
-		"NewLine": "Yes",
-		"Des": "calculates the straight line depreciation of an asset for one period.",
-		"Args": [
-			"成本", "救助", "生活"
-		]
-	},
-	{
-		"Fname": "SLOPE",
-		"NewLine": "Yes",
-		"Des": "calculates the slope of the linear regression line through a supplied set of x- and y- values.",
-		"Args": [
-			"已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "SMALL",
-		"NewLine": "Yes",
-		"Des": "returns the k'th smallest value from an array of numeric values.",
-		"Args": [
-			"阵列", "k"
-		]
-	},
-	{
-		"Fname": "SQRT",
-		"NewLine": "No",
-		"Des": "calculates the positive square root of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "SQRTPI",
-		"NewLine": "No",
-		"Des": "returns the square root of a supplied number multiplied by the mathematical constant, π.",
-		"Args": [
-			"数量=SQRT"
-		]
-	},
-	{
-		"Fname": "STANDARDIZE",
-		"NewLine": "Yes",
-		"Des": "returns a normalized value of a distribution that is characterized by a supplied mean and standard deviation.",
-		"Args": [
-			"x", "ln(x)的平均数", "标准偏差"
-		]
-	},
-	{
-		"Fname": "STDEV",
-		"NewLine": "Yes",
-		"Des": "calculates the sample standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STDEV",
-		"NewLine": "Yes",
-		"Des": "calculates the standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STDEV.P",
-		"NewLine": "Yes",
-		"Des": "calculates the sample standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STDEV.S",
-		"NewLine": "Yes",
-		"Des": "calculates the sample standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STDEVP",
-		"NewLine": "Yes",
-		"Des": "calculates the standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STDEVPA",
-		"NewLine": "Yes",
-		"Des": "calculates the standard deviation of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "STEYX",
-		"NewLine": "Yes",
-		"Des": "calculates the standard error for the line of best fit, through a supplied set of x- and y- values.",
-		"Args": [
-			"已知的", "已知x"
-		]
-	},
-	{
-		"Fname": "SUBSTITUTE",
-		"NewLine": "Yes",
-		"Des": "replaces one or more instances of a given text string, within an original text string.",
-		"Args": [
-			"文本", "旧文本", "新文本", "[实例数]"
-		]
-	},
-	{
-		"Fname": "SUBTOTAL",
-		"NewLine": "Yes",
-		"Des": "performs a specified calculation 'e.g. the sum, product, average, etc.' for a supplied set of values.",
-		"Args": [
-			"函数num", "参考文献1", "[参考文献2]"
-		]
-	},
-	{
-		"Fname": "SUM",
-		"NewLine": "Yes",
-		"Des": "adds together a supplied set of numbers and returns the sum of these values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-
-	{
-		"Fname": "SUMPRODUCT",
-		"NewLine": "Yes",
-		"Des": "returns the sum of the products of the corresponding values in a set of supplied arrays.",
-		"Args": [
-			"阵列1", "[阵列2]", "[阵列3]"
-		]
-	},
-	{
-		"Fname": "SUMSQ",
-		"NewLine": "Yes",
-		"Des": "returns the sum of squares of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "SWITCH",
-		"NewLine": "Yes",
-		"Des": "compares a number of supplied values to a supplied test expression and returns a result corresponding to the first value that matches the test expression. A default value can be supplied, to be returned if none of the supplied values match the test expression.",
-		"Args": [
-			"表达", "值1", "结果1", "[值2", "结果2]", "[值3", "结果3]", "[默认]）"
-		]
-	},
-	{
-		"Fname": "SYD",
-		"NewLine": "Yes",
-		"Des": "calculates the sum-of-years' digits depreciation for a specified period in the lifetime of an asset.",
-		"Args": [
-			"成本", "救助", "生活", "每"
-		]
-	},
-	{
-		"Fname": "T",
-		"NewLine": "No",
-		"Des": "tests if a supplied value is text and if so, returns the supplied text; Otherwise, the function returns an empty text string.",
-		"Args": [
-			"价值"
-		]
-	},
-	{
-		"Fname": "T.DIST",
-		"NewLine": "Yes",
-		"Des": "calculates the one-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"x", "自由度", "累积的"
-		]
-	},
-	{
-		"Fname": "T.DIST.2T",
-		"NewLine": "Yes",
-		"Des": "calculates the two-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"x", "自由度"
-		]
-	},
-	{
-		"Fname": "T.DIST.RT",
-		"NewLine": "Yes",
-		"Des": "calculates the right-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"x", "自由度"
-		]
-	},
-	{
-		"Fname": "T.INV",
-		"NewLine": "Yes",
-		"Des": "calculates the left-tailed inverse of the Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-	{
-		"Fname": "T.INV.2T",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the two-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-	{
-		"Fname": "T.TEST",
-		"NewLine": "Yes",
-		"Des": "calculates the probability associated with the Student's T Test, which is commonly used for identifying whether two data sets are likely to have come from the same two underlying populations with the same mean.",
-		"Args": [
-			"阵列1", "阵列2", "尾巴", "类型"
-		]
-	},
-	{
-		"Fname": "TAN",
-		"NewLine": "No",
-		"Des": "calculates the tangent of a given angle.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "TANH",
-		"NewLine": "No",
-		"Des": "calculates the hyperbolic tangent 'tanh' of a supplied number.",
-		"Args": [
-			"数值"
-		]
-	},
-	{
-		"Fname": "TBILLEQ",
-		"NewLine": "Yes",
-		"Des": "calculates the bond-equivalent yield for a Treasury Bill.",
-		"Args": [
-			"解决", "成熟度", "折扣"
-		]
-	},
-	{
-		"Fname": "TBILLPRICE",
-		"NewLine": "Yes",
-		"Des": "returns the price, per $100 face value, of a Treasury Bill.",
-		"Args": [
-			"解决", "成熟度", "折扣"
-		]
-	},
-	{
-		"Fname": "TBILLYIELD",
-		"NewLine": "Yes",
-		"Des": "calculates the yield of a Treasury Bill.",
-		"Args": [
-			"解决", "成熟度", "公共关系"
-		]
-	},
-	{
-		"Fname": "TDIST",
-		"NewLine": "Yes",
-		"Des": "calculates the Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"x", "自由度", "尾巴"
-		]
-	},
-	{
-		"Fname": "TEXT",
-		"NewLine": "Yes",
-		"Des": "converts a supplied numeric value into text, in a user-specified format.",
-		"Args": [
-			"数值", "设置文本格式"
-		]
-	},
-	{
-		"Fname": "TEXTJOIN",
-		"NewLine": "Yes",
-		"Des": "joins together a series of supplied text strings into one combined text string. The user can specify a delimiter to add between the individual text items, if required.",
-		"Args": [
-			"[分隔符]", "[忽略空值]", "文本1", "[文本2]"
-		]
-	},
-	{
-		"Fname": "TIME",
-		"NewLine": "Yes",
-		"Des": "accepts three integer arguments representing hours, minutes and seconds, and returns an Excel time.",
-		"Args": [
-			"小时", "分钟", "第二"
-		]
-	},
-
-	{
-		"Fname": "TINV",
-		"NewLine": "Yes",
-		"Des": "calculates the inverse of the two-tailed Student's T Distribution, which is a continuous probability distribution that is frequently used for testing hypotheses on small sample data sets.",
-		"Args": [
-			"可能性", "自由度"
-		]
-	},
-
-	{
-		"Fname": "TRANSPOSE",
-		"NewLine": "No",
-		"Des": "transposes' an array of cells 'i.e. the function copies a horizontal range of cells into a vertical range and vice versa'.",
-		"Args": [
-			"阵列"
-		]
-	},
-	{
-		"Fname": "TREND",
-		"NewLine": "Yes",
-		"Des": "calculates the linear trend line through a given set of y-values and 'optionally', a given set of x-values.",
-		"Args": [
-			"已知的", "[已知x's]", "[新x's]", "[常量]"
-		]
-	},
-	{
-		"Fname": "TRIM",
-		"NewLine": "No",
-		"Des": "removes extra spaces 'i.e. all spaces except for single spaces between words or characters' from a supplied text string.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "TRIMMEAN",
-		"NewLine": "Yes",
-		"Des": "calculates the trimmed mean 'or truncated mean' of a supplied set of values.",
-		"Args": [
-			"阵列", "百分比"
-		]
-	},
-	{
-		"Fname": "TRUNC",
-		"NewLine": "Yes",
-		"Des": "truncates a supplied number to a specified number of decimal places.",
-		"Args": [
-			"数值", "[数字]"
-		]
-	},
-	{
-		"Fname": "TTEST",
-		"NewLine": "Yes",
-		"Des": "calculates the probability associated with the Student's T Test, which is commonly used for identifying whether two data sets are likely to have come from the same two underlying populations with the same mean.",
-		"Args": [
-			"阵列1", "阵列2", "尾巴", "类型"
-		]
-	},
-	{
-		"Fname": "TYPE",
-		"NewLine": "No",
-		"Des": "For a supplied value, the Excel TYPE function returns an integer that represents the value's data type.",
-		"Args": [
-			"价值"
-		]
-	},
-
-	{
-		"Fname": "UNICODE",
-		"NewLine": "No",
-		"Des": "returns the code point for the first character of a supplied text string.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "UPPER",
-		"NewLine": "No",
-		"Des": "converts all characters in a supplied text string to upper case.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "VALUE",
-		"NewLine": "No",
-		"Des": "converts a text string into a numeric value.",
-		"Args": [
-			"文本"
-		]
-	},
-	{
-		"Fname": "VAR",
-		"NewLine": "Yes",
-		"Des": "returns the sample variance of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VAR.P",
-		"NewLine": "Yes",
-		"Des": "returns the Variance of a given set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VAR.S",
-		"NewLine": "Yes",
-		"Des": "calculates the sample variance of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VARA",
-		"NewLine": "Yes",
-		"Des": "calculates the sample variance of a supplied set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VARP",
-		"NewLine": "Yes",
-		"Des": "returns the Variance of a given set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VARPA",
-		"NewLine": "Yes",
-		"Des": "returns the Variance of a given set of values.",
-		"Args": [
-			"数字1", "[数字2]"
-		]
-	},
-	{
-		"Fname": "VDB",
-		"NewLine": "Yes",
-		"Des": "calculates the depreciation of an asset, using the Double Declining Balance Method, or another specified depreciation rate, for a specified period 'including partial periods'.",
-		"Args": [
-			"成本", "救助", "生活", "开始时间段", "期末", "[因素]", "[无开关]"
-		]
-	},
-
-
-	{
-		"Fname": "WEEKNUM",
-		"NewLine": "Yes",
-		"Des": "For a given date, the Excel Weeknum function returns an integer representing the week number 'from 1 to 53' of the year.",
-		"Args": [
-			"序列号", "[返回类型]"
-		]
-	},
-	{
-		"Fname": "WEIBULL",
-		"NewLine": "Yes",
-		"Des": "calculates the Weibull Probability Density Function or the Weibull Cumulative Distribution Function for a supplied set of parameters.",
-		"Args": [
-			"x", "α", "β", "累积的"
-		]
+		"Des": "根据 0 到 1 '包含'的百分位数范围，返回所提供值范围的请求四分位数。",
+		"Args": ["阵列", "夸脱"]
 	},
 	{
 		"Fname": "WEIBULL.DIST",
 		"NewLine": "Yes",
-		"Des": "calculates the Weibull Probability Density Function or the Weibull Cumulative Distribution Function for a supplied set of parameters.",
-		"Args": [
-			"x", "α", "β", "累积的"
-		]
+		"Des": "计算一组提供的参数的 Weibull 概率密度函数或 Weibull 累积分布函数。",
+		"Args": ["x", "α", "β", "累积的"]
 	},
-
 	{
 		"Fname": "WORKDAY.INTL",
 		"NewLine": "Yes",
-		"Des": "returns a date that is a supplied number of working days 'excluding weekends and holidays' ahead of a given start date. The function allows the user to specify which days of the week are counted as weekends.",
-		"Args": [
-			"开始日期", "天", "[周末]", "[假日]"
-		]
+		"Des": "返回一个日期，该日期是在给定开始日期之前提供的“不包括周末和节假日”的工作日数。该功能允许用户指定一周中的哪些天算作周末。",
+		"Args": ["开始日期", "天", "[周末]", "[假日]"]
 	},
 	{
-		"Fname": "XIRR",
+		"Fname": "NETWORKDAYS",
 		"NewLine": "Yes",
-		"Des": "returns the Internal Rate of Return for a supplied series of cash flows 'i.e. a set of values, which includes an initial investment value and a series of net income values' occurring at a series of supplied dates.",
-		"Args": [
-			"价值观", "日期", "[猜猜]"
-		]
+		"Des": "计算两个提供的日期“包括开始日期和结束日期”之间的工作日数。计算包括所有工作日“周一 - 周五”，不包括提供的假期列表。",
+		"Args": ["开始日期", "结束日期", "[假日]"]
 	},
 	{
-		"Fname": "XNPV",
+		"Fname": "NUMBERVALUE",
 		"NewLine": "Yes",
-		"Des": "calculates the Net Present Value for a schedule of cash flows that is not necessarily periodic.",
-		"Args": [
-			"率", "价值观", "日期"
-		]
+		"Des": "以与语言环境无关的方式将文本字符串转换为数字。",
+		"Args": ["文本", "[小数分隔符]", "[组分隔符]"]
 	},
 	{
-		"Fname": "XOR",
+		"Fname": "CONCATENATE",
 		"NewLine": "Yes",
-		"Des": "returns the Exclusive Or logical operation for one or more supplied conditions.",
-		"Args": [
-			"逻辑测试1", "[逻辑测试2]"
-		]
+		"Des": "将一系列提供的文本字符串连接成一个组合文本字符串。",
+		"Args": ["文本1", "[文本2]"]
 	},
 	{
-		"Fname": "YEAR",
+		"Fname": "ERF.PRECISE",
 		"NewLine": "No",
-		"Des": "returns an integer representing the year of a supplied date.",
-		"Args": [
-			"序列号"
-		]
+		"Des": "计算误差函数，积分在两个提供的限制之间。",
+		"Args": ["x"]
 	},
 	{
-		"Fname": "YEARFRAC",
-		"NewLine": "Yes",
-		"Des": "returns the fraction of a year that is represented by the number of whole days between two supplied dates.",
-		"Args": [
-			"开始日期", "结束日期", "[依据]"
-		]
+		"Fname": "FORMULATEXT",
+		"NewLine": "No",
+		"Des": "预测拟合到一组提供的 x 和 y 值的线性趋势线上的未来点。",
+		"Args": ["参考"]
 	},
 	{
-		"Fname": "YIELD",
+		"Fname": "HYPGEOMDIST",
 		"NewLine": "Yes",
-		"Des": "calculates the Yield of a security that pays periodic interest.",
-		"Args": [
-			"解决", "成熟度", "率", "公共关系", "赎回", "频率", "[依据]"
-		]
+		"Des": "返回总体样本中指定成功次数的超几何分布值。",
+		"Args": ["样品s", "数字样本", "人口", "数字弹出"]
+	},
+	{
+		"Fname": "IMCONJUGATE",
+		"NewLine": "No",
+		"Des": "返回提供的复数的虚数系数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ISO.CEILING",
+		"NewLine": "Yes",
+		"Des": "测试提供的值是否为数字。如果是，则函数返回 TRUE；否则返回 FALSE。",
+		"Args": ["数值", "[意义]"]
+	},
+	{
+		"Fname": "LOGNORM.INV",
+		"NewLine": "Yes",
+		"Des": "对于提供的概率，计算 x 的累积对数正态分布函数的倒数.",
+		"Args": ["可能性", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "LOGNORMDIST",
+		"NewLine": "Yes",
+		"Des": "在提供的 x 值处计算累积对数正态分布函数。",
+		"Args": ["x", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "NORM.S.DIST",
+		"NewLine": "Yes",
+		"Des": "计算提供值的标准正态分布函数。",
+		"Args": ["z", "累积的"]
+	},
+	{
+		"Fname": "PERCENTRANK",
+		"NewLine": "Yes",
+		"Des": "以百分比计算指定值在一组值中的相对位置。",
+		"Args": ["阵列", "x", "[意义]"]
+	},
+	{
+		"Fname": "RANDBETWEEN",
+		"NewLine": "Yes",
+		"Des": "在两个提供的整数之间生成一个随机整数。",
+		"Args": ["底部", "顶部"]
+	},
+	{
+		"Fname": "STANDARDIZE",
+		"NewLine": "Yes",
+		"Des": "返回以提供的均值和标准差为特征的分布的归一化值。",
+		"Args": ["x", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "AVERAGEIFS",
+		"NewLine": "Yes",
+		"Des": "在提供的数组中查找满足指定条件的值，并返回第二个提供的数组中相应值的平均值“即统计平均值”。",
+		"Args": ["平均范围", "条件范围1", "标准1", "[条件范围2", "标准2]"]
+	},
+	{
+		"Fname": "BINOM.DIST",
+		"NewLine": "Yes",
+		"Des": "将二进制“Base 2”数字转换为八进制“Base 8”数字。",
+		"Args": ["数字s", "审判", "概率s", "累积的"]
+	},
+	{
+		"Fname": "CHISQ.DIST",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的右尾概率的倒数。",
+		"Args": ["x", "自由度", "累积的"]
+	},
+	{
+		"Fname": "CHISQ.TEST",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的右尾概率的倒数。",
+		"Args": ["实际范围", "预期范围"]
+	},
+	{
+		"Fname": "CONFIDENCE",
+		"NewLine": "Yes",
+		"Des": "将一系列提供的文本字符串或其他值连接在一起，形成一个组合文本字符串。",
+		"Args": ["α", "标准偏差", "大小"]
+	},
+	{
+		"Fname": "COUNTBLANK",
+		"NewLine": "No",
+		"Des": "返回提供的一组单元格或值中的非空白数。",
+		"Args": ["范围"]
+	},
+	{
+		"Fname": "COUPDAYSNC",
+		"NewLine": "Yes",
+		"Des": "计算包含结算日期的息票期间的天数。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "ERROR.TYPE",
+		"NewLine": "No",
+		"Des": "计算互补误差函数，在提供的下限和无穷大之间积分。",
+		"Args": ["错误值"]
+	},
+	{
+		"Fname": "EXPON.DIST",
+		"NewLine": "Yes",
+		"Des": "计算数学常数 e 的值，提高到给定数字的幂.",
+		"Args": ["x", "λ", "累积的"]
+	},
+	{
+		"Fname": "FACTDOUBLE",
+		"NewLine": "No",
+		"Des": "返回所提供数字的阶乘。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "FLOOR.MATH",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向零舍入到指定重要性的最接近的倍数。",
+		"Args": ["数值", "[意义]", "[模式]"]
+	},
+	{
+		"Fname": "FVSCHEDULE",
+		"NewLine": "Yes",
+		"Des": "计算具有定期固定付款和固定利率的投资的未来价值。",
+		"Args": ["主要的", "日程安排"]
+	},
+	{
+		"Fname": "GAMMA.DIST",
+		"NewLine": "Yes",
+		"Des": "返回指定数字 n 的 Gamma 函数值 Γ'n'。",
+		"Args": ["x", "α", "β", "累积的"]
+	},
+	{
+		"Fname": "ISOWEEKNUM",
+		"NewLine": "No",
+		"Des": "返回所提供日期的 ISO 周数。",
+		"Args": ["日期"]
+	},
+	{
+		"Fname": "NORM.S.INV",
+		"NewLine": "No",
+		"Des": "计算提供的概率值的标准正态累积分布函数的倒数。",
+		"Args": ["可能性"]
+	},
+	{
+		"Fname": "PERCENTILE",
+		"NewLine": "Yes",
+		"Des": "对于提供的值范围和提供的 k，返回第 k 个百分位数“即低于 k% 的数据值的值”。",
+		"Args": ["阵列", "k"]
+	},
+	{
+		"Fname": "SUBSTITUTE",
+		"NewLine": "Yes",
+		"Des": "在原始文本字符串中替换给定文本字符串的一个或多个实例。",
+		"Args": ["文本", "旧文本", "新文本", "[实例数]"]
+	},
+	{
+		"Fname": "SUMPRODUCT",
+		"NewLine": "Yes",
+		"Des": "返回一组提供的数组中相应值的乘积之和。",
+		"Args": ["阵列1", "[阵列2]", "[阵列3]"]
+	},
+	{
+		"Fname": "TBILLPRICE",
+		"NewLine": "Yes",
+		"Des": "返回国库券每 100 美元面值的价格。",
+		"Args": ["解决", "成熟度", "折扣"]
+	},
+	{
+		"Fname": "TBILLYIELD",
+		"NewLine": "Yes",
+		"Des": "计算国库券的收益率。",
+		"Args": ["解决", "成熟度", "公共关系"]
+	},
+	{
+		"Fname": "AVERAGEIF",
+		"NewLine": "Yes",
+		"Des": "返回提供的数字列表的算术平均值。",
+		"Args": ["范围", "条件", "[平均范围]"]
+	},
+	{
+		"Fname": "DATEVALUE",
+		"NewLine": "No",
+		"Des": "将提供的年、月和日转换为 Excel 日期。",
+		"Args": ["日期文本"]
+	},
+	{
+		"Fname": "TIMEVALUE",
+		"NewLine": "No",
+		"Des": "将时间的文本表示形式转换为 Excel 时间。",
+		"Args": ["时间文本"]
+	},
+	{
+		"Fname": "AMORDEGRC",
+		"NewLine": "Yes",
+		"Des": "接受行号和列号，并将单元格引用作为文本字符串返回。",
+		"Args": ["成本", "购买日期", "第一期", "救助", "期间", "率", "[依据]"]
+	},
+	{
+		"Fname": "BETA.DIST",
+		"NewLine": "Yes",
+		"Des": "对于指定的 x 阶和值，返回 Bessel 函数 Yn'x'，“也称为 Weber 函数或 Neumann 函数”。",
+		"Args": ["x", "α", "β", "累积的", "[甲]", "[乙]"]
+	},
+	{
+		"Fname": "BINOM.INV",
+		"NewLine": "Yes",
+		"Des": "返回指定范围内指定试验次数的成功次数的二项分布概率。",
+		"Args": ["审判", "概率s", "α"]
+	},
+	{
+		"Fname": "BINOMDIST",
+		"NewLine": "Yes",
+		"Des": "返回累积二项分布的倒数。",
+		"Args": ["数字s", "审判", "概率s", "累积的"]
+	},
+	{
+		"Fname": "BITLSHIFT",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的整数的按位“与”。",
+		"Args": ["数值", "移位量"]
+	},
+	{
+		"Fname": "BITRSHIFT",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的整数的按位“或”。",
+		"Args": ["数值", "移位量"]
+	},
+	{
+		"Fname": "CHISQ.INV",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的右尾概率",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "COUPDAYBS",
+		"NewLine": "Yes",
+		"Des": "返回表中满足一组给定条件的行数。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "CRITBINOM",
+		"NewLine": "Yes",
+		"Des": "计算提供的两组值的样本协方差。",
+		"Args": ["审判", "概率s", "α"]
+	},
+	{
+		"Fname": "EXPONDIST",
+		"NewLine": "Yes",
+		"Des": "对于给定的 x 值和参数 λ，Excel EXPON.DIST 函数计算指数分布的概率密度函数或累积分布函数的值。",
+		"Args": ["x", "λ", "累积的"]
+	},
+	{
+		"Fname": "F.DIST.RT",
+		"NewLine": "Yes",
+		"Des": "计算“右尾”F 概率分布，它衡量两个数据集之间的多样性程度。",
+		"Args": ["x", "自由度1", "自由度2"]
+	},
+	{
+		"Fname": "FISHERINV",
+		"NewLine": "No",
+		"Des": "计算提供值的 Fisher 变换。",
+		"Args": ["y"]
+	},
+	{
+		"Fname": "FREQUENCY",
+		"NewLine": "Yes",
+		"Des": "将公式作为文本字符串返回。",
+		"Args": ["数据数组", "垃圾箱阵列"]
+	},
+	{
+		"Fname": "GAMMA.INV",
+		"NewLine": "Yes",
+		"Des": "对于一组提供的参数，Excel Gamma.Dist 函数计算 Gamma 分布的累积分布或概率密度函数的值。",
+		"Args": ["可能性", "α", "β"]
+	},
+	{
+		"Fname": "GAMMADIST",
+		"NewLine": "Yes",
+		"Des": "返回 Gamma 累积分布的倒数。",
+		"Args": ["x", "α", "β", "累积的"]
+	},
+	{
+		"Fname": "HYPERLINK",
+		"NewLine": "Yes",
+		"Des": "返回一个整数，表示提供的 Excel 时间的小时部分。",
+		"Args": ["链接位置", "[友好名称]"]
+	},
+	{
+		"Fname": "IMAGINARY",
+		"NewLine": "No",
+		"Des": "返回复数的绝对值“模”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMPRODUCT",
+		"NewLine": "Yes",
+		"Des": "返回提供的复数，提高到给定的幂。",
+		"Args": ["数值1", "λ2"]
+	},
+	{
+		"Fname": "INTERCEPT",
+		"NewLine": "Yes",
+		"Des": "将提供的数字截断为最接近的整数。",
+		"Args": ["已知的", "已知x"]
+	},
+	{
+		"Fname": "ISFORMULA",
+		"NewLine": "No",
+		"Des": "测试提供的数字“或数字表达式”是否计算为偶数，如果是，则返回 TRUE；否则，函数返回 FALSE。",
+		"Args": ["参考"]
+	},
+	{
+		"Fname": "ISLOGICAL",
+		"NewLine": "No",
+		"Des": "测试指定单元格是否包含公式，如果是，则返回 TRUE；否则，函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "ISNONTEXT",
+		"NewLine": "No",
+		"Des": "测试初始提供的表达式“或值”是否返回 Excel #N/A 错误，如果是，则返回 TRUE；否则函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "MDURATION",
+		"NewLine": "Yes",
+		"Des": "计算支付定期利息的证券的修正麦考利久期，假设面值为 100 美元。",
+		"Args": ["解决", "成熟度", "优惠券", "yld公司", "频率", "[依据]"]
+	},
+	{
+		"Fname": "MODE.MULT",
+		"NewLine": "Yes",
+		"Des": "在提供的数字列表中返回统计模式“最常出现的值”的垂直数组。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "MODE.SNGL",
+		"NewLine": "Yes",
+		"Des": "在提供的数字列表中返回统计模式“最常出现的值”。如果提供的数据中有 2 个或更多最频繁出现的值，则该函数返回这些值中的最低值。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "NORM.DIST",
+		"NewLine": "Yes",
+		"Des": "计算提供的 x 值和提供的分布均值和标准差的正态概率密度函数或累积正态分布函数。",
+		"Args": ["x", "ln(x)的平均数", "标准偏差", "累积的"]
+	},
+	{
+		"Fname": "NORMSDIST",
+		"NewLine": "No",
+		"Des": "计算提供值的标准正态累积分布函数。",
+		"Args": ["z"]
+	},
+	{
+		"Fname": "ODDFPRICE",
+		"NewLine": "Yes",
+		"Des": "计算具有奇数“短期或长期”第一期的证券每 100 美元面值的价格。",
+		"Args": ["解决", "成熟度", "问题", "第一张优惠券", "率", "yld公司", "赎回", "频率", "[依据]）"]
+	},
+	{
+		"Fname": "ODDFYIELD",
+		"NewLine": "Yes",
+		"Des": "计算具有奇数“短期或长期”第一期的证券的收益率。",
+		"Args": ["解决", "成熟度", "问题", "第一张优惠券", "率", "公共关系", "赎回", "频率", "[依据]）"]
+	},
+	{
+		"Fname": "ODDFYIELD",
+		"NewLine": "Yes",
+		"Des": "计算最后一期奇数“空头或多头”证券每 100 美元面值的价格。",
+		"Args": ["解决", "成熟度", "问题", "第一张优惠券", "率", "公共关系", "赎回", "频率", "[依据]）"]
+	},
+	{
+		"Fname": "ODDLPRICE",
+		"NewLine": "Yes",
+		"Des": "计算最后一个周期为奇数“短期或长期”的证券的收益率。",
+		"Args": ["解决", "成熟度", "最后的兴趣", "率", "yld公司", "赎回", "频率", "[依据]"]
+	},
+	{
+		"Fname": "PDURATION",
+		"NewLine": "Yes",
+		"Des": "计算投资达到指定未来值所需的周期数。",
+		"Args": ["率", "现值总额", "fv公司"]
+	},
+	{
+		"Fname": "PRICEDISC",
+		"NewLine": "Yes",
+		"Des": "计算每面值为 100 美元的贴现证券的价格。",
+		"Args": ["解决", "成熟度", "折扣", "赎回", "[依据]"]
+	},
+	{
+		"Fname": "ROUNDDOWN",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向下舍入到零，到指定的小数位数。",
+		"Args": ["数值", "数字"]
+	},
+	{
+		"Fname": "T.DIST.2T",
+		"NewLine": "Yes",
+		"Des": "计算双尾学生 T 分布，这是一种连续概率分布，经常用于在小样本数据集上检验假设。",
+		"Args": ["x", "自由度"]
+	},
+	{
+		"Fname": "T.DIST.RT",
+		"NewLine": "Yes",
+		"Des": "计算右尾学生 T 分布，这是一种连续概率分布，经常用于在小样本数据集上测试假设。",
+		"Args": ["x", "自由度"]
+	},
+	{
+		"Fname": "TRANSPOSE",
+		"NewLine": "No",
+		"Des": "转置'一个单元格数组'即函数将单元格的水平范围复制到垂直范围，反之亦然'。",
+		"Args": ["阵列"]
 	},
 	{
 		"Fname": "YIELDDISC",
 		"NewLine": "Yes",
-		"Des": "calculates the annual yield of a discounted security.",
-		"Args": [
-			"解决", "成熟度", "公共关系", "赎回", "[依据]"
-		]
+		"Des": "计算贴现证券的年收益率。",
+		"Args": ["解决", "成熟度", "公共关系", "赎回", "[依据]"]
+	},
+	{
+		"Fname": "COUNTIFS",
+		"NewLine": "Yes",
+		"Des": "返回提供的范围内满足给定条件的单元格数。",
+		"Args": ["条件范围1", "标准1", "[条件范围2", "标准2]"]
+	},
+	{
+		"Fname": "COUPDAYS",
+		"NewLine": "Yes",
+		"Des": "计算从付息期开始到结算日期的天数。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "ACCRINTM",
+		"NewLine": "Yes",
+		"Des": "返回支付定期利息的证券的应计利息。",
+		"Args": ["问题", "解决", "率", "[标准件]", "[依据]"]
+	},
+	{
+		"Fname": "AMORLINC",
+		"NewLine": "Yes",
+		"Des": "为法国会计系统的用户提供。",
+		"Args": ["成本", "购买日期", "第一期", "救助", "期间", "率", "[依据]"]
+	},
+	{
+		"Fname": "AVERAGEA",
+		"NewLine": "Yes",
+		"Des": "返回提供的数字列表的算术平均值。",
+		"Args": ["值1", "[值2]"]
+	},
+	{
+		"Fname": "BAHTTEXT",
+		"NewLine": "No",
+		"Des": "在一个或多个数组中找到满足一组提供的标准的条目，并返回另一个提供的数组中相应值的平均值“即统计平均值”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "BETA.INV",
+		"NewLine": "Yes",
+		"Des": "为一组提供的参数计算累积 beta 分布函数或 Beta 分布的概率密度函数.",
+		"Args": ["可能性", "α", "β", "[甲]", "[乙]"]
+	},
+	{
+		"Fname": "BETADIST",
+		"NewLine": "Yes",
+		"Des": "计算所提供概率的累积 beta 概率密度函数的倒数.",
+		"Args": ["x", "α", "β", "[甲]", "[乙]"]
+	},
+	{
+		"Fname": "CUMPRINC",
+		"NewLine": "Yes",
+		"Des": "计算两个指定期间之间为贷款或投资支付的累计利息。",
+		"Args": ["率", "核电厂", "现值总额", "开始时间段", "期末", "类型"]
+	},
+	{
+		"Fname": "DAVERAGE",
+		"NewLine": "Yes",
+		"Des": "将日期的文本表示形式转换为 Excel 日期。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "DOLLARDE",
+		"NewLine": "Yes",
+		"Des": "将提供的数字四舍五入到指定的小数位数，然后将其转换为具有货币格式的文本字符串。",
+		"Args": ["零碎美元", "分数"]
+	},
+	{
+		"Fname": "DOLLARFR",
+		"NewLine": "Yes",
+		"Des": "将小数形式的美元值转换为以小数表示的美元值。",
+		"Args": ["十进制美元", "分数"]
+	},
+	{
+		"Fname": "DPRODUCT",
+		"NewLine": "Yes",
+		"Des": "将十进制表示法的美元值转换为以小数表示法表示的美元值。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "DURATION",
+		"NewLine": "Yes",
+		"Des": "计算数据库中满足用户指定条件的选定记录的字段“列”的总和。",
+		"Args": ["解决", "成熟度", "优惠券", "yld公司", "频率", "[依据]"]
+	},
+	{
+		"Fname": "F.INV.RT",
+		"NewLine": "Yes",
+		"Des": "计算提供概率的累积 F 分布的倒数。",
+		"Args": ["可能性", "自由度1", "自由度2"]
+	},
+	{
+		"Fname": "FORECAST",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向下舍入为提供的有效倍数。",
+		"Args": ["x", "已知的", "已知x"]
+	},
+	{
+		"Fname": "GAMMAINV",
+		"NewLine": "Yes",
+		"Des": "返回 Gamma 分布，它经常用于提供可能具有偏态分布的值的概率，例如排队分析。",
+		"Args": ["可能性", "α", "β"]
+	},
+	{
+		"Fname": "INDIRECT",
+		"NewLine": "Yes",
+		"Des": "返回提供的复数的正切。",
+		"Args": ["参考文本", "[a1]"]
+	},
+	{
+		"Fname": "ISNUMBER",
+		"NewLine": "No",
+		"Des": "测试提供的值是否为文本。如果不是，则函数返回 TRUE；如果提供的值为文本，则函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "MINVERSE",
+		"NewLine": "No",
+		"Des": "计算方阵的逆。",
+		"Args": ["阵列"]
+	},
+	{
+		"Fname": "NORM.INV",
+		"NewLine": "Yes",
+		"Des": "计算提供的 x 值和提供的分布均值和标准差的累积正态分布函数的倒数。",
+		"Args": ["可能性", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "NORMDIST",
+		"NewLine": "Yes",
+		"Des": "计算正态概率密度函数或累积正态分布。提供的一组参数的函数。",
+		"Args": ["x", "ln(x)的平均数", "标准偏差", "累积的"]
+	},
+	{
+		"Fname": "NORMSINV",
+		"NewLine": "No",
+		"Des": "计算提供的概率值的标准正态累积分布函数的倒数。",
+		"Args": ["可能性"]
+	},
+	{
+		"Fname": "PRICEMAT",
+		"NewLine": "Yes",
+		"Des": "计算在到期时支付利息的证券每面值 100 美元的价格。",
+		"Args": ["解决", "成熟度", "问题", "率", "yld公司", "[依据]"]
+	},
+	{
+		"Fname": "QUARTILE",
+		"NewLine": "Yes",
+		"Des": "返回所提供值范围的请求四分位数。",
+		"Args": ["阵列", "夸脱"]
+	},
+	{
+		"Fname": "QUOTIENT",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的数字之间除法的整数部分。",
+		"Args": ["分子", "分母"]
+	},
+	{
+		"Fname": "RANK.AVG",
+		"NewLine": "Yes",
+		"Des": "在提供的值数组中返回给定值的统计排名。如果列表中有重复值，则返回平均排名。",
+		"Args": ["数值", "引用", "[命令]"]
+	},
+	{
+		"Fname": "RECEIVED",
+		"NewLine": "Yes",
+		"Des": "计算完全投资证券到期时收到的金额。",
+		"Args": ["解决", "成熟度", "投资", "折扣", "[依据]"]
+	},
+	{
+		"Fname": "SUBTOTAL",
+		"NewLine": "Yes",
+		"Des": "执行指定的计算“例如总和、乘积、平均值等”对于提供的一组值。",
+		"Args": ["函数num", "参考文献1", "[参考文献2]"]
+	},
+	{
+		"Fname": "T.INV.2T",
+		"NewLine": "Yes",
+		"Des": "计算双尾学生 T 分布的倒数，这是一种连续概率分布，经常用于在小样本数据集上测试假设。",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "TEXTJOIN",
+		"NewLine": "Yes",
+		"Des": "将一系列提供的文本字符串连接成一个组合文本字符串。如果需要，用户可以指定要在各个文本项之间添加的分隔符。",
+		"Args": ["[分隔符]", "[忽略空值]", "文本1", "[文本2]"]
+	},
+	{
+		"Fname": "TRIMMEAN",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的修剪平均值“或截断平均值”。",
+		"Args": ["阵列", "百分比"]
+	},
+	{
+		"Fname": "YEARFRAC",
+		"NewLine": "Yes",
+		"Des": "返回由两个提供的日期之间的整天数表示的一年中的分数。",
+		"Args": ["开始日期", "结束日期", "[依据]"]
 	},
 	{
 		"Fname": "YIELDMAT",
 		"NewLine": "Yes",
-		"Des": "calculates the annual yield of a security that pays interest at maturity.",
-		"Args": [
-			"解决", "成熟度", "问题", "率", "公共关系", "[依据]"
-		]
+		"Des": "计算到期支付利息的证券的年收益率。",
+		"Args": ["解决", "成熟度", "问题", "率", "公共关系", "[依据]"]
+	},
+	{
+		"Fname": "COUNTIF",
+		"NewLine": "Yes",
+		"Des": "返回提供范围内的空白单元格的数量。",
+		"Args": ["范围", "条件"]
+	},
+	{
+		"Fname": "WORKDAY",
+		"NewLine": "Yes",
+		"Des": "返回一个日期，该日期是在给定开始日期之前提供的“不包括周末和节假日”的工作日数。",
+		"Args": ["开始日期", "天", "[假日]"]
+	},
+	{
+		"Fname": "WEEKDAY",
+		"NewLine": "Yes",
+		"Des": "返回一个整数，表示所提供日期的星期几。",
+		"Args": ["序列号", "[返回类型]"]
+	},
+	{
+		"Fname": "UNICHAR",
+		"NewLine": "No",
+		"Des": "返回与提供的数字相关的 Unicode 字符。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "EOMONTH",
+		"NewLine": "Yes",
+		"Des": "返回给定名义利率和每年复利期数的实际年利率。",
+		"Args": ["开始日期", "月"]
+	},
+	{
+		"Fname": "HLOOKUP",
+		"NewLine": "Yes",
+		"Des": "将十六进制“Base 16”数字转换为八进制“Base 8”数字。",
+		"Args": ["查找值", "表数组", "行索引数", "[范围查找]"]
+	},
+	{
+		"Fname": "VLOOKUP",
+		"NewLine": "Yes",
+		"Des": "在数据数组“或表”的左侧列中查找给定值，并从数组的另一列返回相应的值。",
+		"Args": ["查找值", "表数组", "列索引数", "[范围查找]"]
+	},
+	{
+		"Fname": "ACCRINT",
+		"NewLine": "Yes",
+		"Des": "返回任何提供的数字的绝对值“即模数”。",
+		"Args": ["问题", "首要利益", "解决", "率", "[标准件]", "频率", "[依据]", "[计算方法]"]
+	},
+	{
+		"Fname": "ADDRESS",
+		"NewLine": "Yes",
+		"Des": "计算所提供值的双曲反正切 'coth'。",
+		"Args": ["行数", "列数", "[绝对值]", "[a1]", "[工作表文本]"]
+	},
+	{
+		"Fname": "AVERAGE",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的平均偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "BESSELI",
+		"NewLine": "Yes",
+		"Des": "将数字转换为提供的基数“基数”，并返回计算值的文本表示形式。",
+		"Args": ["x", "n"]
+	},
+	{
+		"Fname": "BESSELJ",
+		"NewLine": "Yes",
+		"Des": "计算修正后的 Bessel 函数，In'x'，“也称为双曲 Bessel 函数”。这些函数等效于 Bessel 函数，对纯虚参数求值。",
+		"Args": ["x", "n"]
+	},
+	{
+		"Fname": "BESSELK",
+		"NewLine": "Yes",
+		"Des": "返回指定阶数和 x 值的 Bessel 函数 Jn'x'。",
+		"Args": ["x", "n"]
+	},
+	{
+		"Fname": "BESSELY",
+		"NewLine": "Yes",
+		"Des": "计算修正的贝塞尔函数 Kn'x'，也称为双曲贝塞尔函数。这些是贝塞尔函数的等价物，对纯虚构参数进行评估。",
+		"Args": ["x", "n"]
+	},
+	{
+		"Fname": "BETAINV",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的参数的累积 beta 概率密度函数.",
+		"Args": ["可能性", "α", "β", "[甲]", "[乙]"]
+	},
+	{
+		"Fname": "BIN2DEC",
+		"NewLine": "No",
+		"Des": "使用迭代过程来计算所提供概率的累积 beta 概率密度函数的倒数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "BIN2HEX",
+		"NewLine": "Yes",
+		"Des": "将二进制“以 2 为底的数字”转换为十进制数。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "BIN2OCT",
+		"NewLine": "Yes",
+		"Des": "将二进制“Base 2”数字转换为十六进制“Base 16”数字。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "CEILING",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的整数的按位 'XOR' 'exclusive 'OR''。",
+		"Args": ["数值", "意义"]
+	},
+	{
+		"Fname": "CHIDIST",
+		"NewLine": "Yes",
+		"Des": "返回与提供的字符集编号“从 1 到 255”相关的字符。",
+		"Args": ["x", "自由度"]
+	},
+	{
+		"Fname": "CHITEST",
+		"NewLine": "Yes",
+		"Des": "对两个提供的“观察到的和预期的频率”数据集执行卡方检验，并返回集之间的差异仅仅是由于抽样误差引起的概率。",
+		"Args": ["实际范围", "预期范围"]
+	},
+	{
+		"Fname": "COLUMNS",
+		"NewLine": "No",
+		"Des": "返回提供的引用中的第一列编号或当前列的编号。",
+		"Args": ["阵列"]
+	},
+	{
+		"Fname": "COMBINA",
+		"NewLine": "Yes",
+		"Des": "计算集合中给定数量对象的“以任何顺序”组合的数量。",
+		"Args": ["数值", "选择的号码"]
+	},
+	{
+		"Fname": "COMPLEX",
+		"NewLine": "Yes",
+		"Des": "计算集合中给定数量对象的重复组合数.",
+		"Args": ["实数", "数量", "[后缀]"]
+	},
+	{
+		"Fname": "CONVERT",
+		"NewLine": "Yes",
+		"Des": "使用学生 T 分布计算置信度值，该值可用于为提供的概率和提供的样本量构建总体均值的置信区间。假设总体的标准差是已知的。",
+		"Args": ["数值", "来自单位", "到单位"]
+	},
+	{
+		"Fname": "COUPNCD",
+		"NewLine": "Yes",
+		"Des": "对于证券，在给定条件下，Excel Coupdaysnc 函数计算从结算日到下一个息票日的天数。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "COUPNUM",
+		"NewLine": "Yes",
+		"Des": "对于具有给定条件的证券，Excel Coupncd 函数计算结算日期之后的下一个息票日期。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "COUPPCD",
+		"NewLine": "Yes",
+		"Des": "计算证券结算日和到期日之间应付的票息数，四舍五入到最接近的整数票息。",
+		"Args": ["解决", "成熟度", "频率", "[依据]"]
+	},
+	{
+		"Fname": "CUMIPMT",
+		"NewLine": "Yes",
+		"Des": "计算所提供角度的双曲余割 'csch'.",
+		"Args": ["率", "核电厂", "现值总额", "开始时间段", "期末", "类型"]
+	},
+	{
+		"Fname": "DAYS360",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的日期之间的天数。",
+		"Args": ["开始日期", "结束日期", "[方法]"]
+	},
+	{
+		"Fname": "DCOUNTA",
+		"NewLine": "Yes",
+		"Des": "返回包含数值的单元格的数量，在数据库的字段“列”中仅用于选定的记录。",
+		"Args": ["数据库", "[字段]", "条件"]
+	},
+	{
+		"Fname": "DEC2BIN",
+		"NewLine": "Yes",
+		"Des": "使用双倍余额递减法或其他指定的折旧率计算资产的折旧。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "DEC2HEX",
+		"NewLine": "Yes",
+		"Des": "将十进制数转换为二进制“Base 2”数。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "DEC2OCT",
+		"NewLine": "Yes",
+		"Des": "将指定基数的数字的文本表示形式转换为十进制值。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "DECIMAL",
+		"NewLine": "Yes",
+		"Des": "将十进制数转换为十六进制“Base 16”数。",
+		"Args": ["文本", "基数"]
+	},
+	{
+		"Fname": "DEGREES",
+		"NewLine": "No",
+		"Des": "十六进制“base 16”、十进制“base 10”、八进制“base 8”和二进制“base 2”是工程和计算中最常用的数字系统。因此，Excel 提供了将数值与这些系统中的每一个进行转换的函数。",
+		"Args": ["角"]
+	},
+	{
+		"Fname": "DSTDEVP",
+		"NewLine": "Yes",
+		"Des": "仅针对选定记录计算数据库中字段“列”的样本标准差。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "GAMMALN",
+		"NewLine": "No",
+		"Des": "返回 Gamma 累积分布的倒数。",
+		"Args": ["x"]
+	},
+	{
+		"Fname": "GEOMEAN",
+		"NewLine": "Yes",
+		"Des": "返回两个或多个提供的整数的最大公约数。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "HARMEAN",
+		"NewLine": "Yes",
+		"Des": "通过一组给定的 y 值和“可选”的一组或多组 x 值计算指数增长曲线。然后，该函数扩展曲线以计算额外提供的一组新 x 值的额外 y 值。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "HEX2BIN",
+		"NewLine": "Yes",
+		"Des": "将十六进制“Base 16”数字转换为二进制“Base 2”数字。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "HEX2DEC",
+		"NewLine": "No",
+		"Des": "计算一组提供的值的调和平均值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "HEX2OCT",
+		"NewLine": "Yes",
+		"Des": "将十六进制 'a base-16 number' 转换为十进制数。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "IFERROR",
+		"NewLine": "Yes",
+		"Des": "测试提供的条件，如果条件评估为 TRUE，则返回一个结果，如果条件评估为 FALSE，则返回另一个结果。",
+		"Args": ["价值", "错误时的值"]
+	},
+	{
+		"Fname": "IMLOG10",
+		"NewLine": "No",
+		"Des": "返回提供的复数的自然对数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMPOWER",
+		"NewLine": "Yes",
+		"Des": "计算提供的复数的以 2 为底的对数。",
+		"Args": ["数值", "数值"]
+	},
+	{
+		"Fname": "INTRATE",
+		"NewLine": "Yes",
+		"Des": "通过提供的一组 x 和 y 值计算线性回归线的截距“y 轴交点处的值”。",
+		"Args": ["解决", "成熟度", "投资", "赎回", "[依据]"]
+	},
+	{
+		"Fname": "ISBLANK",
+		"NewLine": "No",
+		"Des": "返回提供的一系列周期性现金流的内部收益率，即初始投资值和一系列净收入值。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "ISERROR",
+		"NewLine": "No",
+		"Des": "测试初始提供的表达式“或值”是否返回任何 Excel 错误，#N/A 错误除外。如果是，则函数返回逻辑值 TRUE；如果提供的值不是错误或 #N/A 错误，则 Iserr 函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "MDETERM",
+		"NewLine": "No",
+		"Des": "计算方阵的行列式.",
+		"Args": ["阵列"]
+	},
+	{
+		"Fname": "NOMINAL",
+		"NewLine": "Yes",
+		"Des": "返回给定有效利率和每年复利期数的名义利率。",
+		"Args": ["影响率", "npery"]
+	},
+	{
+		"Fname": "NORMINV",
+		"NewLine": "Yes",
+		"Des": "计算提供的 x 值和提供的分布均值和标准差的累积正态分布函数的倒数。",
+		"Args": ["可能性", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "OCT2BIN",
+		"NewLine": "Yes",
+		"Des": "将八进制“Base 8”数字转换为二进制“Base 2”数字。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "OCT2DEC",
+		"NewLine": "No",
+		"Des": "将八进制“以 8 为基数的数字”转换为十进制数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "OCT2HEX",
+		"NewLine": "Yes",
+		"Des": "将八进制“Base 8”数字转换为十六进制“Base 16”数字。",
+		"Args": ["数值", "[地点]"]
+	},
+	{
+		"Fname": "PEARSON",
+		"NewLine": "Yes",
+		"Des": "计算两组值的 Pearson 积矩相关系数。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "POISSON",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的参数的泊松概率质量函数或累积泊松概率函数。",
+		"Args": ["x", "ln(x)的平均数", "累积的"]
+	},
+	{
+		"Fname": "PRODUCT",
+		"NewLine": "Yes",
+		"Des": "返回一组提供的数值的乘积。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "RADIANS",
+		"NewLine": "No",
+		"Des": "生成一个介于 0 和 1 之间的随机实数。",
+		"Args": ["角"]
+	},
+	{
+		"Fname": "RANK.EQ",
+		"NewLine": "Yes",
+		"Des": "在提供的值数组中返回给定值的统计排名。如果列表中有重复的值，则赋予它们相同的排名。",
+		"Args": ["数值", "引用", "[命令]"]
+	},
+	{
+		"Fname": "REPLACE",
+		"NewLine": "Yes",
+		"Des": "用另一个字符串替换全部或部分文本字符串。",
+		"Args": ["旧文本", "开始编号", "数字字符", "新文本"]
+	},
+	{
+		"Fname": "ROUNDUP",
+		"NewLine": "Yes",
+		"Des": "将提供的数字从零向上舍入到指定的小数位数。",
+		"Args": ["数值", "数字"]
+	},
+	{
+		"Fname": "STDEV.P",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的样本标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "STDEV.S",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的样本标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "STDEVPA",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "TBILLEQ",
+		"NewLine": "Yes",
+		"Des": "计算国库券的债券等价收益率。",
+		"Args": ["解决", "成熟度", "折扣"]
+	},
+	{
+		"Fname": "UNICODE",
+		"NewLine": "No",
+		"Des": "返回提供的文本字符串的第一个字符的代码点。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "WEEKNUM",
+		"NewLine": "Yes",
+		"Des": "对于给定的日期，Excel Weeknum 函数返回一个整数，表示一年中“从 1 到 53”的周数。",
+		"Args": ["序列号", "[返回类型]"]
+	},
+	{
+		"Fname": "WEIBULL",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的参数的 Weibull 概率密度函数或 Weibull 累积分布函数。",
+		"Args": ["x", "α", "β", "累积的"]
+	},
+	{
+		"Fname": "SUMIFS",
+		"NewLine": "Yes",
+		"Des": "在一个或多个提供的数组中查找满足一组条件的值，并返回另一个提供的数组中相应值的总和。",
+		"Args": ["总和范围", "条件范围1", "标准1", "[条件范围2", "标准2]"]
+	},
+	{
+		"Fname": "MAXIFS",
+		"NewLine": "Yes",
+		"Des": "从根据一个或多个条件指定的值的子集中返回最大值。",
+		"Args": ["最大范围", "条件范围1", "标准1", "[条件范围2", "标准2]"]
+	},
+	{
+		"Fname": "MINIFS",
+		"NewLine": "Yes",
+		"Des": "从根据一个或多个条件指定的值的子集中返回最小值。",
+		"Args": ["最小范围", "条件范围1", "标准1", "[条件范围2", "标准2]"]
+	},
+	{
+		"Fname": "ARABIC",
+		"NewLine": "No",
+		"Des": "测试一些提供的条件并返回：",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "AVEDEV",
+		"NewLine": "Yes",
+		"Des": "计算所提供数字的反双曲正切.",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "BITAND",
+		"NewLine": "Yes",
+		"Des": "返回指定次数的试验中指定次数的成功的二项分布概率。",
+		"Args": ["数字1", "数字2"]
+	},
+	{
+		"Fname": "BITXOR",
+		"NewLine": "Yes",
+		"Des": "返回一个提供的整数，右移指定的位数。",
+		"Args": ["数字1", "数字2"]
+	},
+	{
+		"Fname": "CHIINV",
+		"NewLine": "Yes",
+		"Des": "计算卡方分布的右尾概率。",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "CHOOSE",
+		"NewLine": "Yes",
+		"Des": "使用卡方检验来计算两个提供的“观察频率和预期频率”数据集之间的差异可能仅仅是由于抽样误差，或者它们可能是真实的概率。",
+		"Args": ["索引编号", "值1", "[值2]"]
+	},
+	{
+		"Fname": "COLUMN",
+		"NewLine": "No",
+		"Des": "将提供的文本字符串的第一个字符转换为计算机使用的相关数字字符集代码。",
+		"Args": ["[参考]"]
+	},
+	{
+		"Fname": "COMBIN",
+		"NewLine": "Yes",
+		"Des": "接收 Excel 范围并返回该范围内包含的列数。",
+		"Args": ["数值", "选择的号码"]
+	},
+	{
+		"Fname": "CONCAT",
+		"NewLine": "Yes",
+		"Des": "接受两个参数，表示复数的实部和虚部系数，并从中创建一个复数.",
+		"Args": ["文本1", "[文本2]"]
+	},
+	{
+		"Fname": "CORREL",
+		"NewLine": "Yes",
+		"Des": "将数字从一种单位类型“例如码”转换为另一种单位类型“例如米”。该函数是 Excel 2007 的新功能，因此在早期版本的 Excel 中不可用。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "COUNTA",
+		"NewLine": "Yes",
+		"Des": "返回提供的一组单元格或值中数值的计数。此计数包括数字和日期。",
+		"Args": ["值1", "[值2]"]
+	},
+	{
+		"Fname": "DCOUNT",
+		"NewLine": "Yes",
+		"Des": "使用固定余额递减法计算资产生命周期中每个时期的资产折旧。",
+		"Args": ["数据库", "[字段]", "条件"]
+	},
+	{
+		"Fname": "DOLLAR",
+		"NewLine": "Yes",
+		"Des": "仅针对选定记录在数据库中的字段“列”中查找最小值。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["数值", "[小数]"]
+	},
+	{
+		"Fname": "DSTDEV",
+		"NewLine": "Yes",
+		"Des": "计算数据库中满足用户指定条件的选定记录的字段“列”的乘积。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "EFFECT",
+		"NewLine": "Yes",
+		"Des": "返回在提供的开始日期之前或之后指定月数的日期。",
+		"Args": ["名义汇率", "npery"]
+	},
+	{
+		"Fname": "F.DIST",
+		"NewLine": "Yes",
+		"Des": "返回给定 x 值的指数分布值.用户可以指定是使用概率密度函数还是累积分布函数。",
+		"Args": ["x", "自由度1", "自由度2", "累积的"]
+	},
+	{
+		"Fname": "F.TEST",
+		"NewLine": "Yes",
+		"Des": "计算指定概率的“右尾”F 概率分布的倒数。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "FISHER",
+		"NewLine": "No",
+		"Des": "计算所提供概率的“右尾”F 概率分布的倒数。",
+		"Args": ["x"]
+	},
+	{
+		"Fname": "GESTEP",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的几何平均值。",
+		"Args": ["数值", "[步骤]"]
+	},
+	{
+		"Fname": "GROWTH",
+		"NewLine": "Yes",
+		"Des": "从 Excel 数据透视表的指定字段中提取数据。",
+		"Args": ["已知的", "[已知x's]", "[新x's]", "[常量]"]
+	},
+	{
+		"Fname": "IMCOSH",
+		"NewLine": "No",
+		"Des": "返回提供的复数的余弦。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMCSCH",
+		"NewLine": "No",
+		"Des": "返回提供的复数的余割。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMLOG2",
+		"NewLine": "No",
+		"Des": "返回提供的复数的通用“以 10 为底”的对数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMREAL",
+		"NewLine": "No",
+		"Des": "计算两个或多个复数的乘积。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSECH",
+		"NewLine": "No",
+		"Des": "返回提供的复数的割线。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSINH",
+		"NewLine": "No",
+		"Des": "返回提供的复数的正弦值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSQRT",
+		"NewLine": "No",
+		"Des": "返回提供的复数的双曲正弦值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ISEVEN",
+		"NewLine": "No",
+		"Des": "测试指定单元格是否为空白“空”，如果是，则返回 TRUE；否则函数返回 FALSE。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ISTEXT",
+		"NewLine": "No",
+		"Des": "测试提供的值是否是参考。如果是，则函数返回 TRUE；否则返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "LOGEST",
+		"NewLine": "Yes",
+		"Des": "通过一组提供的 x 和 y 值返回最佳拟合指数曲线的统计信息。",
+		"Args": ["已知的", "[已知x's]", "[常量]", "[统计]"]
+	},
+	{
+		"Fname": "LOGINV",
+		"NewLine": "Yes",
+		"Des": "对于提供的概率，计算 x 的累积对数正态分布函数的倒数.",
+		"Args": ["可能性", "ln(x)的平均数", "标准偏差"]
+	},
+	{
+		"Fname": "LOOKUP",
+		"NewLine": "Yes",
+		"Des": "有两种形式：Vector 形式和 Array 形式。",
+		"Args": ["查找值", "查找向量", "[结果向量]"]
+	},
+	{
+		"Fname": "MEDIAN",
+		"NewLine": "Yes",
+		"Des": "返回所提供数字列表的统计中值“中间值”。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "MINUTE",
+		"NewLine": "No",
+		"Des": "返回一个整数，表示提供的 Excel 时间的分钟部分。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "MROUND",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向上或向下舍入到给定数字的最接近的倍数。",
+		"Args": ["数值", "倍数"]
+	},
+	{
+		"Fname": "OFFSET",
+		"NewLine": "Yes",
+		"Des": "从初始指定范围返回指定数量的行和列的单元格范围。",
+		"Args": ["参考", "排", "科尔斯", "[高度]", "[宽度]"]
+	},
+	{
+		"Fname": "PERMUT",
+		"NewLine": "Yes",
+		"Des": "从一组对象中计算指定数量的对象的排列数。",
+		"Args": ["数值", "选择的号码"]
+	},
+	{
+		"Fname": "PROPER",
+		"NewLine": "No",
+		"Des": "将提供的文本字符串中的所有字符转换为正确的大小写“即所有不紧跟另一个字母的字母都设置为大写，所有其他字符都设置为小写”。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "SEARCH",
+		"NewLine": "Yes",
+		"Des": "返回指定字符或子字符串在提供的文本字符串中的位置。",
+		"Args": ["搜索文本", "文本内", "[开始编号]"]
+	},
+	{
+		"Fname": "SECOND",
+		"NewLine": "No",
+		"Des": "返回一个整数，表示提供的 Excel 时间的第二部分。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "SHEETS",
+		"NewLine": "No",
+		"Des": "返回提供的参考中的工作表数。结果包括可见、隐藏或非常隐藏的工作表。",
+		"Args": ["[参考]"]
+	},
+	{
+		"Fname": "SKEW.P",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的分布的偏度。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "SQRTPI",
+		"NewLine": "No",
+		"Des": "返回提供的数字乘以数学常数 π 的平方根。",
+		"Args": ["数量=SQRT"]
+	},
+	{
+		"Fname": "STDEVP",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "SWITCH",
+		"NewLine": "Yes",
+		"Des": "将多个提供的值与提供的测试表达式进行比较，并返回与匹配测试表达式的第一个值相对应的结果。如果没有提供的值与测试表达式匹配，则可以提供默认值。",
+		"Args": ["表达", "值1", "结果1", "[值2", "结果2]", "[值3", "结果3]", "[默认]）"]
+	},
+	{
+		"Fname": "T.DIST",
+		"NewLine": "Yes",
+		"Des": "计算单尾学生 T 分布，这是一种连续概率分布，经常用于在小样本数据集上检验假设。",
+		"Args": ["x", "自由度", "累积的"]
+	},
+	{
+		"Fname": "T.TEST",
+		"NewLine": "Yes",
+		"Des": "计算与学生 T 检验相关的概率，该检验通常用于确定两个数据集是否可能来自具有相同均值的相同的两个潜在总体。",
+		"Args": ["阵列1", "阵列2", "尾巴", "类型"]
 	},
 	{
 		"Fname": "Z.TEST",
 		"NewLine": "Yes",
-		"Des": "For a supplied hypothesized sample mean and a supplied set of values, the Excel Z.Test function calculates the one-tailed probability value of the Z-Test.",
-		"Args": [
-			"阵列", "x", "[σ]"
-		]
+		"Des": "对于提供的假设样本均值和提供的一组值，Excel Z.Test 函数计算 Z 检验的单尾概率值。",
+		"Args": ["阵列", "x", "[σ]"]
+	},
+	{
+		"Fname": "SUMIF",
+		"NewLine": "Yes",
+		"Des": "在提供的数组中查找满足给定条件的值，并返回第二个提供的数组中相应值的总和。",
+		"Args": ["范围", "条件", "[总和范围]"]
+	},
+	{
+		"Fname": "EDATE",
+		"NewLine": "Yes",
+		"Des": "仅针对选定记录计算数据库中“列”字段中值的“整个总体”方差。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["开始日期", "月"]
+	},
+	{
+		"Fname": "TODAY",
+		"NewLine": "No",
+		"Des": "返回当前日期。该函数没有参数，因此，函数的语法很简单：",
+		"Args": []
+	},
+	{
+		"Fname": "ACOSH",
+		"NewLine": "No",
+		"Des": "计算给定数字的反余弦“即反余弦”，并返回一个角度，以弧度为单位，介于 0 和 π 之间。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ACOTH",
+		"NewLine": "No",
+		"Des": "计算给定数字的反正切“即反余切”，并返回一个角度（以弧度为单位），介于 0 和 π 之间。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "AREAS",
+		"NewLine": "No",
+		"Des": "将罗马数字转换为阿拉伯数字。",
+		"Args": ["参考"]
+	},
+	{
+		"Fname": "ASINH",
+		"NewLine": "No",
+		"Des": "计算给定数字的反正弦“即反正弦”，并返回 -π/2 和 π/2 之间的角度（以弧度为单位）。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ATAN2",
+		"NewLine": "Yes",
+		"Des": "计算给定数字的反正切“即反正切”，并返回 -π/2 和 +π/2 之间的角度（以弧度为单位）。",
+		"Args": ["x数字", "y数"]
+	},
+	{
+		"Fname": "ATANH",
+		"NewLine": "No",
+		"Des": "计算给定 x 和 y 坐标集的反正切“即反正切”，并返回 -π/2 和 +π/2 之间的角度（以弧度为单位）。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "BITOR",
+		"NewLine": "Yes",
+		"Des": "返回一个提供的整数，左移指定的位数。",
+		"Args": ["数字1", "数字2"]
+	},
+	{
+		"Fname": "COUNT",
+		"NewLine": "Yes",
+		"Des": "计算所提供角度的双曲余切 'coth'。",
+		"Args": ["值1", "[值2]"]
+	},
+	{
+		"Fname": "COVAR",
+		"NewLine": "Yes",
+		"Des": "返回前一个息票日期，在证券的结算日期之前。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "DELTA",
+		"NewLine": "Yes",
+		"Des": "将弧度转换为度数。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "DEVSQ",
+		"NewLine": "Yes",
+		"Des": "测试两个数字是否相等并返回 Kronecker Delta。即，如果两个提供的数字相等，则该函数返回 1，否则返回 0。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "DVARP",
+		"NewLine": "Yes",
+		"Des": "仅针对选定记录计算数据库中字段“列”的样本方差。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "EXACT",
+		"NewLine": "Yes",
+		"Des": "将提供的数字从零舍入（即向上舍入一个正数，向下舍入一个负数）到下一个偶数。",
+		"Args": ["文本1", "文本2"]
+	},
+	{
+		"Fname": "F.INV",
+		"NewLine": "Yes",
+		"Des": "计算 F 分布的概率密度函数或累积分布函数。这个函数经常被用来衡量两个数据集之间的多样性程度。",
+		"Args": ["可能性", "自由度1", "自由度2"]
+	},
+	{
+		"Fname": "FDIST",
+		"NewLine": "Yes",
+		"Des": "返回所提供数字的双阶乘。",
+		"Args": ["x", "自由度1", "自由度2"]
+	},
+	{
+		"Fname": "FIXED",
+		"NewLine": "Yes",
+		"Des": "计算 Fisher 变换的逆并返回 -1 和 +1 之间的值。",
+		"Args": ["数值", "[小数]", "[没有逗号]"]
+	},
+	{
+		"Fname": "FLOOR",
+		"NewLine": "Yes",
+		"Des": "将提供的数字四舍五入到指定的小数位数，然后将其转换为文本。",
+		"Args": ["数值", "意义"]
+	},
+	{
+		"Fname": "FTEST",
+		"NewLine": "Yes",
+		"Des": "对于提供的数值数组，Excel 频率函数返回落入指定范围的值的数量。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "GAMMA",
+		"NewLine": "No",
+		"Des": "计算具有可变利率的投资的未来价值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "GAUSS",
+		"NewLine": "No",
+		"Des": "返回标准正态总体的成员落在均值和与均值的指定标准差数之间的概率。",
+		"Args": ["z"]
+	},
+	{
+		"Fname": "IMABS",
+		"NewLine": "No",
+		"Des": "测试许多提供的条件，并返回对应于第一个计算结果为 TRUE 的条件的结果。如果提供的条件均未计算为 TRUE，则该函数返回 #N/A 错误。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMCOS",
+		"NewLine": "No",
+		"Des": "返回提供的复数的复共轭。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMCOT",
+		"NewLine": "No",
+		"Des": "返回提供的复数的双曲余弦。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMCSC",
+		"NewLine": "No",
+		"Des": "返回提供的复数的余切。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMDIV",
+		"NewLine": "Yes",
+		"Des": "返回提供的复数的双曲余割。",
+		"Args": ["数值1", "λ2"]
+	},
+	{
+		"Fname": "IMEXP",
+		"NewLine": "No",
+		"Des": "计算两个复数的商'即一个复数除以另一个'。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSEC",
+		"NewLine": "No",
+		"Des": "返回提供的复数的实系数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSIN",
+		"NewLine": "No",
+		"Des": "返回提供的复数的双曲正割。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IMSUB",
+		"NewLine": "Yes",
+		"Des": "返回提供的复数的平方根。",
+		"Args": ["数值1", "λ2"]
+	},
+	{
+		"Fname": "IMSUM",
+		"NewLine": "Yes",
+		"Des": "计算两个或多个复数之和。",
+		"Args": ["数值1", "λ2"]
+	},
+	{
+		"Fname": "IMTAN",
+		"NewLine": "No",
+		"Des": "计算两个复数之间的差，即从另一个复数中减去一个复数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ISERR",
+		"NewLine": "No",
+		"Des": "测试初始提供的表达式“或值”是否返回 Excel 错误，如果是，则返回逻辑值 TRUE；否则函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "ISODD",
+		"NewLine": "No",
+		"Des": "将提供的数字“不管数字的符号”向上舍入到提供的重要性的最接近的倍数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ISPMT",
+		"NewLine": "Yes",
+		"Des": "计算在贷款或投资的特定期间支付的利息。",
+		"Args": ["率", "每", "核电厂", "现值总额"]
+	},
+	{
+		"Fname": "ISREF",
+		"NewLine": "No",
+		"Des": "测试提供的数字“或数字表达式”是否计算为奇数，如果是，则返回 TRUE；否则，函数返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "LARGE",
+		"NewLine": "Yes",
+		"Des": "从数值数组中返回第 k 个最大值。",
+		"Args": ["阵列", "k"]
+	},
+	{
+		"Fname": "LOG10",
+		"NewLine": "No",
+		"Des": "计算给定数字的以 10 为底的对数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "LOWER",
+		"NewLine": "No",
+		"Des": "将提供的文本字符串中的所有字符转换为小写。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "MATCH",
+		"NewLine": "Yes",
+		"Des": "在数组中查找一个值，并返回该值在数组中的位置。",
+		"Args": ["查找值", "查找数组", "[匹配类型]"]
+	},
+	{
+		"Fname": "MMULT",
+		"NewLine": "Yes",
+		"Des": "计算两个数组“表示矩阵”的矩阵乘积。",
+		"Args": ["阵列1", "阵列2"]
+	},
+	{
+		"Fname": "MONTH",
+		"NewLine": "No",
+		"Des": "返回一个整数，表示提供日期的“从 1 到 12”月份。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "MUNIT",
+		"NewLine": "No",
+		"Des": "返回指定维度的单位矩阵。",
+		"Args": ["维"]
+	},
+	{
+		"Fname": "POWER",
+		"NewLine": "Yes",
+		"Des": "计算给定的数字，提高到提供的功率。",
+		"Args": ["数值", "权力"]
+	},
+	{
+		"Fname": "PRICE",
+		"NewLine": "Yes",
+		"Des": "计算每 100 美元面值支付定期利息的证券的价格。",
+		"Args": ["解决", "成熟度", "率", "yld公司", "赎回", "频率", "[依据]"]
+	},
+	{
+		"Fname": "RIGHT",
+		"NewLine": "Yes",
+		"Des": "从提供的文本字符串的末尾返回指定数量的字符。",
+		"Args": ["文本", "[数字字符]"]
+	},
+	{
+		"Fname": "ROMAN",
+		"NewLine": "Yes",
+		"Des": "将阿拉伯数字转换为罗马数字。即对于提供的整数，该函数返回一个描述数字的罗马数字形式的文本字符串。",
+		"Args": ["数值", "[表格]"]
+	},
+	{
+		"Fname": "ROUND",
+		"NewLine": "Yes",
+		"Des": "将提供的数字向上或向下舍入到指定的小数位数。",
+		"Args": ["数值", "数字"]
+	},
+	{
+		"Fname": "SHEET",
+		"NewLine": "No",
+		"Des": "返回指定参考的图纸编号。",
+		"Args": ["[价值]"]
+	},
+	{
+		"Fname": "SLOPE",
+		"NewLine": "Yes",
+		"Des": "通过一组提供的 x 和 y 值计算线性回归线的斜率。",
+		"Args": ["已知的", "已知x"]
+	},
+	{
+		"Fname": "SMALL",
+		"NewLine": "Yes",
+		"Des": "从数值数组中返回第 k 个最小值。",
+		"Args": ["阵列", "k"]
+	},
+	{
+		"Fname": "STDEV",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的样本标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "STDEV",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的标准偏差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "STEYX",
+		"NewLine": "Yes",
+		"Des": "通过一组提供的 x 和 y 值计算最佳拟合线的标准误差。",
+		"Args": ["已知的", "已知x"]
+	},
+	{
+		"Fname": "SUMSQ",
+		"NewLine": "Yes",
+		"Des": "返回提供的一组值的平方和。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "T.INV",
+		"NewLine": "Yes",
+		"Des": "计算学生 T 分布的左尾逆，这是一个连续概率分布，经常用于在小样本数据集上测试假设。",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "TDIST",
+		"NewLine": "Yes",
+		"Des": "计算学生 T 分布，这是一个连续概率分布，经常用于在小样本数据集上测试假设。",
+		"Args": ["x", "自由度", "尾巴"]
+	},
+	{
+		"Fname": "TREND",
+		"NewLine": "Yes",
+		"Des": "通过一组给定的 y 值和“可选”一组给定的 x 值计算线性趋势线。",
+		"Args": ["已知的", "[已知x's]", "[新x's]", "[常量]"]
+	},
+	{
+		"Fname": "TRUNC",
+		"NewLine": "Yes",
+		"Des": "将提供的数字截断为指定的小数位数。",
+		"Args": ["数值", "[数字]"]
+	},
+	{
+		"Fname": "TTEST",
+		"NewLine": "Yes",
+		"Des": "计算与学生 T 检验相关的概率，该检验通常用于确定两个数据集是否可能来自具有相同均值的相同的两个潜在总体。",
+		"Args": ["阵列1", "阵列2", "尾巴", "类型"]
+	},
+	{
+		"Fname": "UPPER",
+		"NewLine": "No",
+		"Des": "将提供的文本字符串中的所有字符转换为大写。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "VALUE",
+		"NewLine": "No",
+		"Des": "将文本字符串转换为数值。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "VAR.P",
+		"NewLine": "Yes",
+		"Des": "返回给定值集的方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "VAR.S",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的样本方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "VARPA",
+		"NewLine": "Yes",
+		"Des": "返回给定值集的方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "YIELD",
+		"NewLine": "Yes",
+		"Des": "计算支付定期利息的证券的收益率。",
+		"Args": ["解决", "成熟度", "率", "公共关系", "赎回", "频率", "[依据]"]
 	},
 	{
 		"Fname": "ZTEST",
 		"NewLine": "Yes",
-		"Des": "For a supplied hypothesized sample mean and a supplied set of values, the Excel Ztest function calculates the one-tailed probability value of the Z-Test.",
-		"Args": [
-			"阵列", "x", "[σ]"
-		]
+		"Des": "对于提供的假设样本均值和提供的一组值，Excel Ztest 函数计算 Z 检验的单尾概率值。",
+		"Args": ["阵列", "x", "[σ]"]
+	},
+	{
+		"Fname": "INDEX",
+		"NewLine": "Yes",
+		"Des": "返回给定单元格范围内特定行和列交叉单元格的值或引用",
+		"Args": ["阵列", "行号", "列号"]
+	},
+	{
+		"Fname": "MAXA",
+		"NewLine": "Yes",
+		"Des": "从提供的一组数值中返回最大值，同时将文本和逻辑值 FALSE 计数为值 0，并将逻辑值 TRUE 计数为值 1。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "DMAX",
+		"NewLine": "Yes",
+		"Des": "计算证券的贴现率。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "DMIN",
+		"NewLine": "Yes",
+		"Des": "仅在数据库中的字段“列”中查找选定记录的最大值。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "ACOS",
+		"NewLine": "No",
+		"Des": "返回到期支付利息的证券的应计利息。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ACOT",
+		"NewLine": "No",
+		"Des": "计算所提供数字的反双曲余弦.",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ASIN",
+		"NewLine": "No",
+		"Des": "接受 Excel 引用并返回构成引用的区域数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "ATAN",
+		"NewLine": "No",
+		"Des": "计算所提供数字的反双曲正弦值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "BASE",
+		"NewLine": "Yes",
+		"Des": "将数字转换为泰语文本，后缀为“泰铢”。",
+		"Args": ["数值", "基数", "[最小长度]"]
+	},
+	{
+		"Fname": "CELL",
+		"NewLine": "Yes",
+		"Des": "将提供的数字“不管数字的符号”向上舍入到给定数字的最接近的倍数。",
+		"Args": ["信息类型", "参考"]
+	},
+	{
+		"Fname": "CHAR",
+		"NewLine": "No",
+		"Des": "返回有关给定单元格的信息。这可以是与单元格的内容、格式或位置有关的信息。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "CODE",
+		"NewLine": "No",
+		"Des": "从数组中返回一个值，该值对应于提供的索引号“位置”。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "COSH",
+		"NewLine": "No",
+		"Des": "计算给定角度的余弦。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "COTH",
+		"NewLine": "No",
+		"Des": "计算给定角度的余切。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "CSCH",
+		"NewLine": "No",
+		"Des": "计算给定角度的余割。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "DATE",
+		"NewLine": "Yes",
+		"Des": "计算两个指定期间之间贷款或投资本金的累计支付。",
+		"Args": ["年", "月", "白天"]
+	},
+	{
+		"Fname": "DAYS",
+		"NewLine": "Yes",
+		"Des": "返回一个整数，表示所提供日期的“从 1 到 31”月份中的某天。",
+		"Args": ["结束日期", "开始日期"]
+	},
+	{
+		"Fname": "DGET",
+		"NewLine": "Yes",
+		"Des": "对于一组提供的值，Excel DEVSQ 函数计算与样本均值的偏差平方和。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "DISC",
+		"NewLine": "Yes",
+		"Des": "从数据库的列中返回单个值。",
+		"Args": ["解决", "成熟度", "公共关系", "赎回", "[依据]"]
+	},
+	{
+		"Fname": "DSUM",
+		"NewLine": "Yes",
+		"Des": "仅计算选定记录的数据库中字段“列”的标准偏差。要包含在计算中的记录由一组一个或多个用户指定的标准定义。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "DVAR",
+		"NewLine": "Yes",
+		"Des": "假设面值为 100 美元，计算支付定期利息的证券的久期“特别是麦考利久期”。",
+		"Args": ["数据库", "区域", "条件"]
+	},
+	{
+		"Fname": "ERFC",
+		"NewLine": "No",
+		"Des": "计算误差函数，在提供的下限或上限与 0 之间积分。",
+		"Args": ["x"]
+	},
+	{
+		"Fname": "EVEN",
+		"NewLine": "No",
+		"Des": "接收一个错误值并返回一个整数，它告诉您提供的错误的类型。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "FACT",
+		"NewLine": "No",
+		"Des": "返回两个提供的数组的 F 检验。即该函数返回两个提供的数组中的方差没有显着差异的双尾概率。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "FIND",
+		"NewLine": "Yes",
+		"Des": "计算“右尾”F 概率分布，它衡量两个数据集之间的多样性程度。",
+		"Args": ["查找文本", "文本内", "[开始编号]"]
+	},
+	{
+		"Fname": "FINV",
+		"NewLine": "Yes",
+		"Des": "返回指定字符或子字符串在提供的文本字符串中的位置。",
+		"Args": ["可能性", "自由度1", "自由度2"]
+	},
+	{
+		"Fname": "HOUR",
+		"NewLine": "No",
+		"Des": "在数据数组“或表”的第一行中查找给定值，并从数组的另一行返回相应的值。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "IFNA",
+		"NewLine": "Yes",
+		"Des": "接收两个值“或表达式”并测试其中第一个值是否为错误。",
+		"Args": ["价值", "值（如果为na）"]
+	},
+	{
+		"Fname": "IMLN",
+		"NewLine": "No",
+		"Des": "返回提供的复数的指数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "INFO",
+		"NewLine": "No",
+		"Des": "将文本字符串转换为单元格引用。",
+		"Args": ["键入文本"]
+	},
+	{
+		"Fname": "IPMT",
+		"NewLine": "Yes",
+		"Des": "计算完全投资证券的利率。",
+		"Args": ["率", "每", "核电厂", "现值总额", "[fv]", "[类型]"]
+	},
+	{
+		"Fname": "ISNA",
+		"NewLine": "No",
+		"Des": "测试提供的值“或表达式”是否返回逻辑值“即计算结果为真或假”。如果是，则函数返回 TRUE；否则，它返回 FALSE。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "KURT",
+		"NewLine": "Yes",
+		"Des": "测试提供的值是否为文本，如果是，则返回 TRUE；否则，函数返回 FALSE。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "LEFT",
+		"NewLine": "Yes",
+		"Des": "从提供的文本字符串的开头返回指定数量的字符。",
+		"Args": ["文本", "[数字字符]"]
+	},
+	{
+		"Fname": "LEFT",
+		"NewLine": "Yes",
+		"Des": "返回两个或多个提供的整数的最小公倍数。",
+		"Args": ["文本", "[数字字符]"]
+	},
+	{
+		"Fname": "MINA",
+		"NewLine": "Yes",
+		"Des": "返回一组提供的数值中的最小值，同时将文本和逻辑值 FALSE 计数为值 0，并将逻辑值 TRUE 计数为值 1。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "MIRR",
+		"NewLine": "Yes",
+		"Des": "返回一系列定期现金流的修正内部收益率，“即一组值，包括初始投资值和一系列净收入值”。",
+		"Args": ["价值观", "财务比率", "再投资率"]
+	},
+	{
+		"Fname": "MODE",
+		"NewLine": "Yes",
+		"Des": "返回提供的数字列表的统计模式“最常出现的值”。如果提供的数据中有 2 个或更多最频繁出现的值，则函数返回这些值中的最低值",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "NPER",
+		"NewLine": "Yes",
+		"Des": "计算还清贷款所需的周期数，对于固定的定期付款和固定的利率。",
+		"Args": ["率", "付款", "现值总额", "[fv]", "[类型]"]
+	},
+	{
+		"Fname": "PPMT",
+		"NewLine": "Yes",
+		"Des": "计算在贷款或投资的特定时期内以恒定的定期付款方式支付的本金，利率不变。",
+		"Args": ["率", "每", "核电厂", "现值总额", "[fv]", "[类型]"]
+	},
+	{
+		"Fname": "PROB",
+		"NewLine": "Yes",
+		"Des": "给定一个值列表和相应的概率列表，Excel PROB 函数计算与给定范围关联的概率。",
+		"Args": ["x范围", "探测范围", "[下限]", "[上限]"]
+	},
+	{
+		"Fname": "RAND",
+		"NewLine": "No",
+		"Des": "将弧度转换为度数。",
+		"Args": []
+	},
+	{
+		"Fname": "RANK",
+		"NewLine": "Yes",
+		"Des": "在提供的值数组中返回给定值的统计排名。如果列表中有重复的值，则赋予它们相同的排名。",
+		"Args": ["数值", "引用", "[命令]"]
+	},
+	{
+		"Fname": "RATE",
+		"NewLine": "Yes",
+		"Des": "计算在给定时期内偿还指定金额的贷款或达到投资目标金额所需的利率。",
+		"Args": ["核电厂", "付款", "现值总额", "[fv]", "[类型]", "[猜猜]"]
+	},
+	{
+		"Fname": "REPT",
+		"NewLine": "Yes",
+		"Des": "返回提供的文本字符串，重复指定的次数。",
+		"Args": ["文本", "次数"]
+	},
+	{
+		"Fname": "ROWS",
+		"NewLine": "No",
+		"Des": "接受一个 Excel 范围并返回该范围内包含的行数。",
+		"Args": ["阵列"]
+	},
+	{
+		"Fname": "SECH",
+		"NewLine": "No",
+		"Des": "计算所提供角度的双曲正割“sech”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "SIGN",
+		"NewLine": "No",
+		"Des": "返回所提供数字的算术符号“+1、-1 或 0”。即如果数字为正，Sign函数返回+1，如果数字为负，函数返回-1，如果数字为0'零'，函数返回0。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "SINH",
+		"NewLine": "No",
+		"Des": "计算所提供数字的双曲正弦“sinh”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "SKEW",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的分布的偏度。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "SQRT",
+		"NewLine": "No",
+		"Des": "计算所提供数字的正平方根。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "TANH",
+		"NewLine": "No",
+		"Des": "计算所提供数字的双曲正切“tanh”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "TEXT",
+		"NewLine": "Yes",
+		"Des": "以用户指定的格式将提供的数值转换为文本。",
+		"Args": ["数值", "设置文本格式"]
+	},
+	{
+		"Fname": "TIME",
+		"NewLine": "Yes",
+		"Des": "接受三个表示小时、分钟和秒的整数参数，并返回 Excel 时间。",
+		"Args": ["小时", "分钟", "第二"]
+	},
+	{
+		"Fname": "TINV",
+		"NewLine": "Yes",
+		"Des": "计算双尾学生 T 分布的倒数，这是一种连续概率分布，经常用于在小样本数据集上测试假设。",
+		"Args": ["可能性", "自由度"]
+	},
+	{
+		"Fname": "TRIM",
+		"NewLine": "No",
+		"Des": "从提供的文本字符串中删除额外的空格“即除了单词或字符之间的单个空格之外的所有空格”。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "TYPE",
+		"NewLine": "No",
+		"Des": "对于提供的值，Excel TYPE 函数返回一个整数，表示该值的数据类型。",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "VARA",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的样本方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "VARP",
+		"NewLine": "Yes",
+		"Des": "返回给定值集的方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "XIRR",
+		"NewLine": "Yes",
+		"Des": "返回一系列提供的现金流量的内部收益率，“即一组值，包括初始投资值和一系列净收入值”，发生在一系列提供的日期。",
+		"Args": ["价值观", "日期", "[猜猜]"]
+	},
+	{
+		"Fname": "XNPV",
+		"NewLine": "Yes",
+		"Des": "计算不一定是周期性的现金流量表的净现值。",
+		"Args": ["率", "价值观", "日期"]
+	},
+	{
+		"Fname": "YEAR",
+		"NewLine": "No",
+		"Des": "返回一个整数，表示所提供日期的年份。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "ABS",
+		"NewLine": "No",
+		"Des": "从提供的文本字符串的开头返回指定数量的字符。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "AND",
+		"NewLine": "Yes",
+		"Des": "为法国会计系统的用户提供。该函数计算指定会计期间资产的按比例线性折旧。",
+		"Args": ["逻辑测试1", "[逻辑测试2]"]
+	},
+	{
+		"Fname": "COS",
+		"NewLine": "No",
+		"Des": "计算两组值的 Pearson 积矩相关系数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "COT",
+		"NewLine": "No",
+		"Des": "计算所提供数字的双曲余弦“cosh”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "CSC",
+		"NewLine": "No",
+		"Des": "返回累积二项分布的倒数。即对于特定数量的独立试验，该函数返回累积二项分布大于或等于指定值的最小值“成功次数”。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "DAY",
+		"NewLine": "No",
+		"Des": "计算数据库中字段“列”中满足用户指定条件的选定记录的平均“统计平均值”。",
+		"Args": ["序列号"]
+	},
+	{
+		"Fname": "DDB",
+		"NewLine": "Yes",
+		"Des": "仅在数据库的“列”字段中为选定记录返回非空白单元格的数量。",
+		"Args": ["成本", "救助", "生活", "期间", "[因素]"]
+	},
+	{
+		"Fname": "ERF",
+		"NewLine": "Yes",
+		"Des": "返回该月的最后一天，即在初始提供的开始日期之前或之后的指定月数。",
+		"Args": ["下限", "[上限]"]
+	},
+	{
+		"Fname": "EXP",
+		"NewLine": "No",
+		"Des": "测试两个提供的文本字符串或值是否完全相等，如果相等，则返回 TRUE；否则，函数返回 FALSE。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "GCD",
+		"NewLine": "Yes",
+		"Des": "返回 Gamma 函数的自然对数 Γ'n'。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "IFS",
+		"NewLine": "Yes",
+		"Des": "测试提供的初始值“或表达式”是否计算为 Excel #N/A 错误。如果是，则该函数返回第二个提供的值；否则，该函数返回第一个提供的值。",
+		"Args": ["逻辑测试1", "如果为真值1", "[逻辑测试2", "如果是真值2]", "[逻辑测试3", "如果是真值3]"]
+	},
+	{
+		"Fname": "INT",
+		"NewLine": "No",
+		"Des": "返回一个文本字符串，其中包含有关当前操作环境的信息。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "IRR",
+		"NewLine": "Yes",
+		"Des": "计算以固定利率定期支付的贷款或投资的特定时期内的利息支付。",
+		"Args": ["价值观", "[猜猜]"]
+	},
+	{
+		"Fname": "LCM",
+		"NewLine": "Yes",
+		"Des": "计算一组提供的值的峰度。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "LEN",
+		"NewLine": "No",
+		"Des": "返回提供的文本字符串的长度。",
+		"Args": ["文本"]
+	},
+	{
+		"Fname": "LOG",
+		"NewLine": "Yes",
+		"Des": "计算给定数字的对数，以提供的底为基础。",
+		"Args": ["数值", "[基地]"]
+	},
+	{
+		"Fname": "MAX",
+		"NewLine": "Yes",
+		"Des": "从提供的一组数值中返回最大值。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "MID",
+		"NewLine": "Yes",
+		"Des": "从提供的文本字符串的中间返回指定数量的字符。",
+		"Args": ["文本", "开始编号", "数字字符"]
+	},
+	{
+		"Fname": "MIN",
+		"NewLine": "Yes",
+		"Des": "从提供的一组数值中返回最小值。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "MOD",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的数字之间除法的余数。",
+		"Args": ["数值", "除数"]
+	},
+	{
+		"Fname": "NOT",
+		"NewLine": "No",
+		"Des": "返回与提供的逻辑值相反的值。",
+		"Args": ["符合逻辑的"]
+	},
+	{
+		"Fname": "NOW",
+		"NewLine": "No",
+		"Des": "返回当前日期和时间。该函数不接收任何参数，因此函数语法为：",
+		"Args": []
+	},
+	{
+		"Fname": "NPV",
+		"NewLine": "Yes",
+		"Des": "根据提供的贴现率以及一系列未来付款和收入计算投资的净现值。",
+		"Args": ["率", "值1", "[值2]", "[值3]"]
+	},
+	{
+		"Fname": "ODD",
+		"NewLine": "No",
+		"Des": "将提供的数字从零舍入（即向上舍入一个正数，向下舍入一个负数）到下一个奇数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "PHI",
+		"NewLine": "No",
+		"Des": "返回所提供数字的标准正态分布的密度函数值。",
+		"Args": ["x"]
+	},
+	{
+		"Fname": "PMT",
+		"NewLine": "Yes",
+		"Des": "计算在特定时期内以固定利率偿还“或部分偿还”贷款或投资所需的固定定期付款。",
+		"Args": ["率", "核电厂", "现值总额", "[fv]", "[类型]"]
+	},
+	{
+		"Fname": "ROW",
+		"NewLine": "No",
+		"Des": "返回提供的引用中的第一行号或当前行的编号。",
+		"Args": ["[参考]"]
+	},
+	{
+		"Fname": "RRI",
+		"NewLine": "Yes",
+		"Des": "计算具有指定现值、未来值和久期的投资的等值利率。",
+		"Args": ["核电厂", "现值总额", "fv公司"]
+	},
+	{
+		"Fname": "RSQ",
+		"NewLine": "Yes",
+		"Des": "计算提供的两组值的 Pearson 积矩相关系数的平方。",
+		"Args": ["已知的", "已知x"]
+	},
+	{
+		"Fname": "SEC",
+		"NewLine": "No",
+		"Des": "计算给定角度的割线。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "SIN",
+		"NewLine": "No",
+		"Des": "计算给定角度的正弦值。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "SLN",
+		"NewLine": "Yes",
+		"Des": "计算一个时期内资产的直线折旧。",
+		"Args": ["成本", "救助", "生活"]
+	},
+	{
+		"Fname": "SUM",
+		"NewLine": "Yes",
+		"Des": "将提供的一组数字相加并返回这些值的总和。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "SYD",
+		"NewLine": "Yes",
+		"Des": "计算资产生命周期中指定期间的年数总和折旧。",
+		"Args": ["成本", "救助", "生活", "每"]
+	},
+	{
+		"Fname": "TAN",
+		"NewLine": "No",
+		"Des": "计算给定角度的正切。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "VAR",
+		"NewLine": "Yes",
+		"Des": "返回一组提供的值的样本方差。",
+		"Args": ["数字1", "[数字2]"]
+	},
+	{
+		"Fname": "VDB",
+		"NewLine": "Yes",
+		"Des": "使用双倍余额递减法或其他指定折旧率计算资产在指定期间“包括部分期间”的折旧。",
+		"Args": ["成本", "救助", "生活", "开始时间段", "期末", "[因素]", "[无开关]"]
+	},
+	{
+		"Fname": "XOR",
+		"NewLine": "Yes",
+		"Des": "返回一个或多个提供的条件的异或逻辑运算。",
+		"Args": ["逻辑测试1", "[逻辑测试2]"]
 	},
 	{
 		"Fname": "RMB",
 		"NewLine": "Yes",
-		"Des": "Convert value to Chinese yuan",
-		"Args": [
-			"数值", "[小数位数]"
-		]
+		"Des": "将价值转换为人民币",
+		"Args": ["数值", "[小数位数]"]
+	},
+	{
+		"Fname": "DB",
+		"NewLine": "Yes",
+		"Des": "返回 2 个日期之间的天数，基于 360 天一年“12 x 30 个月”。",
+		"Args": ["成本", "救助", "生活", "期间", "[月]"]
+	},
+	{
+		"Fname": "FV",
+		"NewLine": "Yes",
+		"Des": "返回两个提供的数组的 F 检验。即该函数返回两个提供的数组中的方差没有显着差异的双尾概率。",
+		"Args": ["率", "核电厂", "[付款]", "[现值]", "[类型]"]
+	},
+	{
+		"Fname": "IF",
+		"NewLine": "Yes",
+		"Des": "返回总体样本中给定成功次数的超几何分布值。",
+		"Args": ["逻辑测试", "值（如果为真）", "值（如果为误）"]
+	},
+	{
+		"Fname": "LN",
+		"NewLine": "No",
+		"Des": "计算给定数字的自然对数。",
+		"Args": ["数值"]
+	},
+	{
+		"Fname": "NA",
+		"NewLine": "No",
+		"Des": "返回 Excel #N/A 错误。此错误消息的含义是“值不可用”，并且在 Excel 公式无法找到所需的值时产生。",
+		"Args": []
+	},
+	{
+		"Fname": "OR",
+		"NewLine": "Yes",
+		"Des": "测试一些提供的条件并返回：",
+		"Args": ["逻辑测试1", "[逻辑测试2]"]
+	},
+	{
+		"Fname": "PI",
+		"NewLine": "No",
+		"Des": "返回数学常数 π 'pi' 的值，精确到 15 位 '14 个小数位'。",
+		"Args": []
+	},
+	{
+		"Fname": "PV",
+		"NewLine": "Yes",
+		"Des": "根据一系列未来付款计算投资的现值。",
+		"Args": ["率", "核电厂", "[付款]", "[fv]", "[类型]"]
+	},
+	{
+		"Fname": "N",
+		"NewLine": "No",
+		"Des": "使用以下规则将数据转换为数值：",
+		"Args": ["价值"]
+	},
+	{
+		"Fname": "T",
+		"NewLine": "No",
+		"Des": "测试提供的值是否为文本，如果是，则返回提供的文本；否则，该函数返回一个空文本字符串。",
+		"Args": ["价值"]
 	}
 ];

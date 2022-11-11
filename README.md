@@ -35,7 +35,9 @@ When we are writing a complex formula in an Excel Cell we have to face a difficu
 
 [https://t.nonemin.com/excelformula](https://t.nonemin.com/excelformula)
 
- 
+## Video 视频演示
+
+[https://www.bilibili.com/video/BV1s14y1p7m6/](https://www.bilibili.com/video/BV1s14y1p7m6/)
 
 ## Usage 使用
 
@@ -64,6 +66,8 @@ The complete runnable project has been released as a [release](https://github.co
   - 优化JS写法
   - 添加函数使用说明
   - 示例页面使用Bootstrap V3构造
+- 1.2
+  - 增加对复杂引用的支持
 
 ## 下一步计划
 - 增加对自定义函数的支持

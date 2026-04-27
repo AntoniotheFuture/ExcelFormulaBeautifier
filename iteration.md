@@ -46,3 +46,59 @@ Iterations
 2. Packaging support and test cases
 3. Documentation and example page
 4. CI/CD integration and publishing
+
+## 2.0.1 Rewrite Core Implementation & Optimize Code Structure
+
+### Core Objectives
+- Adopt AST architecture to improve code maintainability and extensibility
+- Design user-friendly chain API to enhance developer experience
+- Use mature i18n solution to reduce maintenance costs
+
+### Specific Tasks
+- **AST Design**:
+  - Design unified AST node structure (FormulaNode)
+  - Support node types: function, operator, reference, literal
+  - Store metadata like level, argument position
+- **Code Structure Refactoring**:
+  ```
+  src/
+  ├── core/
+  │   ├── Parser.js       # Parser → generates AST
+  │   ├── Formatter.js    # Formatter → generates formatted string from AST
+  │   ├── Explainer.js    # Explainer → generates explanations from AST
+  │   └── Node.js         # AST node definition
+  ├── i18n/
+  │   ├── index.js        # i18next configuration
+  │   └── functions/     # Function translation resources
+  │       ├── en.js
+  │       └── zh-CN.js
+  ├── ExcelFormulaBeautifier.js
+  └── index.js
+  ```
+- **Chain API Design**:
+  ```javascript
+  const result = beautifier
+    .parse('=IF(A1>10,"Yes","No")')  // Returns FormulaNode
+    .format({ indent: '  ', maxDepth: 0 })  // Returns formatted string
+    .explain('zh-CN');  // Returns explanation object
+
+  result.toString();      // Formatted string
+  result.toArray();       // Array format
+  result.toExplanation(); // Explanation details
+  ```
+- **i18n Implementation**:
+  - Use i18next instead of manual file merging
+  - Support dynamic language switching
+  - Support plurals and formatting
+- **Edge Case Handling**:
+  - Invalid formulas: throw meaningful errors during AST construction
+  - Circular references: detect and mark
+  - Named ranges: support custom names like `MyRange`
+  - Array formulas: support `{=...}` syntax
+
+### Priority
+1. AST design and Parser implementation
+2. Chain API design
+3. i18n configuration and resource files
+4. Formatter and Explainer refactoring
+5. Test coverage expansion

@@ -15,11 +15,23 @@
     "src"
   ],
   "scripts": {
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
+    "start": "webpack serve",
+    "build": "NODE_ENV=production webpack",
+    "build:dev": "NODE_ENV=development webpack",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "build:prod": "NODE_ENV=production webpack",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
@@ -48,8 +60,11 @@
     "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.5.0",
     "html-webpack-plugin": "^5.6.7",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
+    "terser-webpack-plugin": "^5.5.0",
     "webpack": "^5.106.2",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"

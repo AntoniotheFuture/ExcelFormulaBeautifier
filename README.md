@@ -1,10 +1,10 @@
-# ExcelFormulaBeautifier Excel公式格式化/美化
+# ExcelFormulaBeautifier Excel Formula Beautifier
 
-Excel Formula Beautifier,make Excel formulas more easy to read.
+[English](./README.md) | [中文](./README_zh-CN.md)
 
-Excel公式格式化/美化,将Excel公式转为易读的排版。
+Excel Formula Beautifier - makes Excel formulas easy to read.
 
-## 示例：
+## Example:
 
 ``` Excel
 =IFERROR(SUMIFS(D:D,E:E,1,F:F,"Apple") + 1,IF(3 * A1 > 10,20,100))
@@ -25,53 +25,71 @@ Excel公式格式化/美化,将Excel公式转为易读的排版。
   )
 ```
 
-## Why? 起因
+## Why?
 
-When we are writing a complex formula in an Excel Cell we have to face a difficulty,that is,the formula is too hard to read and it will take a lot of time for your co-worker to understand your formula,so I am going to create a way to make this thing more easier,inspired by the some SQL Beautifier Tools,I decided to develop a way to beautif Excel formula,which can easily access by webpage.
+When writing a complex formula in an Excel cell, it can be difficult to read and understand. Your co-workers may need a lot of time to decipher your formula. Inspired by SQL Beautifier Tools, I decided to develop a way to beautify Excel formulas that can be easily accessed via a web page.
 
-我们在编写Excel公式，特别是复杂的，带有多层if嵌套的公式，往往会显得让人难以阅读，我希望通过开发一个网页版的Excel公式格式化/美化工具来帮助大家更好地理解您或您同事写的Excel公式。
+## Demo
 
-## Demo 示例
+[https://antoniothefuture.github.io/ExcelFormulaBeautifier-demo.github.io/](https://antoniothefuture.github.io/ExcelFormulaBeautifier-demo.github.io/)
 
-[https://t.nonemin.com/excelformula](https://t.nonemin.com/excelformula)
-
-## Video 视频演示
+## Video Tutorial
 
 [https://www.bilibili.com/video/BV1s14y1p7m6/](https://www.bilibili.com/video/BV1s14y1p7m6/)
 
-## Usage 使用
+## Usage
 
-The web page can be deployed to your local area network and access via shared folder,to do so,just download the html and js file into the shared folder,then use your browser to open the html file.
+The web page can be deployed to your local area network and accessed via shared folder. Simply download the html and js files into the shared folder, then open the html file in your browser.
 
-本工具可以部署到您的内网中使用：下载html和js文件到内网中的共享文件夹，然后用浏览器打开html文件。
+### JavaScript API
+1. Create a new ExcelFormulaBeautifier object
+2. Set parameters: deep:0 (maximum expansion depth)
+3. Call the format function
+4. Call getResultString or getResultArray to get formatted results
+5. Call explain function to get explanations
+6. Call getExplainsString or getExplainsArr to get explanation results
 
-### 调用方式:JS
-1. 新建一个ExcelFormulaBeautifier 对象
-2. 赋值参数：deep:0, //最深展开层次
-3. 调用其format 函数，
-4. 调用getResultString 或 getResultArray 获取分行结果
-5. 调用 explain 函数进行解释。
-6. 调用 getExplainsString 或 getExplainsArr 获取解释结果
+### npm Package (Coming Soon)
+```bash
+# npm install excel-formula-beautifier  # Coming soon
+```
 
-## Notice 说明
+```javascript
+// import ExcelFormulaBeautifier from 'excel-formula-beautifier';  // Coming soon
+
+const beautifier = new ExcelFormulaBeautifier();
+beautifier.format('=IFERROR(SUMIFS(D:D,E:E,1,F:F,"Apple")+1,IF(3*A1>10,20,100))');
+console.log(beautifier.getResultString());
+```
+
+## Run Tests
+
+```bash
+npm test
+```
+
+## Notice
 
 The complete runnable project has been released as a [release](https://github.com/AntoniotheFuture/ExcelFormulaBeautifier/releases)
 
-可运行的完整项目已经发布为 [Release](https://github.com/AntoniotheFuture/ExcelFormulaBeautifier/releases) 
-
-## 版本
-- 1.0：初始版本
-- 1.1：
-  - 重构成JS对象
-  - 优化JS写法
-  - 添加函数使用说明
-  - 示例页面使用Bootstrap V3构造
+## Version History
+- 1.0: Initial release
+- 1.1:
+  - Refactored to JS object
+  - Optimized JS code
+  - Added function descriptions
+  - Sample page built with Bootstrap V3
 - 1.2
-  - 增加对复杂引用的支持
+  - Added support for complex references
+- 2.0.0
+  - Engineering configuration (Webpack, ESLint, Prettier)
+  - Core code optimization (ES6 Class refactoring)
+  - Jest unit tests
 
-## 下一步计划
-- 增加对自定义函数的支持
+## Next Steps
+- npm package publishing
+- Add support for custom functions
 
-## LICENSE
+## License
 
 This project is under GPL-3.0 License

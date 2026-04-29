@@ -5,21 +5,21 @@
 // Edit：2022-4-10
 
 // I hate IE
-if (typeof String.prototype.startsWith !== "function") {
+if (typeof String.prototype.startsWith !== 'function') {
   String.prototype.startsWith = function (prefix) {
     return this.slice(0, prefix.length) === prefix;
   };
 }
 
-if (typeof String.prototype.endsWith !== "function") {
+if (typeof String.prototype.endsWith !== 'function') {
   String.prototype.endsWith = function (suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
   };
 }
 
-if (typeof String.prototype.repeat !== "function") {
+if (typeof String.prototype.repeat !== 'function') {
   String.prototype.repeat = function (suffix) {
-    let Result = "";
+    let Result = '';
     for (let i = 0; i < suffix; i++) {
       Result = Result + this;
     }
@@ -28,33 +28,33 @@ if (typeof String.prototype.repeat !== "function") {
 }
 
 const ExcelFormulaBeautifier = {
-  operators: ["+", "-", "*", "/", "&"], // Newline Operators,not use now 需要换行的运算符,暂未使用
-  tabs: "  ", // 分隔符
-  stringVarName: "_String_",
-  lineBreaker: "\n", // 设置输出换行符
-  space: " ", // 设置输出空格
-  descriptionSpace: " ", // 设置描述的输出空格
-  tabString: "   ", // 设置解释的分隔符
+  operators: ['+', '-', '*', '/', '&'], // Newline Operators,not use now 需要换行的运算符,暂未使用
+  tabs: '  ', // 分隔符
+  stringVarName: '_String_',
+  lineBreaker: '\n', // 设置输出换行符
+  space: ' ', // 设置输出空格
+  descriptionSpace: ' ', // 设置描述的输出空格
+  tabString: '   ', // 设置解释的分隔符
   deep: 0, // 最深展开层次
   errors: [], // 错误信息
   errorStr: {
-    100: "ExFunctions Not found,ExFunction 未找到或不完整",
-    101: "Not match double quotes,双引号数量应为偶数",
-    102: "Not match brackets,左右括号数量应相等",
-    103: "Invalid comma,无效的逗号:",
-    104: "",
-    105: "Too much args,函数参数太多",
+    100: 'ExFunctions Not found,ExFunction 未找到或不完整',
+    101: 'Not match double quotes,双引号数量应为偶数',
+    102: 'Not match brackets,左右括号数量应相等',
+    103: 'Invalid comma,无效的逗号:',
+    104: '',
+    105: 'Too much args,函数参数太多',
   },
   results: [], // 结果数组,内容为{level:x,word:s,newLine:b,nextLevel:x} 的obj
   descriptions: [], // 解释数组
   pureStrings: [], // 纯字符串
   newLineReg: /\r\n/g,
-  tabReg: new RegExp(" {2}", "g"),
-  spaceReg: new RegExp("\\s", "g"),
-  leftBKReg: new RegExp("\\(", "g"),
-  rightBKReg: new RegExp("\\)", "g"),
-  refCommaReg: new RegExp("\\],\\[", "g"), // 对应引用位置的逗号进行转换
-  commaReg: new RegExp(",", "g"),
+  tabReg: new RegExp(' {2}', 'g'),
+  spaceReg: new RegExp('\\s', 'g'),
+  leftBKReg: new RegExp('\\(', 'g'),
+  rightBKReg: new RegExp('\\)', 'g'),
+  refCommaReg: new RegExp('\\],\\[', 'g'), // 对应引用位置的逗号进行转换
+  commaReg: new RegExp(',', 'g'),
   usedFunction: [], // 使用到的函数列表，内容为 {index:x,function:ExFunction,row:x} 的obj
   format: function (formula) {
     let tempStr;
@@ -71,7 +71,7 @@ const ExcelFormulaBeautifier = {
 
     // 引用检查
     if (
-      typeof ExFunction === "undefined" ||
+      typeof ExFunction === 'undefined' ||
       ExFunction === null ||
       ExFunction.length === 0
     ) {
@@ -79,7 +79,7 @@ const ExcelFormulaBeautifier = {
       return;
     }
 
-    if (typeof this.deep !== "number" || this.deep < 1) {
+    if (typeof this.deep !== 'number' || this.deep < 1) {
       this.deep = 9999;
     }
 
@@ -91,19 +91,19 @@ const ExcelFormulaBeautifier = {
 
     // Split by double quotes 按双引号分解输入，解析是否为字符串
     const strs = formula.split('"');
-    tempStr = "";
+    tempStr = '';
     this.usedFunction = [];
     for (let i = 0; i < strs.length; i++) {
       if (E) {
         // 判断是否空，是则表明在字符串内,不处理
-        if (strs[i] === "") {
+        if (strs[i] === '') {
           tempStr = tempStr + '"';
         } else {
           E = !E;
           tempStr = tempStr + strs[i];
         }
       } else {
-        if (strs[i] === "") {
+        if (strs[i] === '') {
           tempStr = tempStr + '""';
           E = !E;
         } else {
@@ -115,34 +115,34 @@ const ExcelFormulaBeautifier = {
       }
     }
     // Remove newline and tab 去掉换行符、tab
-    tempStr = tempStr.replace(this.newLineReg, "");
-    tempStr = tempStr.replace(this.tabReg, "");
+    tempStr = tempStr.replace(this.newLineReg, '');
+    tempStr = tempStr.replace(this.tabReg, '');
     // Remove all spaces 去掉空格
-    tempStr = tempStr.replace(this.spaceReg, "");
+    tempStr = tempStr.replace(this.spaceReg, '');
     // Replace comma with space 去掉带空格的逗号
-    tempStr = tempStr.replace(this.leftBKReg, "( ");
-    tempStr = tempStr.replace(this.rightBKReg, ") ");
-    tempStr = tempStr.replace(this.refCommaReg, "__refCommaReg__");
-    tempStr = tempStr.replace(this.commaReg, ", ");
+    tempStr = tempStr.replace(this.leftBKReg, '( ');
+    tempStr = tempStr.replace(this.rightBKReg, ') ');
+    tempStr = tempStr.replace(this.refCommaReg, '__refCommaReg__');
+    tempStr = tempStr.replace(this.commaReg, ', ');
 
-    if (tempStr.split("(").length !== tempStr.split(")").length) {
+    if (tempStr.split('(').length !== tempStr.split(')').length) {
       this.errors.push(102);
       return;
     }
 
-    words = tempStr.split(" ");
+    words = tempStr.split(' ');
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
       let hit; // check if a function ,检查是否Excel函数
       // check if a function ,检查是否Excel函数
       let funcIndex;
-      if (word.endsWith("(")) {
+      if (word.endsWith('(')) {
         if (lv < 0) {
           lv = 0;
         }
         hit = false;
         for (funcIndex = 0; funcIndex < ExFunction.length; funcIndex++) {
-          if (word.endsWith(ExFunction[funcIndex].Fname + "(")) {
+          if (word.endsWith(ExFunction[funcIndex].Fname + '(')) {
             hit = true;
             break;
           }
@@ -159,7 +159,7 @@ const ExcelFormulaBeautifier = {
             this.results[this.results.length - 1].newLine = lv < this.deep;
             leftBKs[leftBKs.length - 1] = 1;
           }
-          if (ExFunction[funcIndex].NewLine === "Yes") {
+          if (ExFunction[funcIndex].NewLine === 'Yes') {
             this.results.push({
               level: lv,
               word: word,
@@ -204,7 +204,7 @@ const ExcelFormulaBeautifier = {
             });
           }
         }
-      } else if (word.endsWith(")")) {
+      } else if (word.endsWith(')')) {
         if (leftBKs[leftBKs.length - 1] === 1) {
           this.results.push({
             level: lv,
@@ -218,7 +218,7 @@ const ExcelFormulaBeautifier = {
           }
           this.results.push({
             level: lv,
-            word: ")",
+            word: ')',
             newLine: false,
             nextLevel: lv,
           });
@@ -227,9 +227,9 @@ const ExcelFormulaBeautifier = {
           this.results[this.results.length - 1].newLine = false;
         }
         leftBKs.pop();
-      } else if (word.endsWith(",")) {
+      } else if (word.endsWith(',')) {
         if (leftBKs[leftBKs.length - 1] === 0) {
-          this.errors.push("103:" + word);
+          this.errors.push('103:' + word);
           break;
         }
         if (this.results.length > 0) {
@@ -257,14 +257,14 @@ const ExcelFormulaBeautifier = {
     }
     for (let i = 0; i < this.results.length; i++) {
       const result = this.results[i];
-      if (result.word === "") {
+      if (result.word === '') {
         this.results.splice(i, 1);
       }
     }
   },
   getResultString: function () {
     // show Result as string ，将结果以字符串展示
-    let output = "";
+    let output = '';
     for (let i = 0; i < this.results.length; i++) {
       const result = this.results[i];
       output = output + this.space.repeat(result.level);
@@ -276,13 +276,13 @@ const ExcelFormulaBeautifier = {
     for (let i = 0; i < this.pureStrings.length; i++) {
       output = output.replace(this.stringVarName + i, this.pureStrings[i]);
     }
-    output = output.replace("__refCommaReg__", "],[");
+    output = output.replace('__refCommaReg__', '],[');
     return output;
   },
   getResultArray: function () {
     // show Result as string ，将结果以数组展示
     const output = [];
-    let row = "";
+    let row = '';
     for (let i = 0; i < this.results.length; i++) {
       const result = this.results[i];
       row = row + this.space.repeat(result.level < 0 ? 0 : result.level);
@@ -290,10 +290,10 @@ const ExcelFormulaBeautifier = {
       for (let j = 0; j < this.pureStrings.length; j++) {
         row = row.replace(this.stringVarName + j, this.pureStrings[j]);
       }
-      row = row.replace("__refCommaReg__", "],[");
+      row = row.replace('__refCommaReg__', '],[');
       if (result.newLine) {
         output.push(row);
-        row = "";
+        row = '';
       }
       if (i === this.results.length - 1 && !result.newLine) {
         output.push(row);
@@ -304,34 +304,34 @@ const ExcelFormulaBeautifier = {
   explain: function () {
     // 解释结果
     const AgrsArr = [];
-    let UpLvArg = "";
+    let UpLvArg = '';
     let ArgLast;
     let hit;
     this.descriptions = [];
     for (let i = 0; i < this.results.length; i++) {
-      UpLvArg = "";
+      UpLvArg = '';
       if (AgrsArr.length > 0) {
         ArgLast = AgrsArr.length - 1;
         UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length - 1];
       }
       hit = false;
-      if (this.results[i].word.endsWith("(")) {
+      if (this.results[i].word.endsWith('(')) {
         for (let funcIndex = 0; funcIndex < ExFunction.length; funcIndex++) {
           if (
-            this.results[i].word.endsWith(ExFunction[funcIndex].Fname + "(")
+            this.results[i].word.endsWith(ExFunction[funcIndex].Fname + '(')
           ) {
             AgrsArr.push(new Array());
             for (let iii = ExFunction[funcIndex].Args.length; iii > 0; iii--) {
               AgrsArr[AgrsArr.length - 1].push(
                 ExFunction[funcIndex].Fname +
-                  ":" +
+                  ':' +
                   ExFunction[funcIndex].Args[iii - 1],
               );
             }
             this.descriptions.push({
               level: 0,
               wordLength: 0,
-              upLvArg: "",
+              upLvArg: '',
               newLine: this.results[i].newLine,
               nextLevel: this.results[i].nextLevel,
             });
@@ -343,20 +343,20 @@ const ExcelFormulaBeautifier = {
           this.descriptions.push({
             level: 0,
             wordLength: 0,
-            upLvArg: "",
+            upLvArg: '',
             newLine: this.results[i].newLine,
             nextLevel: this.results[i].nextLevel,
           });
         }
-      } else if (this.results[i].word.startsWith(")")) {
+      } else if (this.results[i].word.startsWith(')')) {
         this.descriptions.push({
           level: 0,
           wordLength: 0,
-          upLvArg: "",
+          upLvArg: '',
           newLine: this.results[i].newLine,
           nextLevel: this.results[i].nextLevel,
         });
-        if (this.results[i].word.endsWith(",")) {
+        if (this.results[i].word.endsWith(',')) {
           if (AgrsArr.length > 0) {
             ArgLast = AgrsArr.length - 1;
             UpLvArg = AgrsArr[ArgLast][AgrsArr[ArgLast].length - 1];
@@ -369,7 +369,7 @@ const ExcelFormulaBeautifier = {
                 this.descriptions[this.descriptions.length - 1].nextLevel,
             };
             if (AgrsArr[ArgLast].length > 0) {
-              if (!UpLvArg.endsWith("]")) {
+              if (!UpLvArg.endsWith(']')) {
                 AgrsArr[ArgLast].pop();
                 if (AgrsArr[ArgLast].length === 0) {
                   AgrsArr.pop();
@@ -380,7 +380,7 @@ const ExcelFormulaBeautifier = {
             }
           }
         }
-      } else if (this.results[i].word.endsWith(",")) {
+      } else if (this.results[i].word.endsWith(',')) {
         this.descriptions.push({
           level: this.results[i].level,
           wordLength: this.results[i].word.length,
@@ -388,9 +388,9 @@ const ExcelFormulaBeautifier = {
           newLine: this.results[i].newLine,
           nextLevel: this.results[i].nextLevel,
         });
-        if (UpLvArg !== "") {
+        if (UpLvArg !== '') {
           if (AgrsArr[ArgLast].length > 0) {
-            if (!UpLvArg.endsWith("]")) {
+            if (!UpLvArg.endsWith(']')) {
               AgrsArr[ArgLast].pop();
               if (AgrsArr[ArgLast].length === 0) {
                 AgrsArr.pop();
@@ -416,15 +416,15 @@ const ExcelFormulaBeautifier = {
   },
   getExplainsString: function () {
     // show Result Descriptions as string ,将解释以字符串展示
-    let output = "";
+    let output = '';
     for (let i = 0; i < this.descriptions.length; i++) {
       const description = this.descriptions[i];
-      if (description.upLvArg !== "") {
+      if (description.upLvArg !== '') {
         output =
           output +
           this.tabString.repeat(description.level) +
           this.descriptionSpace.repeat(description.wordLength + 2) +
-          "--";
+          '--';
         output = output + description.upLvArg;
       }
       if (description.newLine) {
@@ -436,16 +436,16 @@ const ExcelFormulaBeautifier = {
   getExplainsArr: function () {
     // show Result Descriptions as array ,将解释以数组展示
     const output = [];
-    let row = "";
+    let row = '';
     for (let i = 0; i < this.descriptions.length; i++) {
       const description = this.descriptions[i];
-      if (description.upLvArg !== "") {
-        row = "--";
+      if (description.upLvArg !== '') {
+        row = '--';
         row = row + description.upLvArg;
       }
       if (description.newLine) {
         output.push(row);
-        row = "";
+        row = '';
       }
       if (i === this.descriptions.length - 1 && !description.newLine) {
         output.push(row);
@@ -456,14 +456,14 @@ const ExcelFormulaBeautifier = {
   getErrorArr: function () {
     // 将错误信息以数组输出
     const output = [];
-    let row = "";
+    let row = '';
     for (let i = 0; i < this.errors.length; i++) {
       const error = this.errors[i];
-      if (typeof error === "number") {
-        row = error + ":" + this.errorStr[error];
+      if (typeof error === 'number') {
+        row = error + ':' + this.errorStr[error];
       } else {
         const code = error.substring(0, 3);
-        row = code + ":" + this.errorStr[code] + error.substring(3);
+        row = code + ':' + this.errorStr[code] + error.substring(3);
       }
       output.push(row);
     }

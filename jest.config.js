@@ -8,11 +8,9 @@ export default {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   collectCoverageFrom: [
-    'src/**/*.js',
+    'src/ExcelFormulaBeautifier.js',
     '!src/index.js',
     '!src/__tests__/**/*.js',
-    '!src/ExFunctions.js',
-    '!src/ExFunctions-zh-CN.js',
   ],
   coverageThreshold: {
     global: {

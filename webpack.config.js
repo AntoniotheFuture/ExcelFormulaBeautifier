@@ -1,11 +1,20 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 
 const isProduction = process.env.NODE_ENV === 'production';
+
+const plugins = [];
+
+if (!isProduction) {
+  plugins.push(new HtmlWebpackPlugin({
+    template: './src/index.html',
+    filename: 'index.html',
+  }));
+}
 
 const config = {
   entry: './src/index.js',
@@ -43,24 +52,7 @@ const config = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      minify: isProduction && {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-  ],
+  plugins,
   devServer: {
     static: {
       directory: path.join('dist'),

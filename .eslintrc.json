@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "globals": {
+    "ExFunction": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "warn",
+    "no-debugger": "error",
+    "eqeqeq": ["error", "always"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
+    "no-trailing-spaces": "error",
+    "eol-last": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "no-undef": "error",
+    "no-extra-semi": "error",
+    "no-var": "error",
+    "prefer-const": "error"
+  },
+  "ignorePatterns": ["dist/**", "node_modules/**"]
+}

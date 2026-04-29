@@ -1,7 +1,4 @@
 import globals from 'globals';
-import pluginJs from '@eslint/js';
-import prettierPlugin from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
 
 export default [
   {
@@ -12,27 +9,24 @@ export default [
         ...globals.jest,
         ExFunction: 'readonly',
       },
-      ecmaVersion: 'latest',
+      ecmaVersion: 2020,
       sourceType: 'module',
     },
     rules: {
-      ...pluginJs.configs.recommended.rules,
-      ...prettierConfig.rules,
-      'prettier/prettier': ['error', { singleQuote: true }],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-console': 'warn',
       'no-debugger': 'error',
       eqeqeq: ['error', 'always'],
-      curly: ['error', 'all'],
       indent: ['error', 2, { SwitchCase: 1 }],
-      quotes: ['error', 'single'],
+      quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'always'],
       'no-trailing-spaces': 'error',
       'eol-last': 'error',
       'comma-dangle': ['error', 'always-multiline'],
-    },
-    plugins: {
-      prettier: prettierPlugin,
+      'no-undef': 'error',
+      'no-extra-semi': 'error',
+      'no-var': 'error',
+      'prefer-const': 'error',
     },
   },
   {
